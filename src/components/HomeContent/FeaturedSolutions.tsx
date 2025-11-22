@@ -66,7 +66,7 @@ const FeaturedSolutions: React.FC = () => {
         <div className="text-center mb-10">
           <h2
             id="featured-solutions-heading"
-            className="font-sans text-4xl font-bold tracking-tight text-slate-900 "
+            className="font-sans text-4xl font-bold tracking-tight bg-gradient-to-r from-slate-900 via-blue-700 to-cyan-600 bg-clip-text text-transparent"
           >
             Featured Solutions
           </h2>
@@ -75,25 +75,53 @@ const FeaturedSolutions: React.FC = () => {
 
         <ul
           role="list"
-          className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {SOLUTIONS.map((item) => (
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="group block overflow-hidden rounded-xl shadow-sm ring-1 ring-slate-200 transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-105 hover:ring-2 hover:ring-blue-400 hover:shadow-xl"
+                className="group block overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200/50 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:ring-blue-400/60 relative"
               >
-                <div className="relative h-96 w-full overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                  />
-                  <div className="absolute bottom-0 left-0 w-full ">
-                    <h3 className="h-20 m-0 px-4 py-3 text-sm sm:text-base md:text-lg font-semibold text-[#396cbb] bg-white/90 transition-all duration-300 group-hover:bg-[#396cbb] group-hover:text-white">
-                      {item.title}
-                    </h3>
+                <div className="relative h-96 w-full overflow-hidden rounded-2xl">
+                  {/* Shine effect overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10 pointer-events-none" />
+                  
+                  {/* Main image with scale effect */}
+                  <div className="relative h-full w-full transform transition-transform duration-700 group-hover:scale-110">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  
+                  {/* Subtle border glow on hover */}
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/0 group-hover:ring-blue-300/40 transition-all duration-500" />
+                  
+                  {/* Content container */}
+                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 space-y-2">
+                    {/* Category tag */}
+                    <div className="inline-block px-2.5 py-1 bg-white/90 text-xs font-semibold text-blue-700 rounded-full mb-1.5 shadow-sm">
+                      {item.href.includes('climate') ? 'Climate' : item.href.includes('solar') ? 'Energy' : 'Innovation'}
+                    </div>
+                    
+                    {/* Title with hover effect */}
+                    <div className="flex items-center">
+                      <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-tight max-w-[90%] drop-shadow-lg">
+                        {item.title}
+                      </h3>
+                      <span className="ml-2 text-white/80 opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                        →
+                      </span>
+                    </div>
+                    
+                    {/* Subtle hover indicator */}
+                    <div className="h-0.5 w-8 bg-blue-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
               </Link>

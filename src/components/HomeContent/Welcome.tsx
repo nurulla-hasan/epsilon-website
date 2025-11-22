@@ -97,11 +97,11 @@ const Welcome = () => {
             analysis.
           </p>
           <div className="mt-6 flex items-center justify-center gap-3">
-            <Link href="/services" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#1f5eff] to-[#00d4ff] px-5 py-2.5 text-sm md:text-base font-semibold text-white shadow-[0_10px_30px_rgba(31,94,255,0.35)]">
-              Explore Services
+            <Link href="/expertise" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#1f5eff] to-[#00d4ff] px-5 py-2.5 text-sm md:text-base font-semibold text-white shadow-[0_10px_30px_rgba(31,94,255,0.35)] hover:shadow-[0_10px_30px_rgba(31,94,255,0.5)] transition-all duration-300">
+              Our Expertise
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center rounded-full border border-white/70 text-white/90 px-5 py-2.5 text-sm md:text-base">
-              Contact Us
+            <Link href="/contact-us" className="inline-flex items-center justify-center rounded-full border border-white/70 text-white/90 px-5 py-2.5 text-sm md:text-base hover:bg-white/10 transition-colors duration-300">
+              Get in Touch
             </Link>
           </div>
         </div>
