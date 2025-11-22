@@ -8,7 +8,9 @@ const MainLayout = ({ children }: LayoutProps) => {
   return (
     <div className="bg-white">
       <Navbar />
-      {children}
+      <div className="min-h-[calc(100vh-120px)]">
+        {children}
+      </div>
       <Footer />
     </div>
   );
