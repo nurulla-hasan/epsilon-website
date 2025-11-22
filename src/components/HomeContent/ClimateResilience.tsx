@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Button, Space } from "antd";
 import { FaHeart, FaTeamspeak, FaUser } from "react-icons/fa";
+import { FiCheckCircle, FiArrowRight } from "react-icons/fi";
 import img from "../../assetes/images/3.jpg";
 import Link from "next/link";
 
@@ -66,6 +67,8 @@ const ClimateResilience: React.FC = () => {
           className="object-cover object-center select-none pointer-events-none"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-blue-950/60" />
+        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute bottom-0 -right-16 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
       </div>
 
       <div className="relative z-10 grid min-h-[40vh] place-items-center px-6 py-20 text-center text-white">
@@ -82,21 +85,36 @@ const ClimateResilience: React.FC = () => {
             },
           }}
         >
-          <h2 className="text-4xl font-sans font-semibold leading-tight mb-6 bg-clip-text  text-white">
+          <h2 className="text-4xl font-sans font-semibold leading-tight mb-4 text-white">
             Climate Resilience Data Analytics Tools
           </h2>
+          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-cyan-300 mb-6" />
 
-          <p className="mx-auto mt-4 max-w-[1500px] container text-lg md:text-xl text-white/90 leading-relaxed">
-            We are helping our clients develop localized and sector-specific
-            climate risk profiles and climate resilience data analytics tools
-            for robust decision-making vulnerability and adaptation actions.
+          <p className="mx-auto mt-2 max-w-5xl text-lg md:text-xl text-white/90 leading-relaxed">
+            We are helping our clients develop localized and sector-specific climate risk profiles and
+            climate resilience data analytics tools for robust decision-making vulnerability and adaptation actions.
           </p>
+
+          <div className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3 text-left">
+            <div className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2 backdrop-blur-sm">
+              <FiCheckCircle className="mt-0.5 text-cyan-300" />
+              <span className="text-sm text-white/90">Spatial & predictive analytics</span>
+            </div>
+            <div className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2 backdrop-blur-sm">
+              <FiCheckCircle className="mt-0.5 text-cyan-300" />
+              <span className="text-sm text-white/90">Interactive dashboards</span>
+            </div>
+            <div className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2 backdrop-blur-sm">
+              <FiCheckCircle className="mt-0.5 text-cyan-300" />
+              <span className="text-sm text-white/90">Insightful visualizations</span>
+            </div>
+          </div>
 
           <motion.a
             href="/dataAnalysis/climate-risk-profile"
-            className="mt-10 inline-flex items-center justify-center rounded border px-10 py-3 bg-white text-[#396cbb] hover:bg-transparent hover:text-white  transition-all duration-300 hover:scale-[1.03]"
+            className="group mt-10 inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white text-[#396cbb] px-8 py-3 font-semibold shadow-sm transition-all duration-300 hover:bg-white/90 hover:shadow-lg"
             variants={{
-              hidden: { opacity: 0, scale: 0.9 },
+              hidden: { opacity: 0, scale: 0.95 },
               visible: {
                 opacity: 1,
                 scale: 1,
@@ -105,6 +123,7 @@ const ClimateResilience: React.FC = () => {
             }}
           >
             Explore Our Solution
+            <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </motion.a>
         </motion.div>
       </div>
