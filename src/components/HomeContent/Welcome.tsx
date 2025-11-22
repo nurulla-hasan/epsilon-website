@@ -16,11 +16,19 @@ const Welcome = () => {
           Epsilon Innovation Group is a consulting and R&D firm specializing in energy, climate resilience, nature-based solutions, blue economy, and AI-powered analytics for policy and risk assessment. We solve complex technical and policy challenges with evidence-driven insights.
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs md:text-sm">
-          <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700">AI Analytics</span>
-          <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700">Energy & Climate</span>
-          <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700">Blue Economy</span>
-          <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700">Policy & Risk</span>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <span className="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-blue-100 hover:border-blue-200">
+            AI Analytics
+          </span>
+          <span className="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-emerald-100 hover:border-emerald-200">
+            Energy & Climate
+          </span>
+          <span className="px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-cyan-100 hover:border-cyan-200">
+            Blue Economy
+          </span>
+          <span className="px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-purple-100 hover:border-purple-200">
+            Policy & Risk
+          </span>
         </div>
       </div>
 
