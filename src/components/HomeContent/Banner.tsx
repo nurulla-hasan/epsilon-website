@@ -206,7 +206,7 @@ export default function Banner() {
   return (
     <section
       aria-label="Hero banner"
-      className="relative overflow-hidden bg-black"
+      className="relative overflow-hidden bg-black mt-[137px]"
       style={
         {
           ["--swiper-navigation-color" as any]: "#fff",
