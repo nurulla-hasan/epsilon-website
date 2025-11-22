@@ -219,7 +219,7 @@ export default function Navbar() {
 
                       {hasChildren && (
                         <div className=" absolute left-1/2 -translate-x-1/2 top-full w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
-                          <div className="bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden">
+                          <div className="bg-white border-gray-100 rounded-xl overflow-hidden">
                             {item.children?.map((child) => (
                               <Link
                                 key={child.href}
