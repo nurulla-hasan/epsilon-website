@@ -17,7 +17,7 @@ const MainLayout = ({ children }: LayoutProps) => {
         >
           {children}
         </main>
-        <div className="w-full mx-auto mt-12">
+        <div className="w-full mx-auto">
           <Footer />
         </div>
       </div>
