@@ -20,9 +20,6 @@ const GovernmentContract = () => {
     "541712 - R & D in Physical Sciences",
     "541720 - R & D Research in Social Sciences",
   ];
-
-
-
   return (
     <div className="mt-5">
       <PageTitle
@@ -40,7 +37,7 @@ const GovernmentContract = () => {
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
         <div className="w-full flex justify-between items-start gap-5">
           <div className="w-[70%]">
             <h1 className="text-4xl font-bold mb-10">

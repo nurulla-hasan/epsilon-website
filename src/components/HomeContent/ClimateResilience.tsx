@@ -86,7 +86,7 @@ const ClimateResilience: React.FC = () => {
             Climate Resilience Data Analytics Tools
           </h2>
 
-          <p className="mx-auto mt-4 max-w-7xl text-lg md:text-xl text-white/90 leading-relaxed">
+          <p className="mx-auto mt-4 max-w-[1500px] container text-lg md:text-xl text-white/90 leading-relaxed">
             We are helping our clients develop localized and sector-specific
             climate risk profiles and climate resilience data analytics tools
             for robust decision-making vulnerability and adaptation actions.

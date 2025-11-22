@@ -62,7 +62,7 @@ const SOLUTIONS: Solution[] = [
 const FeaturedSolutions: React.FC = () => {
   return (
     <section aria-labelledby="featured-solutions-heading" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
         <div className="text-center mb-10">
           <h2
             id="featured-solutions-heading"

@@ -48,7 +48,7 @@ const Swro = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
         <SectionHeading heading="RENEWABLE ENERGY POWERED SYSTEM DESIGNS"></SectionHeading>
 
         <div className="w-full flex justify-start items-start gap-10">

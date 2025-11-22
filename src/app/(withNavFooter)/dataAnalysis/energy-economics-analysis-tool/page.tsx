@@ -133,7 +133,7 @@ const EnergyEconomicAnalysis = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
         <SectionHeading heading="Energy Economic Analysis Services and Tools" />
 
         <div className="flex flex-col gap-20 mb-16">

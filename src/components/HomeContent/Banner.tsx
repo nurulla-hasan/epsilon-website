@@ -200,7 +200,8 @@ const listItemVariant: Variants = {
 
 export default function Banner() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const heroHeight = "clamp(480px, calc(100svh - var(--nav-height, 80px)), 800px)";
+  // Slightly reduced height for larger screens while maintaining minimum height
+  const heroHeight = "clamp(480px, calc(90svh - var(--nav-height, 80px)), 700px)";
 
   return (
     <section
@@ -237,13 +238,13 @@ export default function Banner() {
         {slides.map((s, idx) => (
           <SwiperSlide key={idx}>
             <div
-              className="relative w-full overflow-hidden min-h-[480px]"
-              style={{ minHeight: heroHeight }}
+              className="relative w-full h-full min-h-[480px]"
+              style={{ minHeight: heroHeight, maxHeight: '90vh' }}
             >
               <img
                 src={s.image.src}
                 alt={s.alt}
-                className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.9]"
+                className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.9] md:object-[center_40%]"
                 loading={idx === 0 ? 'eager' : 'lazy'}
               />
 
@@ -251,7 +252,7 @@ export default function Banner() {
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
 
               <div className="absolute inset-0 flex items-center justify-start px-5 sm:px-8 md:px-12 lg:px-20">
-                <div className="relative w-full max-w-6xl mx-auto px-1 sm:px-0">
+                <div className="relative w-full max-w-[1500px] mx-auto px-1 sm:px-0">
                   {activeIndex === idx && (
                     <motion.div
                       className="text-white"
@@ -326,26 +327,36 @@ export default function Banner() {
                       </motion.div>
                     </motion.div>
                   )}
-                  <div className="absolute bottom-0 right-0 flex flex-col items-end gap-3 translate-y-14 sm:translate-y-6 pointer-events-none text-white/80 pr-2 sm:pr-0">
-                    <div className="px-3 py-2 sm:px-4 sm:py-3 border rounded-xl sm:rounded-2xl border-white/15 bg-white/10 backdrop-blur">
-                      <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] sm:tracking-[0.5em] text-white/60">
-                        {idx + 1}/{slides.length}
-                      </p>
-                      <p className="text-xl sm:text-2xl font-semibold text-white">
-                        {String(idx + 1).padStart(2, "0")}
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        {/* Mobile - Hide navigation arrows */}
+        {/* Subtle Navigation Buttons - Hidden on mobile */}
         <div className="hidden sm:block">
-          <div className="swiper-button-prev !left-4 !text-white/80 hover:!text-white after:!text-2xl"></div>
-          <div className="swiper-button-next !right-4 !text-white/80 hover:!text-white after:!text-2xl"></div>
+          <div className="swiper-button-prev !left-2 !w-8 !h-8 !rounded-full !bg-black/20 hover:!bg-black/30 !text-white/80 hover:!text-white after:!text-lg after:!font-medium transition-all duration-200"></div>
+          <div className="swiper-button-next !right-2 !w-8 !h-8 !rounded-full !bg-black/20 hover:!bg-black/30 !text-white/80 hover:!text-white after:!text-lg after:!font-medium transition-all duration-200"></div>
         </div>
+        
+        <style jsx global>{`
+          .swiper-button-prev,
+          .swiper-button-next {
+            width: 2rem;
+            height: 2rem;
+            margin-top: -1rem;
+            backdrop-filter: blur(4px);
+          }
+          .swiper-button-prev:after,
+          .swiper-button-next:after {
+            font-size: 1rem;
+          }
+          .swiper-button-prev {
+            left: 0.5rem;
+          }
+          .swiper-button-next {
+            right: 0.5rem;
+          }
+        `}</style>
       </Swiper>
     </section>
   );

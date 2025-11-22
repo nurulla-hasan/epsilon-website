@@ -40,7 +40,7 @@ const RiskAnalysis = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4  ">
+      <div className="mx-auto max-w-[1500px] container px-4  ">
         <div className="">
           <SectionHeading heading="RISK ANALYSIS SERVICES" />
 

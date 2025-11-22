@@ -11,7 +11,7 @@ import {
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[#396cbb] text-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-[1500px] container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
           <h2 className="text-2xl font-bold tracking-wide mb-3">
             EPSILON INNOVATION GROUP

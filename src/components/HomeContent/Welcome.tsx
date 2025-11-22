@@ -6,7 +6,7 @@ import Link from "next/link";
 const Welcome = () => {
   return (
     <section className="relative w-full bg-gray-50">
-      <div className="font-sans mx-auto max-w-7xl py-20 px-6 text-center md:text-left font-customFont text-primary">
+      <div className="font-sans mx-auto max-w-[1500px] container py-20 px-6 text-center md:text-left font-customFont text-primary">
         <h2 className=" text-[2.6em] leading-[54px] text-[#121214] font-semibold tracking-[-1px] mb-8 text-center">
           Welcome to Epsilon Innovation Group
         </h2>
@@ -20,7 +20,7 @@ const Welcome = () => {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 pb-20">
+      <div className="max-w-[1500px] container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 pb-20">
         {[
           {
             title: "AI-Powered Solutions",

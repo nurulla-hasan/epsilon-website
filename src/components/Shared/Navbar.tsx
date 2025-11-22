@@ -164,7 +164,7 @@ export default function Navbar() {
       </motion.div>
 
       <motion.nav
-        className="max-w-[1500px] mx-auto flex items-center justify-between gap-6 px-6 md:px-8"
+        className="max-w-[1500px] mx-auto flex items-center justify-between gap-6 px-5"
         animate={{
           paddingTop: shrink ? 6 : 12,
           paddingBottom: shrink ? 6 : 12,
@@ -187,7 +187,8 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
-        <div className="items-center hidden md:flex gap-3 rounded-full border border-white/60 bg-white/70 px-2 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur antialiased">
+        {/* Desktop Navigation - Only show on XL screens and above */}
+        <div className="items-center hidden xl:flex gap-3 rounded-full border border-white/60 bg-white/70 px-2 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur antialiased">
           {NAV_ITEMS.map((item) => {
             const hasChildren = !!item.children?.length;
             return (
@@ -222,7 +223,7 @@ export default function Navbar() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
+                              className="block px-4 py-3 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
                             >
                               {child.label}
                             </Link>
@@ -238,14 +239,16 @@ export default function Navbar() {
           <LinkedinBtn />
         </div>
 
+        {/* Mobile Menu Button - Show on all screens except XL */}
         <button
           onClick={() => setMobileOpen(true)}
-          className="p-2 transition-all duration-300 border shadow-md border-white/50 bg-white/80 rounded-xl md:hidden text-primary hover:bg-gray-100 hover:scale-105"
+          className="p-2 transition-all duration-300 border shadow-md border-white/50 bg-white/80 rounded-xl xl:hidden text-primary hover:bg-gray-100 hover:scale-105"
           aria-label="Open menu"
         >
           <RxHamburgerMenu className="text-lg" />
         </button>
       </motion.nav>
+      
       {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {mobileOpen && (
