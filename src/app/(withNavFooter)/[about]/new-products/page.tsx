@@ -27,8 +27,11 @@ const NewProduct = () => {
   return (
     <div className="mt-5">
       <PageTitle
-        pageHeading="Projects"
-        breadcrumbs={[{ label: "Home", href: "/" }]}
+        pageHeading="Our New Products"
+        breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "New products"},
+          ]}
       />
 
       <div>

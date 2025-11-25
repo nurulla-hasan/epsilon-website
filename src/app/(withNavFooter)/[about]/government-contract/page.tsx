@@ -4,12 +4,8 @@ import sectionImg from "../../../../assetes/images/about.jpg";
 import worker from "../../../../assetes/images/about-side.jpg";
 import Image from "next/image";
 import TextHeading from "@/components/Shared/TextHeading";
-import SectionHeading from "@/components/Shared/SectionHeading";
-import Link from "next/link";
 
 const GovernmentContract = () => {
- 
-
   const designation = [
     "541330 - Engineering Services",
     "541360 - Geophysical Surveying and Mapping",
@@ -23,8 +19,11 @@ const GovernmentContract = () => {
   return (
     <div className="mt-5">
       <PageTitle
-        pageHeading="About"
-        breadcrumbs={[{ label: "Home", href: "/" }]}
+        pageHeading="About Epsilon Innovation Group Inc."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Government Contract" },
+        ]}
       />
 
       <div>
@@ -82,7 +81,6 @@ const GovernmentContract = () => {
                 </li>
               ))}
             </ul>
-          
           </div>
 
           <div className="w-[30%]">

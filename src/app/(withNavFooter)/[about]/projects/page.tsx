@@ -30,15 +30,14 @@ const Projects = () => {
     "Mesoscale Wind Resources Assessment Study",
   ];
 
-
-
-
-
   return (
     <div className="mt-5">
       <PageTitle
-        pageHeading="Projects"
-        breadcrumbs={[{ label: "Home", href: "/" }]}
+        pageHeading="Our Projects"
+        breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Projects"},
+          ]}
       />
 
       <div>

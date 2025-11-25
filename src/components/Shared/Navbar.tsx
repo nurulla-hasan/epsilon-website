@@ -99,17 +99,11 @@ export default function Navbar() {
       : false;
 
   return (
-    <div className="md:h-[120px]">
+    <div className="md:h-[120px] h-[66px]">
       <motion.header
         ref={headerRef}
-        className="fixed py-2 sm:py-0 inset-x-0 top-0 z-50 w-full border-b border-white/30 bg-white/80 shadow-[0_12px_30px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
+        className="fixed py-3 md:py-1 inset-x-0 top-0 z-50 w-full border-b border-white/30 bg-white/50 backdrop-blur-2xl shadow-sm"
         style={{ fontFamily: "var(--font-sans)" }}
-        animate={{
-          boxShadow: shrink
-            ? "0 4px 20px rgba(0,0,0,0.1)"
-            : "0 2px 10px rgba(0,0,0,0.05)",
-          transition: { duration: 0.3 },
-        }}
       >
         <motion.div
           initial={false}
@@ -121,7 +115,7 @@ export default function Navbar() {
           transition={{ duration: 0.4 }}
           className="hidden md:flex justify-end content-width mx-auto px-8 text-[12px] font-semibold text-primary tracking-wide overflow-hidden"
         >
-          <div className="flex items-center gap-3 rounded-full border border-white/60 bg-gradient-to-r from-blue-50/60 via-white to-indigo-50/60 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600 shadow-inner">
+          <div className="flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-100 via-white to-indigo-100 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600">
             <span className="hidden lg:block">
               Strategy | Innovation | Impact
             </span>
@@ -169,7 +163,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation - Only show on XL screens and above */}
-          <div className="items-center hidden xl:flex gap-3 rounded-full border border-white/60 bg-white/70 px-2 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur antialiased">
+          <div className="items-center hidden xl:flex gap-3 rounded-full border border-white/60 bg-white/70 px-2 py-1 backdrop-blur antialiased shadow-sm">
             {NAV_ITEMS.map((item) => {
               const hasChildren = !!item.children?.length;
               return (
@@ -179,7 +173,7 @@ export default function Navbar() {
                       href={item.href}
                       className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded-full transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
                         isActive(item.href)
-                          ? "bg-gradient-to-r from-primary to-blue-300 text-white shadow-lg"
+                          ? "bg-gradient-to-r from-primary to-blue-300 text-white"
                           : "text-slate-700 hover:bg-gradient-to-r hover:from-primary hover:to-blue-300 hover:text-white"
                       }`}
                     >
@@ -223,7 +217,7 @@ export default function Navbar() {
           {/* Mobile Menu Button - Show on all screens except XL */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="p-2 transition-all duration-300 border shadow-md border-white/50 bg-white/80 rounded-xl xl:hidden text-primary hover:bg-gray-100 hover:scale-105"
+            className="p-2 transition-all duration-300 border border-white/50 bg-white/80 rounded-xl xl:hidden text-primary hover:bg-gray-100 hover:scale-105"
             aria-label="Open menu"
           >
             <RxHamburgerMenu className="text-lg" />
@@ -253,7 +247,7 @@ export default function Navbar() {
                   duration: 0.3,
                   ease: [0.4, 0, 0.2, 1],
                 }}
-                className="fixed top-0 left-0 z-50 h-screen w-4/5 max-w-sm bg-white shadow-2xl overflow-y-auto flex flex-col"
+                className="fixed top-0 left-0 z-50 h-screen w-4/5 max-w-sm bg-white overflow-y-auto flex flex-col"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-100">

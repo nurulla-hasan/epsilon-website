@@ -79,30 +79,66 @@ const Welcome = () => {
           </div>
         ))}
       </div>
-      <div className="relative h-[42vh] md:h-[46vh] w-full flex items-center justify-center overflow-hidden">
-        <Image
-          src={tech}
-          alt="Tech background"
-          fill
-          className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70"></div>
-        <div className="absolute text-center px-6 md:px-0 max-w-5xl">
-          <h1 className="font-sans text-3xl md:text-4xl lg:text-[40px] font-extrabold text-white drop-shadow-lg">
+      <div className="relative mt-16 overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-900 px-6 py-16 text-center text-white shadow-[0_30px_80px_rgba(15,23,42,0.55)]">
+        <div className="pointer-events-none absolute inset-0 opacity-60">
+          <div className="absolute -left-12 top-0 h-80 w-80 rounded-full bg-primary/50 blur-3xl" />
+          <div className="absolute right-0 top-10 h-64 w-64 rounded-full bg-cyan-400/30 blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.3),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(14,165,233,0.25),_transparent_45%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0)_35%),linear-gradient(-120deg,rgba(255,255,255,0.08)_10%,rgba(255,255,255,0)_45%)]" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.5em] text-white/70">Future-Ready Advisory</p>
+          <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px] font-semibold leading-tight">
             Building Resilient Communities Through Innovation
-          </h1>
-          <p className="mt-3 md:mt-4 text-base md:text-lg lg:text-xl text-gray-200 font-medium drop-shadow-md">
-            Let us help you achieve your goals with innovative solutions in
-            energy, climate change, blue economy, AI analytics, policy & risk
-            analysis.
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-base md:text-lg text-white/85">
+            We align strategy, technology, and policy to accelerate climate resilience, equitable energy systems, and
+            AI-driven insights for governments, communities, and private partners.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <Link href="/expertise" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#1f5eff] to-[#00d4ff] px-5 py-2.5 text-sm md:text-base font-semibold text-white shadow-[0_10px_30px_rgba(31,94,255,0.35)] hover:shadow-[0_10px_30px_rgba(31,94,255,0.5)] transition-all duration-300">
-              Our Expertise
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {[
+              "Energy & Climate",
+              "Blue Economy",
+              "AI Analytics",
+              "Policy & Risk",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/expertise/energy"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm md:text-base font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+            >
+              Explore Our Expertise
             </Link>
-            <Link href="/contact-us" className="inline-flex items-center justify-center rounded-full border border-white/70 text-white/90 px-5 py-2.5 text-sm md:text-base hover:bg-white/10 transition-colors duration-300">
+            <Link
+              href="/contact-us"
+              className="inline-flex items-center justify-center rounded-full border border-white/50 px-6 py-3 text-sm md:text-base font-semibold text-white transition hover:bg-white/10"
+            >
               Get in Touch
             </Link>
+          </div>
+
+          <div className="mt-10 grid gap-6 text-left text-white/80 sm:grid-cols-3">
+            {[
+              { label: "Impact Studies", value: "120+" },
+              { label: "Countries Served", value: "18" },
+              { label: "Cross-Sector Programs", value: "35" },
+            ].map((stat) => (
+              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <p className="text-3xl font-semibold text-white">{stat.value}</p>
+                <p className="text-sm uppercase tracking-wide text-white/70">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

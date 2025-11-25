@@ -1,5 +1,3 @@
-import Image from "next/image";
-import React from "react";
 
 type Crumb = {
   label: string;
@@ -41,10 +39,10 @@ const PageTitle: React.FC<PageTitleProps> = ({
   const heightClass =
     typeof height === "string"
       ? height === "sm"
-        ? "min-h-28"
-        : height === "lg"
         ? "min-h-24"
-        : "min-h-24"
+        : height === "lg"
+        ? "min-h-28"
+        : "min-h-[110px]"
       : "";
 
   const rootStyle: React.CSSProperties = {};
@@ -59,12 +57,14 @@ const PageTitle: React.FC<PageTitleProps> = ({
   const overlayOpacity =
     background?.overlayOpacity ?? (background?.imageUrl ? 0.6 : 0);
 
+  const showDefaultBackground = !background?.imageUrl && !background?.color;
+
   return (
     <header
       className={[
-        "relative w-full overflow-hidden border-b-4 border-b-white",
+        "relative w-full",
         heightClass,
-        !background?.imageUrl && !background?.color ? "bg-black" : "",
+        showDefaultBackground ? "bg-slate-900" : "",
         className,
       ].join(" ")}
       style={rootStyle}
@@ -80,35 +80,41 @@ const PageTitle: React.FC<PageTitleProps> = ({
       <div
         className={[
           "relative h-full",
-          containerClassName ?? "content-width container mx-auto px-4 sm:px-6 lg:px-8",
+          containerClassName ?? "max-w-[1500px] container mx-auto px-4 sm:px-6 lg:px-8",
         ].join(" ")}
       >
         <div
           className={[
-            "h-full flex flex-col justify-center gap-1",
-            align === "center" ? "items-center text-center" : "items-start",
+            "relative h-full py-6",
+            align === "center" ? "flex flex-col items-center text-center" : "flex flex-col items-start",
+            "justify-center gap-3",
           ].join(" ")}
         >
           {breadcrumbs?.length ? (
-            <nav aria-label="Breadcrumb" className="mb-1">
-              <ol className="flex items-center gap-2 text-sm text-gray-300">
+            <nav aria-label="Breadcrumb" className="w-full max-w-3xl">
+              <ol
+                className={[
+                  "flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em]",
+                  align === "center" ? "justify-center text-white/80" : "text-slate-500",
+                ].join(" ")}
+              >
                 {breadcrumbs.map((crumb, idx) => {
                   const isLast = idx === breadcrumbs.length - 1;
                   return (
-                    <li key={`${crumb.label}-${idx}`} className="flex gap-2">
+                    <li key={`${crumb.label}-${idx}`} className="flex items-center gap-2">
                       {crumb.href && !isLast ? (
-                        <a href={crumb.href} className="hover:text-white">
+                        <a href={crumb.href} className="transition hover:text-primary text-inherit">
                           {crumb.label}
                         </a>
                       ) : (
                         <span
-                          className={isLast ? "text-white" : undefined}
+                          className={isLast ? "text-white" : "text-inherit"}
                           aria-current={isLast ? "page" : undefined}
                         >
                           {crumb.label}
                         </span>
                       )}
-                      {!isLast && <span className="text-gray-500">/</span>}
+                      {!isLast && <span className="opacity-60">/</span>}
                     </li>
                   );
                 })}
@@ -116,17 +122,18 @@ const PageTitle: React.FC<PageTitleProps> = ({
             </nav>
           ) : null}
 
-          <h1 className="text-3xl sm:text-2xl md:text-4xl tracking-wide text-white">
-            {pageHeading}
-          </h1>
-
-          {subHeading ? (
-            <p className="text-base text-gray-300">{subHeading}</p>
-          ) : null}
+          <div className="space-y-2 text-white">
+            <h1 className="text-2xl font-semibold">
+              {pageHeading}
+            </h1>
+            {subHeading ? (
+              <p className="max-w-2xl text-sm md:text-base text-white/80">
+                {subHeading}
+              </p>
+            ) : null}
+          </div>
         </div>
-     
       </div>
-      
     </header>
   );
 };

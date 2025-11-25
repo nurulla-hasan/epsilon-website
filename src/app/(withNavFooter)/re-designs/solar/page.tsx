@@ -33,7 +33,7 @@ const Solar = () => {
           pageHeading="Renewable Energy Powered System Designs"
           breadcrumbs={[
             { label: "Home", href: "/" },
-            { label: "Data Analytics Tools", href: "/expertise/blue-economy" },
+            { label: "Data Analytics Tools"},
           ]}
         />
 
