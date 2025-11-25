@@ -15,65 +15,65 @@ const services: ServiceCardProps[] = [
   {
     title: "AI Solution Development",
     description:
-      "End-to-end solutioning from discovery to deployment, blending domain expertise with trusted delivery playbooks.",
+      "We design, build, and implement AI-driven tools that accelerate digital transformation and solve specific business needs.",
     icon: RiRobot2Line,
   },
   {
     title: "AI Powered Predictive Analytics Tools",
     description:
-      "Scenario modeling, forecasting, and planning tools that anticipate change and support confident decision-making.",
+      "Automate and enhance data analysis with AI so you can forecast, plan, and respond to change with confidence.",
     icon: RiBarChart2Line,
   },
   {
     title: "AI Model Assessment",
     description:
-      "Model audits, bias detection, and governance frameworks to ensure transparency, compliance, and trust.",
+      "Comprehensive audits that optimize model performance, accuracy, and compliance through detailed evaluation and tuning.",
     icon: RiShieldStarLine,
   },
   {
     title: "Generative AI Consulting",
     description:
-      "Rapid prototyping of GenAI copilots, knowledge assistants, and content automation pipelines tailored to your teams.",
+      "Strategy, prototyping, and implementation support to leverage generative AI for innovation, efficiency, and growth.",
     icon: TbBrain,
   },
   {
     title: "Computer Vision Solutions",
     description:
-      "Image, video, and sensor analytics that accelerate inspections, monitoring, and mission-critical operations.",
+      "Automate inspections, monitoring, and decision-making with image recognition, object detection, and video analytics.",
     icon: TbDeviceVisionPro,
   },
   {
     title: "Natural Language Processing (NLP)",
     description:
-      "Custom NLP models that extract signal from unstructured data, supporting risk, policy, and customer insight.",
+      "Text and speech processing services for chatbots, translation, voice interfaces, and insight extraction from unstructured data.",
     icon: PiChatsCircleLight,
   },
   {
     title: "Custom AI/ML Development",
     description:
-      "Specialized models, APIs, and integrations engineered to align with your infrastructure and data realities.",
+      "Tailored AI/ML models and integrations—from predictive analytics to NLP—that align with your infrastructure and goals.",
     icon: RiCpuLine,
   },
   {
     title: "Real-Time Data Processing and Automation",
     description:
-      "Streaming architectures and automation workflows that unlock live intelligence for operations teams.",
+      "Collect, analyze, and act on data as it is generated so teams can make rapid, informed decisions when it matters.",
     icon: PiDatabaseLight,
   },
   {
     title: "AI Powered Resilience Data Analytics",
     description:
-      "Cross-sector resilience insights supported by dynamic dashboards and stress-tested data models.",
+      "Sector-specific resilience analytics powered by AI to ensure development stays adaptive and future-proof.",
     icon: PiCirclesThreeLight,
     highlightList: [
-      "Energy",
-      "Agriculture",
-      "Water",
-      "Health",
-      "Financial",
-      "Coastal",
-      "Transport",
-      "Infrastructure",
+      "AI Powered Energy Resilience Data Analytics",
+      "AI Powered Agriculture Resilience Data Analytics",
+      "AI Powered Water Resilience Data Analytics",
+      "AI Powered Health Resilience Data Analytics",
+      "AI Powered Financial Resilience Data Analytics",
+      "AI Powered Coastal Resilience Data Analytics",
+      "AI Powered Transport Resilience Data Analytics",
+      "AI Powered Infrastructure Resilience Data Analytics",
     ],
   },
 ];
@@ -119,8 +119,8 @@ const ServicesSection = () => {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Our Capabilities</p>
           <h2 className="mt-4 text-3xl font-bold text-slate-900">Our AI Application Services</h2>
           <p className="mt-4 text-base text-slate-600">
-            A flexible services stack that meets you where you are, whether you need discovery workshops, rapid pilots, or
-            enterprise-scale deployment.
+            How we help you drive value with AI—from solution development and GenAI consulting to resilience analytics that
+            keep critical systems adaptive.
           </p>
         </motion.div>
         <motion.div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3" variants={gridVariant}>

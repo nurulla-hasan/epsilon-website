@@ -42,9 +42,13 @@ const DataSection = () => {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Data Advantage</p>
           <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Unleash the power of your data</h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
-            Turn disconnected datasets into actionable intelligence. Our applied scientists and engineers design advanced
-            analytics pipelines, model monitoring frameworks, and visualization layers that reveal hidden opportunities,
-            manage risk, and deliver executive-ready insight when it matters most.
+            Unleash the power of your data with our advanced analytics services. We employ AI/ML algorithms to extract
+            meaningful insights, helping you make informed decisions, identify patterns, and uncover hidden opportunities
+            within your data.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-slate-600">
+            Whether you are optimizing operations or building new capabilities, we turn complex datasets into clear
+            intelligence so your teams can move faster with confidence.
           </p>
         </motion.div>
         <motion.div
