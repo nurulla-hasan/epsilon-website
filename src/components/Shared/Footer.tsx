@@ -37,13 +37,13 @@ const Footer: React.FC = () => {
       <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -right-16 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
 
-      <div className="content-width container mx-auto px-6 py-16 relative z-10">
+      <div className="content-width container mx-auto px-4 py-16 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 lg:grid-cols-4 gap-10 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-sm shadow-2xl shadow-blue-900/20"
+          className="grid grid-cols-1 lg:grid-cols-4 gap-10 backdrop-blur-sm"
         >
           {/* First Column - Contact Info */}
           <motion.div
