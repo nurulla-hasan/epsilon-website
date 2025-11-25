@@ -53,7 +53,7 @@ const HeroSection = () => {
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-primary/30 to-transparent" />
         <div className="absolute -right-12 top-16 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
-      <div className="relative mx-auto content-width px-6 py-20 lg:flex lg:items-center lg:gap-10">
+      <div className="relative mx-auto max-w-[1500px] px-6 py-20 lg:flex lg:items-center lg:gap-10">
         <motion.div className="lg:w-3/5" variants={textVariant}>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-200">
             Epsilon Innovation Group

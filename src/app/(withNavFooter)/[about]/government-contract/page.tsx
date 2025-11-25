@@ -1,9 +1,11 @@
+"use client"
 import PageTitle from "@/components/Shared/pageTitle";
 import React from "react";
 import sectionImg from "../../../../assetes/images/about.jpg";
 import worker from "../../../../assetes/images/about-side.jpg";
 import Image from "next/image";
 import TextHeading from "@/components/Shared/TextHeading";
+import { motion, Variants } from "framer-motion";
 
 const stats = [
   { label: "NAICS Codes", value: "8+" },
@@ -15,7 +17,7 @@ const contractingHighlights = [
   "Federal & State Partnerships",
   "International Development Programs",
   "Climate & Energy Policy Advisory",
-  "Evidence-Based Risk Assessment",
+  "Evidence-Based Risk Assessment", 
 ];
 
 const GovernmentContract = () => {
@@ -29,6 +31,20 @@ const GovernmentContract = () => {
     "541712 - R & D in Physical Sciences",
     "541720 - R & D Research in Social Sciences",
   ];
+
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  const staggerContainer: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12 } },
+  };
 
   return (
     <div>
@@ -56,33 +72,45 @@ const GovernmentContract = () => {
 
       <section className="mx-auto content-width px-4 py-8">
         <div className="grid gap-10 lg:grid-cols-[1.4fr,0.9fr]">
-          <article className=" bg-white/90 backdrop-blur">
-            <div className="flex flex-wrap items-center gap-4 border-b border-slate-100 pb-6">
+          <motion.article
+            className="bg-white/90 backdrop-blur"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={staggerContainer}
+          >
+            <motion.div
+              className="flex flex-wrap items-center gap-4 border-b border-slate-100 pb-6"
+              variants={staggerContainer}
+            >
               {stats.map((stat) => (
-                <div key={stat.label} className="flex flex-col">
+                <motion.div key={stat.label} className="flex flex-col" variants={fadeInUp}>
                   <span className="text-3xl font-semibold text-slate-900">
                     {stat.value}
                   </span>
                   <span className="text-xs uppercase tracking-[0.3em] text-slate-500">
                     {stat.label}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="mt-8 space-y-6 text-slate-700">
-              <h1 className="text-3xl font-bold text-slate-900">
+            <motion.div className="mt-8 space-y-6 text-slate-700" variants={staggerContainer}>
+              <motion.h1 className="text-3xl font-bold text-slate-900" variants={fadeInUp}>
                 About Epsilon Innovation Group Inc.
-              </h1>
-              <p>
+              </motion.h1>
+              <motion.p variants={fadeInUp}>
                 Epsilon Innovation Group Inc. is a private limited liability
                 company, incorporated in the State of Maryland, USA. Our
                 multidisciplinary bench of experts, scientists, and consultants
                 specialize in climate change, energy, environment, policy, and
                 risk analysis for both national and international partners.
-              </p>
+              </motion.p>
 
-              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-5">
+              <motion.div
+                className="rounded-3xl border border-primary/20 bg-primary/5 p-5"
+                variants={fadeInUp}
+              >
                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary">
                   Government Contracting
                 </p>
@@ -97,40 +125,54 @@ const GovernmentContract = () => {
                   employing best practices and innovative, evidence-based
                   solutions.
                 </p>
-                <div className="mt-4 flex flex-wrap gap-3">
+                <motion.div
+                  className="mt-4 flex flex-wrap gap-3"
+                  variants={staggerContainer}
+                >
                   {contractingHighlights.map((item) => (
-                    <span
+                    <motion.span
                       key={item}
                       className="rounded-full border border-primary/20 bg-white px-4 py-1 text-sm font-semibold text-primary"
+                      variants={fadeInUp}
                     >
                       {item}
-                    </span>
+                    </motion.span>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={fadeInUp}>
                 <TextHeading text="Company Designation" />
                 <p className="mt-3 text-slate-700">
                   Epsilon Innovation Group's NAICS CODES (United States
                   Registered Services) include:
                 </p>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <motion.div className="mt-5 grid gap-3 sm:grid-cols-2" variants={staggerContainer}>
                   {designation.map((item) => (
-                    <div
+                    <motion.div
                       key={item}
                       className="rounded-2xl border border-slate-100 bg-slate-50/70 px-4 py-3 text-sm font-semibold text-slate-700"
+                      variants={fadeInUp}
                     >
                       {item}
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
-              </div>
-            </div>
-          </article>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.article>
 
-          <aside className="space-y-6">
-            <div className="rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 border border-blue-100">
+          <motion.aside
+            className="space-y-6"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            <motion.div
+              className="rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 border border-blue-100"
+              variants={fadeInUp}
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                   <svg
@@ -166,7 +208,7 @@ const GovernmentContract = () => {
                 lifecycle.
               </p>
 
-              <div className="mt-6 space-y-3">
+              <motion.div className="mt-6 space-y-3" variants={staggerContainer}>
                 {[
                   {
                     text: "Acquisition Strategy & Proposal Support",
@@ -181,32 +223,40 @@ const GovernmentContract = () => {
                     icon: "📊",
                   },
                 ].map((item) => (
-                  <div
+                  <motion.div
                     key={item.text}
                     className="flex items-center gap-3 p-4 rounded-xl bg-white border border-slate-100 hover:border-blue-100 hover:shadow-sm transition-all duration-200"
+                    variants={fadeInUp}
                   >
                     <span className="text-lg">{item.icon}</span>
                     <span className="text-slate-700 font-medium">
                       {item.text}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-8 items-center">
-              {/* Image Section */}
-              <div className="relative rounded-2xl overflow-hidden aspect-square w-full max-w-[500px] mx-auto md:mx-0 bg-gradient-to-br from-primary/5 to-primary/10">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-8 items-center"
+              variants={staggerContainer}
+            >
+              <motion.div
+                className="relative rounded-2xl overflow-hidden aspect-square w-full max-w-[500px] mx-auto md:mx-0 bg-gradient-to-br from-primary/5 to-primary/10"
+                variants={fadeInUp}
+              >
                 <Image
                   src={worker}
                   fill
                   className="object-cover object-center transition-transform duration-500 hover:scale-105"
                   alt="team at work"
                 />
-              </div>
+              </motion.div>
 
-              {/* Content Section */}
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 flex flex-col">
+              <motion.div
+                className="bg-white rounded-2xl p-6 border border-slate-100 flex flex-col"
+                variants={fadeInUp}
+              >
                 <div className="space-y-5">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary mb-2">
@@ -227,24 +277,25 @@ const GovernmentContract = () => {
                     <h4 className="text-sm font-medium text-slate-500 mb-3">
                       Our Expertise Includes:
                     </h4>
-                    <div className="grid grid-cols-2 gap-3">
+                    <motion.div className="grid grid-cols-2 gap-3" variants={staggerContainer}>
                       {[
                         { icon: "💼", text: "Climate Finance" },
                         { icon: "⚡", text: "Energy Transition" },
                         { icon: "📊", text: "Risk Modeling" },
                         { icon: "🌱", text: "Policy Innovation" },
                       ].map((item) => (
-                        <div
+                        <motion.div
                           key={item.text}
                           className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-primary/5 transition-colors"
+                          variants={fadeInUp}
                         >
                           <span className="text-lg">{item.icon}</span>
                           <span className="text-sm font-medium text-slate-700">
                             {item.text}
                           </span>
-                        </div>
+                        </motion.div>
                       ))}
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
 
@@ -268,9 +319,9 @@ const GovernmentContract = () => {
                     </svg>
                   </button>
                 </div>
-              </div>
-            </div>
-          </aside>
+              </motion.div>
+            </motion.div>
+          </motion.aside>
         </div>
       </section>
     </div>

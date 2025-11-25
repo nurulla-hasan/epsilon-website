@@ -1,8 +1,11 @@
+"use client"
+
 import PageTitle from "@/components/Shared/pageTitle";
 import React from "react";
 import Image from "next/image";
 import SectionHeading from "@/components/Shared/SectionHeading";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 const NewProduct = () => {
   const tools = [
@@ -44,7 +47,7 @@ const NewProduct = () => {
     {
       name: "Mini-Grid Tariff Analysis Tool",
       link: "#",
-      category: "Energy Access",
+      category: "Energy Access", 
       description: "Comprehensive solution for designing and optimizing mini-grid tariffs.",
       image: "/images/evgeniy-alyoshin-2ASQyjafflo-unsplash.jpg"
     },
@@ -72,6 +75,20 @@ const NewProduct = () => {
     { title: "Deployment Ready", detail: "Built for real-world impact" },
   ];
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  const staggerContainer: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12 } },
+  };
+
   return (
     <div className="bg-gradient-to-b from-slate-50 via-white to-slate-100">
       <PageTitle
@@ -80,7 +97,13 @@ const NewProduct = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 to-cyan-800 text-white">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+        className="relative overflow-hidden bg-gradient-to-r from-blue-900 to-cyan-800 text-white"
+      >
         <div className="absolute inset-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
@@ -91,59 +114,89 @@ const NewProduct = () => {
           />
         </div>
         <div className="relative content-width mx-auto px-4 py-16 sm:py-24 lg:py-28">
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          <motion.div
+            className="text-center space-y-6"
+            variants={staggerContainer}
+          >
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold leading-tight mb-4"
+              variants={fadeInUp}
+            >
               Cutting-Edge Tools for a Sustainable Future
-            </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p
+              className="text-xl text-blue-100 max-w-3xl mx-auto"
+              variants={fadeInUp}
+            >
               Explore our suite of innovative solutions designed to address the
               world's most pressing energy and climate challenges.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 text-sm text-white/90">
+            </motion.p>
+            <motion.div
+              className="flex flex-wrap justify-center gap-3 text-sm text-white/90"
+              variants={staggerContainer}
+            >
               {categories.map((category) => (
-                <span
+                <motion.span
                   key={category}
                   className="rounded-full border border-white/30 bg-white/10 px-4 py-1 backdrop-blur-sm"
+                  variants={fadeInUp}
                 >
                   {category}
-                </span>
+                </motion.span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         <div className="relative content-width mx-auto px-4 pb-10">
-          <div className="grid gap-4 md:grid-cols-3">
+          <motion.div
+            className="grid gap-4 md:grid-cols-3"
+            variants={staggerContainer}
+          >
             {highlights.map((item) => (
-              <div
+              <motion.div
                 key={item.title}
                 className="rounded-2xl bg-white/15 p-5 text-sm text-white backdrop-blur-md border border-white/20"
+                variants={fadeInUp}
               >
                 <p className="text-base font-semibold uppercase tracking-[0.2em] text-white/80">
                   {item.title}
                 </p>
                 <p className="mt-2 text-lg font-medium">{item.detail}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Tools Grid */}
       <section className="content-width mx-auto px-4 py-16">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
+        >
           <SectionHeading heading="Our Solutions Portfolio" />
           <p className="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
             Discover our comprehensive range of analytical tools and
             technologies designed to drive sustainable development.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {tools.map((tool, index) => (
-            <div
+            <motion.div
               key={index}
               className="group flex flex-col bg-white rounded-2xl shadow-[0_12px_35px_rgba(15,23,42,0.08)] hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)] transition-all duration-300 overflow-hidden border border-white"
+              variants={fadeInUp}
             >
               <div className="h-48 relative overflow-hidden">
                 <Image
@@ -194,9 +247,9 @@ const NewProduct = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );
