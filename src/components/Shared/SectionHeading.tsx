@@ -7,7 +7,7 @@ type SectionHeadingProps = {
 const SectionHeading: React.FC<SectionHeadingProps> = ({ heading }) => {
   return (
     <div>
-      <h1 className="text-2xl font-bold my-10 ">{heading}</h1>
+      <h1 className="text-2xl font-bold ">{heading}</h1>
     </div>
   );
 };

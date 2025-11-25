@@ -5,7 +5,6 @@ import worker from "../../../../assetes/images/about-side.jpg";
 import Image from "next/image";
 import SectionHeading from "@/components/Shared/SectionHeading";
 
-
 const Projects = () => {
   const projects = [
     "Access to Energy Innovation for Rural Communities",
@@ -30,56 +29,253 @@ const Projects = () => {
     "Mesoscale Wind Resources Assessment Study",
   ];
 
+  const stats = [
+    { label: "Countries", value: "18", detail: "Across Africa & Asia" },
+    { label: "Years", value: "15+", detail: "of delivery" },
+    { label: "Impact", value: "$3B", detail: "in mobilized funding" },
+  ];
+
+  const focusAreas = [
+    "Climate & Energy",
+    "Blue Economy",
+    "Policy Advisory",
+    "Resilience Analytics",
+  ];
+
   return (
-    <div className="mt-5">
+    <div>
       <PageTitle
-        pageHeading="Our Projects"
-        breadcrumbs={[
-            { label: "Home", href: "/" },
-            { label: "Projects"},
-          ]}
+        pageHeading="Our Impactful Projects & Initiatives"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Projects" }]}
       />
 
-      <div>
-        <Image
-          src={sectionImg}
-          height={0}
-          width={0}
-          className="h-full w-full"
-          alt="section image"
-        />
-      </div>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+            alt="Sustainable energy and climate action concept"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/30 to-black/50" />{" "}
+        </div>
 
-      <div className="mx-auto content-width container px-4 py-16 md:py-20">
-        <div className="w-full flex justify-between items-start gap-5">
-          <div className="w-[70%]">
-            
-            <div id="projects">
-              <SectionHeading heading="PROJECTS" />
+        <div className="relative mx-auto content-width px-4 py-8">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] items-start">
+            <div className="space-y-4 text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
+                Portfolio
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Designing resilient futures across climate, energy, and blue
+                economy.
+              </h2>
+              <p className="text-base text-white/90 leading-relaxed max-w-2xl">
+                Explore our portfolio of transformative projects in sustainable
+                development.
+              </p>
 
-              <ul className="list-[square] pl-5">
-                {projects.map((item, index) => (
-                  <li key={index} className="text-gray-800 mb-1">
+              <div className="flex flex-wrap gap-2">
+                {focusAreas.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full bg-white/80 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary/90"
+                  >
                     {item}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
 
-         
+            <div className="grid gap-3">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex items-center justify-between rounded-xl bg-white/80 backdrop-blur-sm p-3"
+                >
+                  <div>
+                    <p className="text-2xl font-semibold text-slate-900">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-primary/70">
+                      {stat.label}
+                    </p>
+                  </div>
+                  <p className="text-xs text-slate-600 text-right">
+                    {stat.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="w-[30%]">
-            <Image
-              src={worker}
-              height={0}
-              width={0}
-              className="h-full w-fit"
-              alt="side image"
-            />
+          <div className="mt-8 flex flex-wrap gap-2 text-xs">
+            {["Governments", "Banks", "Utilities", "Labs"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-white/80 backdrop-blur-sm px-3 py-1"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      <section className="mx-auto content-width px-4 py-8">
+        <div className="grid gap-10 lg:grid-cols-[1.45fr,0.9fr]">
+          <article>
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6">
+              <SectionHeading heading="PROJECT PORTFOLIO" />
+              <div className="flex flex-wrap gap-2">
+                {focusAreas.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full bg-primary/5 px-3 py-1 text-xs font-semibold text-primary"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 space-y-6">
+              <p className="text-slate-600 leading-relaxed">
+                Our portfolio demonstrates hands-on delivery across climate
+                adaptation, energy access, and blue economy growth. Each
+                engagement is co-designed with local partners and supported by
+                rigorous analytics, policy insight, and implementation support.
+              </p>
+
+              <div className="relative mt-10">
+                <div className="pointer-events-none absolute left-3 top-0 bottom-0 hidden sm:block">
+                  <div className="h-full w-px bg-gradient-to-b from-primary/20 via-slate-200 to-transparent" />
+                </div>
+
+                <div className="space-y-6">
+                  {projects.map((item, index) => (
+                    <div
+                      key={item}
+                      className="group relative rounded-3xl bg-slate-50/80 px-5 py-4 transition-all hover:-translate-y-0.5 hover:bg-white sm:pl-14"
+                    >
+                      <div className="absolute left-3 top-5 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-primary sm:block" />
+                      <div className="flex items-start gap-3">
+                        <span className="text-sm font-semibold text-primary">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <p className="text-slate-800 font-medium leading-relaxed">
+                          {item}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside className="space-y-6">
+            <div className="rounded-3xl bg-gradient-to-br from-white to-blue-50/70 p-6">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m12 20 7-12-7 4-7-4 7 12z" />
+                    <path d="M12 4h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary">
+                    Impact Areas
+                  </p>
+                  <p className="text-base font-semibold text-slate-900">
+                    Integrated advisory focus
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-slate-600">
+                Multidisciplinary teams blend policy, engineering, and finance
+                to accelerate resilient development programs.
+              </p>
+
+              <div className="mt-5 space-y-3">
+                {[
+                  "Climate Finance Facility Design",
+                  "Energy Transition Roadmaps",
+                  "Blue Economy Implementation",
+                  "Disaster Risk Preparedness",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-sm text-slate-700"
+                  >
+                    <span className="text-primary">•</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-white overflow-hidden border border-slate-100">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative aspect-square md:aspect-auto">
+                  <Image
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    alt="Team collaboration meeting"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
+                </div>
+                <div className="p-6 space-y-4 flex flex-col">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary">
+                      Partner with us
+                    </p>
+                    <h3 className="text-xl font-semibold text-slate-900 mt-1">
+                      Co-create your next flagship initiative
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-600 flex-grow">
+                    We translate climate, energy, and resilience goals into
+                    actionable programs that unlock finance and community
+                    benefits.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "Program Design",
+                      "Policy Labs",
+                      "Innovation Pilots",
+                      "Analytics",
+                    ]?.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 border border-slate-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <button className="w-full rounded-xl border-2 border-primary/20 px-4 py-2.5 text-sm font-semibold text-primary/90 hover:bg-primary/5 transition-colors mt-2">
+                    Explore collaboration
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
     </div>
   );
 };
