@@ -35,36 +35,8 @@ body {
 }
 
 
-@layer components {
-  .hero-swiper .swiper-pagination-bullets {
-    @apply !bottom-4 md:!bottom-6;
-  }
-
-  .hero-swiper .swiper-pagination-bullet {
-    @apply bg-white opacity-60 w-2.5 h-2.5;
-  }
-  .hero-swiper .swiper-pagination-bullet-active {
-    @apply opacity-100 scale-110;
-  }
-
-  .hero-swiper .swiper-button-prev,
-  .hero-swiper .swiper-button-next {
-    @apply top-1/2 -translate-y-1/2 text-white hover:bg-black/50  border-white/40
-           p-1 w-11 h-11 grid place-items-center backdrop-blur
-           transition ;
-  }
-
-  .hero-swiper .swiper-button-prev { @apply left-3 md:left-6; }
-  .hero-swiper .swiper-button-next { @apply right-3 md:right-6; }
-
-  .hero-swiper .swiper-button-prev::after,
-  .hero-swiper .swiper-button-next::after {
-    @apply text-[18px] md:text-[22px];
-  }
-}
 
 /* Add smooth scrolling to the entire page */
-/* Add this to your globals.css */
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;

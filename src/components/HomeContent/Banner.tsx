@@ -332,31 +332,6 @@ export default function Banner() {
             </div>
           </SwiperSlide>
         ))}
-        {/* Subtle Navigation Buttons - Hidden on mobile */}
-        <div className="hidden sm:block">
-          <div className="swiper-button-prev left-2! w-8! h-8! rounded-full! bg-black/20 hover:bg-black/30! text-white/80 hover:text-white after:text-lg after:font-medium transition-all duration-200"></div>
-          <div className="swiper-button-next right-2! w-8! h-8! rounded-full! bg-black/20 hover:bg-black/30! text-white/80 hover:text-white after:text-lg after:font-medium transition-all duration-200"></div>
-        </div>
-        
-        <style jsx global>{`
-          .swiper-button-prev,
-          .swiper-button-next {
-            width: 2rem;
-            height: 2rem;
-            margin-top: -1rem;
-            backdrop-filter: blur(4px);
-          }
-          .swiper-button-prev:after,
-          .swiper-button-next:after {
-            font-size: 1rem;
-          }
-          .swiper-button-prev {
-            left: 0.5rem;
-          }
-          .swiper-button-next {
-            right: 0.5rem;
-          }
-        `}</style>
       </Swiper>
     </section>
   );
