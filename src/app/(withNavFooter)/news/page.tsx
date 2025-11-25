@@ -53,7 +53,7 @@ const News = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
+      <div className="mx-auto content-width container px-4 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="md:col-span-2">
             <SectionHeading heading="NEWS" />

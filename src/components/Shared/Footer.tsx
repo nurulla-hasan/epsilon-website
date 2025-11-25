@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
       <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -right-16 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
 
-      <div className="max-w-[1500px] container mx-auto px-6 py-16 relative z-10">
+      <div className="content-width container mx-auto px-6 py-16 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -229,7 +229,7 @@ const Footer: React.FC = () => {
         viewport={{ once: true }}
         className="border-t border-white/5 text-center text-xs py-5 bg-gradient-to-r from-transparent via-white/5 to-transparent"
       >
-        <div className="max-w-[1500px] mx-auto px-6">
+        <div className="content-width mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© {new Date().getFullYear()} Epsilon Innovation Group Inc. All rights reserved.</p>
             <div className="flex items-center gap-6 text-white/50">

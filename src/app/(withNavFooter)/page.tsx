@@ -7,8 +7,8 @@ import React from "react";
 const HomePage = () => {
   return (
     <div>
-      <Banner></Banner>
-      <Welcome></Welcome>
+      <Banner/>
+      <Welcome/>
       <FeaturedSolutions />
       <ClimateResilience />
     </div>

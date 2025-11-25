@@ -45,7 +45,7 @@ const BlueEconomy = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
+      <div className="mx-auto content-width container px-4 py-16 md:py-20">
         <div className="flex flex-col gap-20 mb-16">
           <div className="flex flex-col md:flex-row items-start gap-10">
             <div className="md:w-2/3">

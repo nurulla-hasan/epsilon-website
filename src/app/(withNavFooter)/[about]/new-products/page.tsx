@@ -41,7 +41,7 @@ const NewProduct = () => {
         />
       </div>
 
-      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
+      <div className="mx-auto content-width container px-4 py-16 md:py-20">
         <div className="w-full flex justify-between items-start gap-5">
           <div className="w-[70%]">
             <div className="new-products">

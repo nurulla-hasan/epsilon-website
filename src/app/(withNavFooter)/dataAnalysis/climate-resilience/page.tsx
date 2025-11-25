@@ -49,7 +49,7 @@ const CLimateResilience = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1500px] container px-4 py-16 md:py-20">
+      <div className="mx-auto content-width container px-4 py-16 md:py-20">
         <SectionHeading heading="CLIMATE RESILIENCE DATA ALALYTICS TOOLS"></SectionHeading>
 
         <div className="flex justify-start items-start gap-5">

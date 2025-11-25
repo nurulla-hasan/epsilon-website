@@ -80,7 +80,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
       <div
         className={[
           "relative h-full",
-          containerClassName ?? "max-w-[1500px] container mx-auto px-4 sm:px-6 lg:px-8",
+          containerClassName ?? "content-width container mx-auto px-4 sm:px-6 lg:px-8",
         ].join(" ")}
       >
         <div

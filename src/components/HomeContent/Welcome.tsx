@@ -8,7 +8,7 @@ const Welcome = () => {
   return (
     <section className="relative w-full bg-gray-50">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(45,212,191,0.08),transparent_60%)]" />
-      <div className="relative font-sans mx-auto max-w-[1500px] container py-16 md:py-20 px-6 text-center font-customFont text-primary">
+      <div className="relative font-sans mx-auto content-width container py-16 md:py-20 px-6 text-center font-customFont text-primary">
         <h2 className="text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold tracking-tight mb-4 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
           Welcome to Epsilon Innovation Group
         </h2>
@@ -32,7 +32,7 @@ const Welcome = () => {
         </div>
       </div>
 
-      <div className="relative max-w-[1500px] container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-6 pb-12 md:pb-20">
+      <div className="relative content-width container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-6 pb-12 md:pb-20">
         {[
           {
             title: "AI-Powered Solutions",
