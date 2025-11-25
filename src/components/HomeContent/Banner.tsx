@@ -249,7 +249,7 @@ export default function Banner() {
               />
 
               <div className="absolute inset-0 " />
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/60 to-transparent" />
 
               <div className="absolute inset-0 flex items-center justify-start px-5 sm:px-8 md:px-12 lg:px-20">
                 <div className="relative w-full max-w-[1500px] mx-auto px-1 sm:px-0">
@@ -294,7 +294,7 @@ export default function Banner() {
                               variants={listItemVariant}
                               className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full border-white/10 bg-white/10 text-white/90 backdrop-blur-md whitespace-nowrap"
                             >
-                              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 flex-shrink-0" />
+                              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 shrink-0" />
                               <span className="truncate">{point}</span>
                             </motion.li>
                           ))}
@@ -309,7 +309,7 @@ export default function Banner() {
                           whileHover={{ scale: 1.04 }}
                           whileTap={{ scale: 0.96 }}
                           href={s.ctaHref}
-                          className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#1f5eff] to-[#00d4ff] px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_10px_40px_rgba(31,94,255,0.35)] transition active:scale-95"
+                          className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-[#1f5eff] to-[#00d4ff] px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_10px_40px_rgba(31,94,255,0.35)] transition active:scale-95"
                         >
                           {s.ctaLabel}
                         </motion.a>
@@ -334,8 +334,8 @@ export default function Banner() {
         ))}
         {/* Subtle Navigation Buttons - Hidden on mobile */}
         <div className="hidden sm:block">
-          <div className="swiper-button-prev !left-2 !w-8 !h-8 !rounded-full !bg-black/20 hover:!bg-black/30 !text-white/80 hover:!text-white after:!text-lg after:!font-medium transition-all duration-200"></div>
-          <div className="swiper-button-next !right-2 !w-8 !h-8 !rounded-full !bg-black/20 hover:!bg-black/30 !text-white/80 hover:!text-white after:!text-lg after:!font-medium transition-all duration-200"></div>
+          <div className="swiper-button-prev left-2! w-8! h-8! rounded-full! bg-black/20 hover:bg-black/30! text-white/80 hover:text-white after:text-lg after:font-medium transition-all duration-200"></div>
+          <div className="swiper-button-next right-2! w-8! h-8! rounded-full! bg-black/20 hover:bg-black/30! text-white/80 hover:text-white after:text-lg after:font-medium transition-all duration-200"></div>
         </div>
         
         <style jsx global>{`

@@ -9,7 +9,7 @@ const Welcome = () => {
     <section className="relative w-full bg-gray-50">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(45,212,191,0.08),transparent_60%)]" />
       <div className="relative font-sans mx-auto content-width container py-16 md:py-20 px-6 text-center font-customFont text-primary">
-        <h2 className="text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold tracking-tight mb-4 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold tracking-tight mb-4 bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
           Welcome to Epsilon Innovation Group
         </h2>
         <p className="mx-auto max-w-4xl text-base md:text-lg lg:text-xl text-slate-700/90 leading-relaxed">
@@ -55,7 +55,7 @@ const Welcome = () => {
         ].map((card) => (
           <div
             key={card.title}
-            className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-blue-600/20 via-cyan-400/20 to-emerald-400/20 hover:from-blue-600/30 hover:via-cyan-400/30 hover:to-emerald-400/30 transition-colors duration-300"
+            className="group relative rounded-2xl p-px bg-linear-to-br from-blue-600/20 via-cyan-400/20 to-emerald-400/20 hover:from-blue-600/30 hover:via-cyan-400/30 hover:to-emerald-400/30 transition-colors duration-300"
           >
             <div className="h-full rounded-2xl bg-white shadow-xl px-6 py-6 md:px-7 md:py-7 transition-transform duration-300 group-hover:-translate-y-0.5">
               <div className="flex items-center gap-3 mb-4">
@@ -79,11 +79,11 @@ const Welcome = () => {
           </div>
         ))}
       </div>
-      <div className="relative mt-16 overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-900 px-6 py-16 text-center text-white shadow-[0_30px_80px_rgba(15,23,42,0.55)]">
+      <div className="relative mt-16 overflow-hidden bg-linear-to-br from-slate-950 via-slate-900 to-blue-900 px-6 py-16 text-center text-white shadow-[0_30px_80px_rgba(15,23,42,0.55)]">
         <div className="pointer-events-none absolute inset-0 opacity-60">
           <div className="absolute -left-12 top-0 h-80 w-80 rounded-full bg-primary/50 blur-3xl" />
           <div className="absolute right-0 top-10 h-64 w-64 rounded-full bg-cyan-400/30 blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.3),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(14,165,233,0.25),_transparent_45%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.3),transparent_55%),radial-gradient(circle_at_bottom,rgba(14,165,233,0.25),transparent_45%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0)_35%),linear-gradient(-120deg,rgba(255,255,255,0.08)_10%,rgba(255,255,255,0)_45%)]" />
         </div>
 

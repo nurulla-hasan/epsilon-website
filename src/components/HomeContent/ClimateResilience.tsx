@@ -66,7 +66,7 @@ const ClimateResilience: React.FC = () => {
           priority
           className="object-cover object-center select-none pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-blue-950/60" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-blue-950/60" />
         <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
         <div className="absolute bottom-0 -right-16 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
       </div>
@@ -88,7 +88,7 @@ const ClimateResilience: React.FC = () => {
           <h2 className="text-4xl font-sans font-semibold leading-tight mb-4 text-white">
             Climate Resilience Data Analytics Tools
           </h2>
-          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-cyan-300 mb-6" />
+          <div className="mx-auto h-1 w-24 rounded-full bg-linear-to-r from-blue-400 to-cyan-300 mb-6" />
 
           <p className="mx-auto mt-2 max-w-5xl text-lg md:text-xl text-white/90 leading-relaxed">
             We are helping our clients develop localized and sector-specific climate risk profiles and
@@ -129,7 +129,7 @@ const ClimateResilience: React.FC = () => {
       </div>
 
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center px-6 py-28 bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900"
+        className="relative flex flex-col items-center justify-center text-center px-6 py-28 bg-linear-to-r from-slate-900 via-slate-800 to-blue-900"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}

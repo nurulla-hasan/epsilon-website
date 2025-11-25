@@ -62,3 +62,51 @@ body {
     @apply text-[18px] md:text-[22px];
   }
 }
+
+/* Add smooth scrolling to the entire page */
+/* Add this to your globals.css */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scrolling for the whole page */
+html, body {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
+/* Optional: Add momentum-based scrolling for touch devices */
+@media (pointer: coarse) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #144494;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) #f1f1f1;
+}

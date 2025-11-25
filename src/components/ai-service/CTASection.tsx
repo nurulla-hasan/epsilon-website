@@ -47,8 +47,8 @@ const CTASection = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImageUrl})`, filter: "brightness(0.7)" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/80 to-blue-900/85" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/70" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-950/90 via-slate-900/80 to-blue-900/85" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-950/70" />
       </div>
       <motion.div
         className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center"
@@ -66,7 +66,7 @@ const CTASection = () => {
         </motion.p>
         <motion.div variants={itemVariant}>
           <Link
-            href="/contact"
+            href="/contact-us"
             className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
           >
             Contact Us
