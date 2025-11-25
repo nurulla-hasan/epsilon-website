@@ -30,16 +30,30 @@ const itemVariant: Variants = {
   },
 };
 
+const backgroundImageUrl =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80";
+
 const CTASection = () => {
   return (
     <motion.section
-      className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900 text-white"
+      className="relative overflow-hidden text-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariant}
     >
-      <motion.div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center" variants={contentVariant}>
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${backgroundImageUrl})`, filter: "brightness(0.7)" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/80 to-blue-900/85" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/70" />
+      </div>
+      <motion.div
+        className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center"
+        variants={contentVariant}
+      >
         <motion.p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80" variants={itemVariant}>
           Let's Collaborate
         </motion.p>

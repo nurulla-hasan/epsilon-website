@@ -29,16 +29,27 @@ const tileVariant: Variants = {
   },
 };
 
+const backgroundImageUrl =
+  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80";
+
 const HeroSection = () => {
   return (
     <motion.section
-      className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"
+      className="relative overflow-hidden bg-slate-950 text-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={container}
     >
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${backgroundImageUrl})`,
+            filter: "brightness(0.85)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/70 to-blue-900/80" />
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-primary/30 to-transparent" />
         <div className="absolute -right-12 top-16 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
