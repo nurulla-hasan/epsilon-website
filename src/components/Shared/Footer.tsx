@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             <h2 className="text-2xl font-bold tracking-wide mb-3">
               EPSILON INNOVATION GROUP
             </h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-cyan-300 to-blue-400 rounded-full" />
+            <div className="h-1 w-20 bg-linear-to-r from-cyan-300 to-blue-400 rounded-full" />
             <p className="flex items-start gap-2 text-sm mt-4">
               <FaMapPin className="w-4 h-4 mt-1" />
               455 Massachusetts Ave NW #165
@@ -87,13 +87,13 @@ const Footer: React.FC = () => {
             className="space-y-4"
           >
             <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-              <span className="h-1.5 w-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+              <span className="h-1.5 w-6 bg-linear-to-r from-cyan-400 to-blue-500 rounded-full" />
               Expertise
             </h3>
             <ul className="space-y-2 text-sm">
               {[
                 { name: "Energy", link: "/expertise/energy" },
-                { name: "Climate Change", link: "/expertise/climate-chnage" },
+                { name: "Climate Change", link: "/expertise/climate-change" },
                 { name: "Nature-Based Solutions", link: "/expertise/nature-based-solution" },
                 { name: "Policy Analysis", link: "/expertise/policy-analysis" },
                 { name: "Risk Analysis", link: "/expertise/risk-analysis" },
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
               {/* Quick Links */}
               <div>
                 <h3 className="text-lg font-semibold text-white flex items-center gap-2 mb-4">
-                  <span className="h-1.5 w-6 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full" />
+                  <span className="h-1.5 w-6 bg-linear-to-r from-blue-400 to-indigo-500 rounded-full" />
                   Quick Links
                 </h3>
                 <ul className="space-y-2 text-sm">
@@ -154,7 +154,7 @@ const Footer: React.FC = () => {
                 >
                   <div>
                     <h3 className="text-lg font-semibold text-white flex items-center gap-2 mb-4">
-                      <span className="h-1.5 w-6 bg-gradient-to-r from-emerald-400 to-cyan-500 rounded-full" />
+                      <span className="h-1.5 w-6 bg-linear-to-r from-emerald-400 to-cyan-500 rounded-full" />
                       Newsletter
                     </h3>
                     {isSubscribed ? (
@@ -227,7 +227,7 @@ const Footer: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="border-t border-white/5 text-center text-xs py-5 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+        className="border-t border-white/5 text-center text-xs py-5 bg-linear-to-r from-transparent via-white/5 to-transparent"
       >
         <div className="content-width mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

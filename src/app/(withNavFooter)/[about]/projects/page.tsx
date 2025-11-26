@@ -83,7 +83,7 @@ const Projects = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/30 to-black/50" />{" "}
+          <div className="absolute inset-0 bg-linear-to-t from-transparent via-black/30 to-black/50" />{" "}
         </div>
 
         <div className="relative mx-auto max-w-[1500px] px-4 py-8">
@@ -198,7 +198,7 @@ const Projects = () => {
 
               <motion.div className="relative mt-10" variants={fadeInUp}>
                 <div className="pointer-events-none absolute left-3 top-0 bottom-0 hidden sm:block">
-                  <div className="h-full w-px bg-gradient-to-b from-primary/20 via-slate-200 to-transparent" />
+                  <div className="h-full w-px bg-linear-to-b from-primary/20 via-slate-200 to-transparent" />
                 </div>
 
                 <motion.div className="space-y-6" variants={staggerContainer}>
@@ -232,7 +232,7 @@ const Projects = () => {
             variants={staggerContainer}
           >
             <motion.div
-              className="rounded-3xl bg-gradient-to-br from-white to-blue-50/70 p-6"
+              className="rounded-3xl bg-linear-to-br from-white to-blue-50/70 p-6"
               variants={fadeInUp}
             >
               <div className="flex items-center gap-3">
@@ -297,7 +297,7 @@ const Projects = () => {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/30 to-transparent" />
                 </div>
                 <motion.div className="p-6 space-y-4 flex flex-col" variants={staggerContainer}>
                   <div>
@@ -308,7 +308,7 @@ const Projects = () => {
                       Co-create your next flagship initiative
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-600 flex-grow">
+                  <p className="text-sm text-slate-600 grow">
                     We translate climate, energy, and resilience goals into
                     actionable programs that unlock finance and community
                     benefits.

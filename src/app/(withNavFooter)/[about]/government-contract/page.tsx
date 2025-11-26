@@ -170,7 +170,7 @@ const GovernmentContract = () => {
             variants={staggerContainer}
           >
             <motion.div
-              className="rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 border border-blue-100"
+              className="rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 p-8 border border-blue-100"
               variants={fadeInUp}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -242,7 +242,7 @@ const GovernmentContract = () => {
               variants={staggerContainer}
             >
               <motion.div
-                className="relative rounded-2xl overflow-hidden aspect-square w-full max-w-[500px] mx-auto md:mx-0 bg-gradient-to-br from-primary/5 to-primary/10"
+                className="relative rounded-2xl overflow-hidden aspect-square w-full max-w-[500px] mx-auto md:mx-0 bg-linear-to-br from-primary/5 to-primary/10"
                 variants={fadeInUp}
               >
                 <Image

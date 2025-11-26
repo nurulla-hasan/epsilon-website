@@ -56,7 +56,7 @@ const LinkedinBtn = () => (
   <Link
     href="https://www.linkedin.com/company/epsilon-innovation-group-inc/"
     aria-label="LinkedIn"
-    className="inline-flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-md bg-gradient-to-r from-primary to-blue-300 hover:scale-110 hover:shadow-lg"
+    className="inline-flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-md bg-linear-to-r from-primary to-blue-300 hover:scale-110 hover:shadow-lg"
   >
     <FaLinkedinIn className="text-[18px]" />
   </Link>
@@ -115,14 +115,14 @@ export default function Navbar() {
           transition={{ duration: 0.4 }}
           className="hidden md:flex justify-end content-width mx-auto px-8 text-[12px] font-semibold text-primary tracking-wide overflow-hidden"
         >
-          <div className="flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-100 via-white to-indigo-100 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600">
+          <div className="flex items-center gap-3 rounded-full bg-linear-to-r from-blue-100 via-white to-indigo-100 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600">
             <span className="hidden lg:block">
               Strategy | Innovation | Impact
             </span>
             <div className="flex items-center gap-2">
               <Link
                 href="/join-our-team"
-                className="rounded-full bg-white/80 px-4 py-1 text-[11px] font-semibold text-primary transition hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 hover:text-white"
+                className="rounded-full bg-white/80 px-4 py-1 text-[11px] font-semibold text-primary transition hover:bg-linear-to-r hover:from-primary hover:to-blue-600 hover:text-white"
               >
                 Join Our Team
               </Link>
@@ -130,7 +130,7 @@ export default function Navbar() {
                 onClick={() =>
                   (window.location.href = "mailto:info@epsiloninnovation.com")
                 }
-                className="rounded-full bg-white/80 px-4 py-1 text-[11px] font-semibold text-primary transition hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 hover:text-white"
+                className="rounded-full bg-white/80 px-4 py-1 text-[11px] font-semibold text-primary transition hover:bg-linear-to-r hover:from-primary hover:to-blue-600 hover:text-white"
               >
                 Contact Us
               </button>
@@ -173,15 +173,15 @@ export default function Navbar() {
                       href={item.href}
                       className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded-full transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
                         isActive(item.href)
-                          ? "bg-gradient-to-r from-primary to-blue-300 text-white"
-                          : "text-slate-700 hover:bg-gradient-to-r hover:from-primary hover:to-blue-300 hover:text-white"
+                          ? "bg-linear-to-r from-primary to-blue-300 text-white"
+                          : "text-slate-700 hover:bg-linear-to-r hover:from-primary hover:to-blue-300 hover:text-white"
                       }`}
                     >
                       {item.label}
                     </Link>
                   ) : (
                     <div
-                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded-full uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-gradient-to-r hover:from-primary hover:to-blue-300 hover:text-white transition-all duration-300 hover:scale-105"
+                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded-full uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-linear-to-r hover:from-primary hover:to-blue-300 hover:text-white transition-all duration-300 hover:scale-105"
                       role="button"
                       tabIndex={0}
                       aria-haspopup="true"
