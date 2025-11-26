@@ -254,7 +254,7 @@ const RiskAnalysis = () => {
           sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-primary/50 to-green-900/50" />
+        <div className="absolute inset-0 bg-linear-to-r from-primary/50 to-green-900/50 backdrop-blur-sm" />
         <motion.div
           className="relative max-w-[1500px] mx-auto px-4 py-16 lg:py-20"
           variants={staggerContainer}
