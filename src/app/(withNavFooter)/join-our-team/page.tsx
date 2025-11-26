@@ -1,259 +1,364 @@
 "use client";
 
-import NormalParagraph from "@/components/Shared/NormalParagraph";
 import PageTitle from "@/components/Shared/pageTitle";
 import SectionHeading from "@/components/Shared/SectionHeading";
-import TextHeading2 from "@/components/Shared/TextHeading2";
 import Image from "next/image";
-import React from "react";
-import banner from "../../../assetes/images/team.png";
-import { Select, Space } from "antd";
+import { motion } from "framer-motion";
+import {
+  FaBriefcase,
+  FaEnvelope,
+  FaGlobe,
+  FaHandshake,
+  FaHeart,
+  FaLightbulb,
+  FaShieldAlt,
+  FaUsers,
+} from "react-icons/fa";
+
+const heroImage =
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0";
+
+const stats = [
+  { label: "Projects delivered", value: "120+" },
+  { label: "Countries represented", value: "18" },
+  { label: "Expert partners", value: "60+" },
+];
+
+const careerPaths = [
+  {
+    title: "Consultant",
+    description:
+      "Lead complex engagements that accelerate climate, energy, and policy transformation.",
+  },
+  {
+    title: "Intern / Fellow",
+    description:
+      "Grow alongside mentors while contributing to high-impact research and delivery.",
+  },
+  {
+    title: "Strategic Partner",
+    description:
+      "Co-create programmes with our multidisciplinary teams to scale collective impact.",
+  },
+];
+
+const values = [
+  {
+    title: "Integrity",
+    description: "Do what is right, building confidence through accountability.",
+    icon: FaShieldAlt,
+  },
+  {
+    title: "Passion",
+    description: "Act with empathy, listening closely to the communities we serve.",
+    icon: FaHeart,
+  },
+  {
+    title: "Innovation",
+    description: "Stay curious, test bold ideas, and translate insight into action.",
+    icon: FaLightbulb,
+  },
+  {
+    title: "Together",
+    description: "Create inclusive teams that draw strength from diverse perspectives.",
+    icon: FaUsers,
+  },
+  {
+    title: "Impact",
+    description: "Focus on measurable outcomes that advance communities globally.",
+    icon: FaGlobe,
+  },
+  {
+    title: "Champion's Heart",
+    description: "Bring optimism, resilience, and craft to every challenge.",
+    icon: FaBriefcase,
+  },
+];
+
+const expertise = [
+  {
+    title: "Climate & Resilience",
+    items: [
+      "Adaptation strategy",
+      "Disaster risk reduction",
+      "Climate finance",
+      "Resilience analytics",
+    ],
+  },
+  {
+    title: "Energy & Technology",
+    items: [
+      "Low-carbon transitions",
+      "Renewable energy planning",
+      "Energy modelling",
+      "Green infrastructure",
+    ],
+  },
+  {
+    title: "Policy & Inclusive Growth",
+    items: [
+      "Impact evaluation",
+      "Gender-responsive design",
+      "Urban resilience",
+      "Public private partnerships",
+    ],
+  },
+];
+
+const fadeIn = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, ease: "easeOut" as const },
+};
+
 const JoinOurTeam = () => {
-  const career = ["   Consultant", "Intern and/or", "Company Partner"];
-  const expertiseOptions = [
-    {
-      value: "Climate Change - Adaptation",
-      label: "Climate Change - Adaptation",
-    },
-    {
-      value: "Climate Change - Agriculture",
-      label: "Climate Change - Agriculture",
-    },
-    {
-      value: "Climate Change - Climate Finance",
-      label: "Climate Change - Climate Finance",
-    },
-    {
-      value: "Climate Change - Disaster Risk Reduction",
-      label: "Climate Change - Disaster Risk Reduction",
-    },
-    {
-      value: "Climate Change - Economics",
-      label: "Climate Change - Economics",
-    },
-    { value: "Climate Change - Forestry", label: "Climate Change - Forestry" },
-    { value: "Climate Change - Gender", label: "Climate Change - Gender" },
-    { value: "Climate Change - Health", label: "Climate Change - Health" },
-    {
-      value: "Climate Change - Mitigation",
-      label: "Climate Change - Mitigation",
-    },
-    {
-      value: "Climate Change - Modeling/Scenario Analysis",
-      label: "Climate Change - Modeling/Scenario Analysis",
-    },
-    {
-      value: "Climate Change - Resilience/Coastal Community",
-      label: "Climate Change - Resilience/Coastal Community",
-    },
-    {
-      value: "Climate Change - Risk Management",
-      label: "Climate Change - Risk Management",
-    },
-    {
-      value: "Climate Change - Strategy Development",
-      label: "Climate Change - Strategy Development",
-    },
-    {
-      value: "Climate Change - Transportation",
-      label: "Climate Change - Transportation",
-    },
-    {
-      value: "Climate Change - Urban Planning",
-      label: "Climate Change - Urban Planning",
-    },
-    {
-      value: "Climate Change - Water Resources",
-      label: "Climate Change - Water Resources",
-    },
-    { value: "Climate Change - Other", label: "Climate Change - Other" },
-    { value: "Energy - Audit", label: "Energy - Audit" },
-    { value: "Energy - Biomass", label: "Energy - Biomass" },
-    {
-      value: "Energy - Capacity Building",
-      label: "Energy - Capacity Building",
-    },
-    {
-      value: "Energy - Economic and Financial Analysis",
-      label: "Energy - Economic and Financial Analysis",
-    },
-    { value: "Energy - Efficiency", label: "Energy - Efficiency" },
-    {
-      value: "Energy - Engineering/System Design",
-      label: "Energy - Engineering/System Design",
-    },
-    {
-      value: "Energy - Floating Photovoltaics (FPV)",
-      label: "Energy - Floating Photovoltaics (FPV)",
-    },
-    {
-      value: "Energy - Feasibility Study",
-      label: "Energy - Feasibility Study",
-    },
-    { value: "Energy - Green Building", label: "Energy - Green Building" },
-    {
-      value: "Energy - Low Carbon Development",
-      label: "Energy - Low Carbon Development",
-    },
-    { value: "Energy - Modeler", label: "Energy - Modeler" },
-    {
-      value: "Energy - Planning / Policy Analysis",
-      label: "Energy - Planning / Policy Analysis",
-    },
-    {
-      value: "Energy - Resource Assessment",
-      label: "Energy - Resource Assessment",
-    },
-    { value: "Energy - Solar (PV)", label: "Energy - Solar (PV)" },
-    { value: "Energy - Wind Energy", label: "Energy - Wind Energy" },
-    { value: "Energy - Other", label: "Energy - Other" },
-  ];
-
-  const values = [
-    "Integrity: Do what is right, hold yourself and each other accountable",
-    "Passion: Listen and act with empathy by embracing the mission.",
-    "Innovation: Never stop learning, improving, and innovating.",
-    "Together: Respect each other and draw strength from our differences.",
-    "For Better: Do what matters.",
-    "Champion's Heart: Bring joy to the pursuit and learn from failure - crave being the best.",
-  ];
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
   return (
-    <div className="mt-5">
-      <div>
-        <PageTitle
-          pageHeading="Join Our Team"
-          breadcrumbs={[
-            { label: "Home", href: "/" },
-            // { label: "Expertise", href: "/expertise/news" },
-          ]}
-        />
+    <div className="bg-white">
+      <PageTitle
+        pageHeading="Join Our Team"
+        breadcrumbs={[{ label: "Home", href: "/" }]}
+      />
 
-        <div>
+      {/* Hero */}
+      <section className="relative isolate overflow-hidden">
+        <div className="absolute inset-0">
           <Image
-            src={banner}
-            height={0}
-            width={0}
-            className="h-full w-full"
-            alt="section image"
+            src={heroImage}
+            alt="Team collaborating"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
-      </div>
+        <div className="absolute inset-0 bg-linear-to-r from-primary/90 via-primary/70 to-primary/40" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-900/40 via-transparent to-transparent" />
 
-      <div className="mx-auto content-width container px-4 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="md:col-span-2">
-            <SectionHeading heading="Join Our Team" />
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-20 text-white md:flex-row md:items-center md:justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" as const }}
+            className="max-w-3xl"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-wide">
+              Build with us
+            </span>
+            <h1 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+              Shape global solutions with a team that blends innovation and purpose.
+            </h1>
+            <p className="mt-4 text-base text-slate-100 sm:text-lg">
+              Join consultants, researchers, designers, and strategists working across climate, energy, and inclusive development. We tackle complex challenges with curiosity, rigor, and integrity.
+            </p>
 
-            <div className="">
-              <NormalParagraph p="Epsilon Innovation Group Inc. has a dynamic team of experts, scientists, and consultants specialized in climate change, energy, environment, policy and risk analysis. We have more than a dozen active experts engaged in different projects around the world. We also maintain a database of selected experts who are ready to provide high-level services to our clients around the world."></NormalParagraph>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <button
+                onClick={() => (window.location.href = "mailto:hr@epsiloninnovation.com")}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                <FaEnvelope className="text-lg" /> Apply now
+              </button>
+              <button
+                onClick={() => (window.location.href = "mailto:info@epsiloninnovation.com")}
+                className="inline-flex items-center gap-2 rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+              >
+                <FaHandshake className="text-lg" /> Partner with us
+              </button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="grid gap-4 rounded-2xl bg-white/10 p-6 backdrop-blur"
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" as const, delay: 0.1 }}
+          >
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-xl bg-white/15 px-6 py-4 text-sm font-medium"
+              >
+                <p className="text-xs uppercase tracking-wide text-white/70">
+                  {stat.label}
+                </p>
+                <p className="mt-2 text-2xl font-semibold">{stat.value}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Introduction */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <motion.div
+          className="grid gap-10 lg:grid-cols-[1.15fr_1fr]"
+          {...fadeIn}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <div className="space-y-6">
+            <SectionHeading heading="Why join Epsilon Innovation Group?" />
+            <p className="text-base text-slate-600 sm:text-lg">
+              We are a collaborative network of specialists who translate science and human insight into mission outcomes. Whether advancing coastal resilience, building data platforms, or financing the energy transition, we lead with empathy and measurable impact.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-primary/15 bg-primary/5 px-5 py-4"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide text-primary/80">
+                    {stat.label}
+                  </p>
+                  <p className="mt-1 text-xl font-semibold text-primary">
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="md:col-span-2">
-            <SectionHeading heading="How to Apply" />
 
-            <div className="text-neutral-500">
-              <p>
-                If you want to help our clients in solving today's complex
-                challenges, consider joining Epsilon Innovation Groups team,
-                please send us your CV in Word or PDF file specifying your area
-                of "Technical Expertise" in the subject line by e-mail to{" "}
-                <span className="text-blue-800">hr@epsiloninnovation.com</span>.
-              </p>
-              <p className="my-6 text-neutral-600">You may join as:</p>
-              <ul className="list-disc pl-5 space-y-1">
-                {career.map((item, index) => (
-                  <li key={index} className="text-neutral-600 cursor-pointer">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">How to apply</h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              Email your CV (PDF or DOC) with your key area of technical expertise in the subject line to
+              <span className="font-semibold text-primary"> hr@epsiloninnovation.com</span>.
+              We review profiles on a rolling basis and reach out when we see a match.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm text-slate-600">
+              {[
+                "Highlight project experience and regional knowledge",
+                "Share languages, certifications, and sector strengths",
+                "Let us know if you are available for short or long-term engagements",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Career paths */}
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHeading heading="Choose your path" />
+          <p className="mt-4 max-w-3xl text-sm text-slate-600 sm:text-base">
+            Our network blends seasoned experts with emerging talent and strategic collaborators. Explore the pathways below to see how you can contribute.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {careerPaths.map((path) => (
+              <motion.article
+                key={path.title}
+                className="rounded-2xl border border-white/80 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                {...fadeIn}
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {path.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  {path.description}
+                </p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <SectionHeading heading="Areas of impact" />
+        <p className="mt-4 max-w-3xl text-sm text-slate-600 sm:text-base">
+          Tell us where you thrive. We maintain an active roster of experts ready to deploy across these capability areas.
+        </p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {expertise.map((cluster) => (
+            <motion.div
+              key={cluster.title}
+              className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+              {...fadeIn}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                {cluster.title}
+              </h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                {cluster.items.map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-primary" />
                     {item}
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <SectionHeading heading="Core Areas of Expertise" />
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-            <div className="text-neutral-500">
-              <p>
-                You can find Epsilon's priority areas of expertise by scrolling
-                the " Areas of Technical Expertise" tab below.
-              </p>
-              <p className="my-6 text-neutral-600">
-                We look forward to hearing from you
-              </p>
-              <TextHeading2 text2="Areas of Technical Expertise"></TextHeading2>
-              <Space wrap>
-                <Select
-                  placeholder="Select Area of Technical Expertise"
-                  style={{ width: 400 }}
-                  onChange={handleChange}
-                  options={expertiseOptions}
-                />
-              </Space>
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <SectionHeading heading="Why Epsilon Innovation Group?" />
-            <div className="text-neutral-500">
-              <NormalParagraph p="At Epsilon Innovation Group, we believe in building a world where progress and sustainability go hand-in-hand. Our team is committed to creating a diverse, equitable, and inclusive community where each individual has the opportunity to succeed."></NormalParagraph>
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <SectionHeading heading="Empowering with Purpose" />
-            <div className="text-neutral-500">
-              <NormalParagraph p="At Epsilon Innovation Group, we empower peopleâ€”our colleagues, our partners, our clients, our communities â€”to make the world a better place to live and thrive. Itâ€™s our purpose, and itâ€™s what we do every day through the expression of our values."></NormalParagraph>
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <SectionHeading heading="Our Values" />
-            <div className="text-neutral-500">
-              <NormalParagraph p="Our Values are the foundation of everything we do and every action that we take to make our community and planet a better place to live and thrive."></NormalParagraph>
-              <ul className="list-disc pl-5 space-y-1">
-                {values.map((item, index) => (
-                  <li key={index} className="text-neutral-600 cursor-pointer">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <SectionHeading heading="Let's Create Tomorrow Together" />
-            <div className="text-neutral-500">
-              <NormalParagraph p="Looking for your opportunity to change the world? Help us continue putting our values into action, explore our current job openings today, partner with us, and contact us."></NormalParagraph>
-            </div>
+      {/* Values */}
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHeading heading="What guides us" />
+          <p className="mt-4 max-w-3xl text-sm text-slate-600 sm:text-base">
+            We believe great work emerges when diverse voices build trust, challenge the status quo, and stay resilient together.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {values.map((value) => {
+              const Icon = value.icon;
+              return (
+                <motion.div
+                  key={value.title}
+                  className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                  {...fadeIn}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  <div className="mb-4 inline-flex items-center gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Icon className="text-xl" />
+                    </span>
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {value.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    {value.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
-        <div className="flex justify-between items-center gap-5 my-8">
-          <h1
-            onClick={() =>
-              (window.location.href = "mailto:info@epsiloninnovation.com")
-            }
-            className="text-2xl font-semibold text-blue-800 hover:underline"
-          >
-            Apply Now
-          </h1>
-          <h1
-            onClick={() =>
-              (window.location.href = "mailto:info@epsiloninnovation.com")
-            }
-            className="text-2xl font-semibold text-blue-800 hover:underline"
-          >
-            Partner With Us
-          </h1>
-          <h1
-            onClick={() =>
-              (window.location.href = "mailto:info@epsiloninnovation.com")
-            }
-            className="text-2xl font-semibold text-blue-800 hover:underline"
-          >
-            Conatct us
-          </h1>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-4xl px-4 py-16 text-center">
+        <div className="rounded-3xl border border-primary/15 bg-linear-to-r from-primary/10 via-primary/5 to-primary/10 p-12 shadow-sm">
+          <h2 className="text-3xl font-bold text-slate-900">
+            Ready to create what comes next?
+          </h2>
+          <p className="mt-4 text-base text-slate-600">
+            Share your story, your craft, and the questions that keep you curious. We would love to collaborate.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => (window.location.href = "mailto:hr@epsiloninnovation.com")}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+            >
+              <FaEnvelope className="text-lg" /> Apply now
+            </button>
+            <button
+              onClick={() => (window.location.href = "mailto:info@epsiloninnovation.com")}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 px-8 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10"
+            >
+              <FaHandshake className="text-lg" /> Contact us
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
