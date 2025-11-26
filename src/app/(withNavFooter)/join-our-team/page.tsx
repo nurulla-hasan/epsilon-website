@@ -133,7 +133,7 @@ const JoinOurTeam = () => {
         <div className="absolute inset-0 bg-linear-to-r from-primary/90 via-primary/70 to-primary/40" />
         <div className="absolute inset-0 bg-linear-to-t from-slate-900/40 via-transparent to-transparent" />
 
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-20 text-white md:flex-row md:items-center md:justify-between">
+        <div className="relative mx-auto flex max-w-[1500px] flex-col gap-10 px-4 py-20 text-white md:flex-row md:items-center md:justify-between">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
