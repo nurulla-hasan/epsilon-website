@@ -65,16 +65,6 @@ const services: ServiceCardProps[] = [
     description:
       "Sector-specific resilience analytics powered by AI to ensure development stays adaptive and future-proof.",
     icon: PiCirclesThreeLight,
-    highlightList: [
-      "AI Powered Energy Resilience Data Analytics",
-      "AI Powered Agriculture Resilience Data Analytics",
-      "AI Powered Water Resilience Data Analytics",
-      "AI Powered Health Resilience Data Analytics",
-      "AI Powered Financial Resilience Data Analytics",
-      "AI Powered Coastal Resilience Data Analytics",
-      "AI Powered Transport Resilience Data Analytics",
-      "AI Powered Infrastructure Resilience Data Analytics",
-    ],
   },
 ];
 

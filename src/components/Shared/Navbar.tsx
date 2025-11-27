@@ -10,22 +10,13 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FiChevronDown, FiX } from "react-icons/fi";
 import logo from "../../assetes/images/logo.png";
 
-type ChildItem = { label: string; href: string };
+type ChildItem = { label: string; href?: string; children?: ChildItem[] };
 type NavItem = { label: string; href?: string; children?: ChildItem[] };
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/" },
   { label: "AI Services", href: "/ai-services" },
   {
-    label: "About",
-    children: [
-      { label: "Government Contracting", href: "/about/government-contract" },
-      { label: "Projects", href: "/about/projects" },
-      { label: "New Products", href: "/about/new-products" },
-    ],
-  },
-  {
-    label: "Expertise",
+    label: "Industries",
     children: [
       { label: "Energy", href: "/expertise/energy" },
       { label: "Climate Change", href: "/expertise/climate-change" },
@@ -42,14 +33,31 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Risk Analysis", href: "/expertise/risk-analysis" },
     ],
   },
+  { label: "Data Analytics Tools", href: "/dataAnalysis/climate-resilience" },
   {
-    label: "RE System Designs",
+    label: "Technology Innovation",
     children: [
       { label: "FPV-AS", href: "/re-designs/solar" },
       { label: "RE-SWRO", href: "/re-designs/swro" },
     ],
   },
-  { label: "News", href: "/news" },
+  {
+    label: "Company",
+    children: [
+      { label: "About", href: "/about/projects" },
+      {
+        label: "Government Contracting",
+        children: [
+          { label: "Government Contracting", href: "/about/government-contract" },
+          { label: "Company Designation", href: "/about/government-contract#company-designation" },
+        ],
+      },
+      { label: "Awards", href: "/about/government-contract#awards" },
+      { label: "Join Our Team", href: "/join-our-team" },
+      { label: "News", href: "/news" },
+    ],
+  },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const LinkedinBtn = () => (
@@ -192,17 +200,41 @@ export default function Navbar() {
                       )}
 
                       {hasChildren && (
-                        <div className=" absolute left-1/2 -translate-x-1/2 top-full w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
-                          <div className="bg-white border-gray-100 rounded-xl overflow-hidden">
-                            {item.children?.map((child) => (
-                              <Link
-                                key={child.href}
-                                href={child.href}
-                                className="block px-4 py-3 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
-                              >
-                                {child.label}
-                              </Link>
-                            ))}
+                        <div className=" absolute left-1/2 -translate-x-1/2 top-full w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
+                          <div className="bg-white border border-gray-100 rounded-xl py-2">
+                            {item.children?.map((child) =>
+                              child.children?.length ? (
+                                <div
+                                  key={child.label}
+                                  className="relative group/child px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary cursor-default flex items-center justify-between gap-2"
+                                >
+                                  <span>{child.label}</span>
+                                  <FiChevronDown className="text-[10px] text-gray-400 group-hover/child:rotate-180 transition-transform" />
+
+                                  <div className="absolute left-full top-0 w-64 rounded-lg rounded-l-none border border-gray-100 bg-white opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
+                                    <div className="py-2">
+                                      {child.children.map((grand) => (
+                                        <Link
+                                          key={grand.href}
+                                          href={grand.href!}
+                                          className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
+                                        >
+                                          {grand.label}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              ) : (
+                                <Link
+                                  key={child.href ?? child.label}
+                                  href={child.href!}
+                                  className="block px-4 py-2.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
+                                >
+                                  {child.label}
+                                </Link>
+                              ),
+                            )}
                           </div>
                         </div>
                       )}
@@ -279,16 +311,37 @@ export default function Navbar() {
                           <FiChevronDown className="text-gray-400 transition-transform duration-200 group-open:rotate-180" />
                         </summary>
                         <div className="pl-4 mt-1 space-y-1">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              onClick={() => setMobileOpen(false)}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
+                          {item.children.map((child) =>
+                            child.children?.length ? (
+                              <details key={child.label} className="group">
+                                <summary className="flex items-center justify-between w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer">
+                                  <span>{child.label}</span>
+                                  <FiChevronDown className="text-gray-400 transition-transform duration-200 group-open:rotate-180" />
+                                </summary>
+                                <div className="pl-4 mt-1 space-y-1">
+                                  {child.children.map((grand) => (
+                                    <Link
+                                      key={grand.href}
+                                      href={grand.href!}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
+                                    >
+                                      {grand.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </details>
+                            ) : (
+                              <Link
+                                key={child.href}
+                                href={child.href!}
+                                onClick={() => setMobileOpen(false)}
+                                className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
+                              >
+                                {child.label}
+                              </Link>
+                            ),
+                          )}
                         </div>
                       </details>
                     ) : (

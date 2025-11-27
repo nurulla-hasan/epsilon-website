@@ -30,7 +30,9 @@ const tileVariant: Variants = {
 };
 
 const backgroundImageUrl =
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80";
+  "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+// const backgroundImageUrl =
+//   "https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 const HeroSection = () => {
   return (
@@ -49,8 +51,8 @@ const HeroSection = () => {
             filter: "brightness(0.85)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/70 to-blue-900/80" />
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-primary/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-950/90 to-primary/10" />
+        <div className="absolute inset-y-0 left-0 w-1/2 bg-linear-to-r from-primary/30 to-transparent" />
         <div className="absolute -right-12 top-16 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-[1500px] px-6 py-20 lg:flex lg:items-center lg:gap-10">
@@ -62,14 +64,21 @@ const HeroSection = () => {
             Artificial Intelligence and Machine Learning
           </h1>
           <p className="mt-6 text-base text-slate-200 sm:text-lg">
-            Epsilon Innovation Group develops cutting-edge solutions tailored to your specific needs. With our comprehensive suite of AI/ML services—spanning predictive analytics through natural language processing—we help optimize operations, drive innovation, and unlock new possibilities.
+            Epsilon Innovation Group develops cutting-edge solutions tailored to
+            your specific needs. With our comprehensive suite of AI/ML
+            services—spanning predictive analytics through natural language
+            processing—we help optimize operations, drive innovation, and unlock
+            new possibilities.
           </p>
           <p className="mt-4 text-base text-slate-200/90 sm:text-lg">
-            Whether you need to streamline processes, enhance decision-making, or reimagine customer experiences, we are your trusted partner for navigating the digital age. Let us help you achieve unprecedented success in today’s dynamic landscape.
+            Whether you need to streamline processes, enhance decision-making,
+            or reimagine customer experiences, we are your trusted partner for
+            navigating the digital age. Let us help you achieve unprecedented
+            success in today’s dynamic landscape.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/contact"
+              href="mailto:info@epsiloninnovation.com"
               className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
             >
               Start a Conversation
@@ -82,20 +91,7 @@ const HeroSection = () => {
             </Link>
           </div>
         </motion.div>
-        <motion.div
-          className="mt-12 grid flex-1 grid-cols-2 gap-4 text-slate-900 sm:grid-cols-3 lg:mt-0"
-          variants={container}
-        >
-          {["Strategy", "Design", "Delivery", "Automation", "Insights", "Impact"].map((item) => (
-            <motion.div
-              key={item}
-              className="rounded-2xl border border-white/20 bg-white/80 p-4 text-center text-sm font-semibold shadow-xl backdrop-blur"
-              variants={tileVariant}
-            >
-              {item}
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Client requested removing the six descriptor tiles to keep the hero cleaner. */}
       </div>
     </motion.section>
   );

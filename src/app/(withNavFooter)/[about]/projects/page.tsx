@@ -87,7 +87,8 @@ const Projects = () => {
         </div>
 
         <div className="relative mx-auto max-w-[1500px] px-4 py-8">
-          <motion.div
+          <div className="max-w-4xl">
+            <motion.div
             className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] items-start"
             variants={staggerContainer}
           >
@@ -160,6 +161,7 @@ const Projects = () => {
               </motion.span>
             ))}
           </motion.div>
+          </div>
         </div>
       </motion.section>
 

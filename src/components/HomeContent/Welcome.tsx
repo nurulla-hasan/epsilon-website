@@ -1,35 +1,18 @@
 import React from "react";
-import tech from "../../assetes/images/texh.jpeg";
-import Image from "next/image";
 import Link from "next/link";
 import { FiCpu, FiShield, FiWind } from "react-icons/fi";
 
 const Welcome = () => {
   return (
     <section className="relative w-full bg-gray-50">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(45,212,191,0.08),transparent_60%)]" />
-      <div className="relative font-sans mx-auto content-width container py-16 md:py-20 px-6 text-center font-customFont text-primary">
-        <h2 className="text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold tracking-tight mb-4 bg-linear-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(15,23,42,0.03),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(15,23,42,0.03),transparent_60%)]" />
+      <div className="relative font-sans mx-auto content-width container py-16 md:py-20 px-6 text-center text-slate-900">
+        <h2 className="text-3xl md:text-4xl lg:text-[40px] leading-tight font-semibold tracking-tight mb-4">
           Welcome to Epsilon Innovation Group
         </h2>
-        <p className="mx-auto max-w-4xl text-base md:text-lg lg:text-xl text-slate-700/90 leading-relaxed">
+        <p className="mx-auto max-w-4xl text-sm md:text-base lg:text-lg text-slate-700 leading-relaxed">
           Epsilon Innovation Group is a consulting and R&D firm specializing in energy, climate resilience, nature-based solutions, blue economy, and AI-powered analytics for policy and risk assessment. We solve complex technical and policy challenges with evidence-driven insights.
         </p>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <span className="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-blue-100 hover:border-blue-200">
-            AI Analytics
-          </span>
-          <span className="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-emerald-100 hover:border-emerald-200">
-            Energy & Climate
-          </span>
-          <span className="px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-cyan-100 hover:border-cyan-200">
-            Blue Economy
-          </span>
-          <span className="px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100 text-sm font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-purple-100 hover:border-purple-200">
-            Policy & Risk
-          </span>
-        </div>
       </div>
 
       <div className="relative content-width container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-6 pb-12 md:pb-20">
@@ -39,18 +22,21 @@ const Welcome = () => {
             description:
               "Leverage cutting-edge machine learning and geospatial analytics to inform resilient decisions.",
             icon: <FiCpu className="w-6 h-6 text-blue-600" />,
+            href: "/ai-services",
           },
           {
             title: "Sustainable Innovation",
             description:
               "Nature-based designs and energy optimization to deliver measurable long-term impact.",
             icon: <FiWind className="w-6 h-6 text-emerald-600" />,
+            href: "/expertise/energy",
           },
           {
             title: "Policy & Risk Analysis",
             description:
               "Evidence-based policy support and risk modeling to navigate complex regulations.",
             icon: <FiShield className="w-6 h-6 text-cyan-600" />,
+            href: "/expertise/risk-analysis",
           },
         ].map((card) => (
           <div
@@ -70,7 +56,10 @@ const Welcome = () => {
                 {card.description}
               </p>
               <div className="mt-5">
-                <Link href="#" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-800">
+                <Link
+                  href={card.href}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-800"
+                >
                   Learn more
                   <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
                 </Link>
@@ -96,50 +85,6 @@ const Welcome = () => {
             We align strategy, technology, and policy to accelerate climate resilience, equitable energy systems, and
             AI-driven insights for governments, communities, and private partners.
           </p>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {[
-              "Energy & Climate",
-              "Blue Economy",
-              "AI Analytics",
-              "Policy & Risk",
-            ].map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/expertise/energy"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm md:text-base font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
-            >
-              Explore Our Expertise
-            </Link>
-            <Link
-              href="/contact-us"
-              className="inline-flex items-center justify-center rounded-full border border-white/50 px-6 py-3 text-sm md:text-base font-semibold text-white transition hover:bg-white/10"
-            >
-              Get in Touch
-            </Link>
-          </div>
-
-          <div className="mt-10 grid gap-6 text-left text-white/80 sm:grid-cols-3">
-            {[
-              { label: "Impact Studies", value: "120+" },
-              { label: "Countries Served", value: "18" },
-              { label: "Cross-Sector Programs", value: "35" },
-            ].map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <p className="text-3xl font-semibold text-white">{stat.value}</p>
-                <p className="text-sm uppercase tracking-wide text-white/70">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

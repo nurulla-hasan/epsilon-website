@@ -90,7 +90,7 @@ const NewProduct = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-100">
+    <div className="bg-linear-to-b from-slate-50 via-white to-slate-100">
       <PageTitle
         pageHeading="Innovative Solutions & Tools"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Solutions" }]}
@@ -102,7 +102,7 @@ const NewProduct = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
-        className="relative overflow-hidden bg-gradient-to-r from-blue-900 to-cyan-800 text-white"
+        className="relative overflow-hidden bg-linear-to-r from-blue-900 to-cyan-800 text-white"
       >
         <div className="absolute inset-0 opacity-20">
           <Image
@@ -206,7 +206,7 @@ const NewProduct = () => {
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
                 <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-primary">
                   {tool.category}
                 </div>

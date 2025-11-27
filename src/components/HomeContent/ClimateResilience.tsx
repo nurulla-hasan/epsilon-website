@@ -129,22 +129,22 @@ const ClimateResilience: React.FC = () => {
       </div>
 
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center px-6 py-28 bg-linear-to-r from-slate-900 via-slate-800 to-blue-900"
+        className="relative flex flex-col items-center justify-center text-center px-6 py-20 bg-linear-to-r from-slate-50 via-white to-blue-50"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
       >
         <motion.div
-          className="max-w-3xl mx-auto text-white"
+          className="max-w-3xl mx-auto text-slate-900"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h2 className="font-sans text-3xl font-bold mb-4 bg-clip-text text-white">
+          <h2 className="font-sans text-3xl font-bold mb-4">
             Let’s Connect and Collaborate
           </h2>
-          <p className="text-base md:text-lg text-gray-200 leading-relaxed mb-10">
+          <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-10">
             To learn more about our services, teaming, career, and internship
             opportunities, get in touch with us. We’re always eager to
             collaborate on innovative solutions.
@@ -158,7 +158,7 @@ const ClimateResilience: React.FC = () => {
             <Space size="middle" wrap>
               <button
                 type="button"
-                className="flex justify-center items-center gap-2 rounded px-6 py-3 font-medium shadow-lg transition-all duration-300 hover:shadow-xl bg-white text-[#396cbb] hover:bg-transparent hover:text-white hover:border"
+                className="flex justify-center items-center gap-2 rounded px-6 py-3 font-medium shadow-lg transition-all duration-300 hover:shadow-xl bg-primary text-white hover:bg-primary/90"
                 onClick={() =>
                   (window.location.href = "mailto:info@epsiloninnovation.com")
                 }
@@ -169,7 +169,7 @@ const ClimateResilience: React.FC = () => {
               <Link href="/join-our-team">
                 <button
                   type="button"
-                  className="flex justify-center items-center gap-2 rounded px-6 py-3 font-medium shadow-lg transition-all duration-300 hover:shadow-xl bg-white text-[#396cbb] hover:bg-transparent hover:text-white hover:border"
+                  className="flex justify-center items-center gap-2 rounded px-6 py-3 font-medium shadow-lg transition-all duration-300 hover:shadow-xl border border-primary/30 bg-white text-primary hover:bg-primary/5"
                 >
                   <FaUser />
                   Join Our Team
@@ -178,7 +178,7 @@ const ClimateResilience: React.FC = () => {
               <Link href="https://www.linkedin.com/company/epsilon-innovation-group-inc/">
                 <button
                   type="button"
-                  className=" flex justify-center items-center gap-2 rounded px-6 py-3 font-medium shadow-lg transition-all duration-300 hover:shadow-xl bg-white text-[#396cbb] hover:bg-transparent hover:text-white hover:border"
+                  className="flex justify-center items-center gap-2 rounded px-6 py-3 font-medium shadow-lg transition-all duration-300 hover:shadow-xl border border-primary/30 bg-white text-primary hover:bg-primary/5"
                 >
                   <FaHeart />
                   Follow Us

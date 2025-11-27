@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Autoplay,
@@ -19,7 +19,6 @@ import "swiper/css/effect-fade";
 import slide1 from "../../assetes/images/climateslider.jpg";
 import slide2 from "../../assetes/images/NatureBasedSolutionsApril28.jpg";
 import slide3 from "../../assetes/images/tool.jpg";
-import slide5 from "../../assetes/images/energy.jpg";
 import slide6 from "../../assetes/images/3.jpg";
 import slide7 from "../../assetes/images/5.jpg";
 
@@ -40,13 +39,12 @@ const slides: Slide[] = [
   {
     image: slide1,
     alt: "Climate risk assessment",
-    eyebrow: "Data-driven advisory",
     title: "Climate Risk and Adaptation Analysis",
     subtitle:
       "Advising clients in identifying climate risks and developing adaptation strategies.",
     ctaLabel: "Explore Our Solutions",
     ctaHref: "/",
-    secondaryCtaLabel: "Talk to an expert",
+    secondaryCtaLabel: "Talk To Our Expert",
     secondaryCtaHref: "/contact-us",
     highlights: [
       "Scenario-based impact modeling",
@@ -57,14 +55,13 @@ const slides: Slide[] = [
   {
     image: slide2,
     alt: "Forest and river landscape",
-    eyebrow: "Nature first",
     title: "Nature-Based Solutions",
     subtitle:
       "Applying nature-based solutions to mitigate climate risks and improve livelihoods.",
     ctaLabel: "Explore Our Solutions",
     ctaHref: "/expertise/nature-based-solution",
-    secondaryCtaLabel: "Our expertise",
-    secondaryCtaHref: "/expertise",
+    secondaryCtaLabel: "Talk To Our Expert",
+    secondaryCtaHref: "/contact-us",
     highlights: [
       "Mangrove regeneration",
       "Blue carbon finance",
@@ -74,14 +71,13 @@ const slides: Slide[] = [
   {
     image: slide3,
     alt: "Clean energy turbines",
-    eyebrow: "Intelligent tooling",
     title: "Energy Economic Analysis Tools",
     subtitle:
       "Helping clients analyze the economics of their energy investments.",
     ctaLabel: "Explore Our Solutions",
     ctaHref: "/expertise/energy",
-    secondaryCtaLabel: "View tools",
-    secondaryCtaHref: "/dataAnalysis/energy-economics-analysis-tool",
+    secondaryCtaLabel: "Talk To Our Expert",
+    secondaryCtaHref: "/contact-us",
     highlights: [
       "Revenue stack modeling",
       "Multi-market sensitivity",
@@ -89,16 +85,17 @@ const slides: Slide[] = [
     ],
   },
   {
-    image: slide5,
-    alt: "Renewable power generation",
-    eyebrow: "Floating innovation",
+    image: {
+      src: "https://images.unsplash.com/photo-1722951668719-e91f8db1d3f7?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    } as unknown as StaticImageData,
+    alt: "Floating solar photovoltaic system on water",
     title: "Floating Photovoltaics (FPV) System Designs",
     subtitle:
       "Designing FPV-powered systems for power, water quality, and aquaculture.",
     ctaLabel: "Explore Our Solutions",
     ctaHref: "/expertise/energy",
-    secondaryCtaLabel: "View methodology",
-    secondaryCtaHref: "/expertise/energy#fpv",
+    secondaryCtaLabel: "Talk To Our Expert",
+    secondaryCtaHref: "/contact-us",
     highlights: [
       "Hydrodynamic simulations",
       "Yield optimization",
@@ -108,13 +105,12 @@ const slides: Slide[] = [
   {
     image: slide6,
     alt: "Ocean and coastal resilience",
-    eyebrow: "Water security",
     title: "Renewable Energy Powered SWRO Systems",
     subtitle: "Delivering clean water using clean energy technology.",
     ctaLabel: "Explore Our Solutions",
     ctaHref: "/re-designs/swro",
-    secondaryCtaLabel: "Join our team",
-    secondaryCtaHref: "/join-our-team",
+    secondaryCtaLabel: "Talk To Our Expert",
+    secondaryCtaHref: "/contact-us",
     highlights: [
       "Solar + storage hybrids",
       "Low-carbon desalination",
@@ -124,13 +120,12 @@ const slides: Slide[] = [
   {
     image: slide7,
     alt: "Global climate innovation",
-    eyebrow: "Policy foresight",
     title: "Policy Analysis",
     subtitle: "Policy insights for environment, energy, and climate change.",
     ctaLabel: "Explore Our Solutions",
     ctaHref: "/expertise/policy-analysis",
-    secondaryCtaLabel: "Our expertise",
-    secondaryCtaHref: "/expertise",
+    secondaryCtaLabel: "Talk To Our Expert",
+    secondaryCtaHref: "/contact-us",
     highlights: [
       "Regulatory impact scans",
       "Stakeholder alignment",
@@ -139,62 +134,12 @@ const slides: Slide[] = [
   },
 ];
 
-const titleVariant: Variants = {
-  hidden: { opacity: 0, y: -120 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.8, 0, 0.2, 1], delay: 0 },
-  },
-};
-
-const eyebrowVariant: Variants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1], delay: 0.05 },
-  },
-};
-
-const subtitleVariant: Variants = {
-  hidden: { opacity: 0, x: -80 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: [0.65, 0, 0.35, 1], delay: 0.15 },
-  },
-};
-
 const buttonVariant: Variants = {
   hidden: { opacity: 0, y: 120 },
   visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: [0.8, 0, 0.2, 1], delay: 0.3 },
-  },
-};
-
-const listContainerVariant: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.6, 0, 0.2, 1],
-      delayChildren: 0.25,
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const listItemVariant: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.65, 0, 0.35, 1] },
   },
 };
 
@@ -249,7 +194,7 @@ export default function Banner() {
               />
 
               <div className="absolute inset-0 " />
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-1/3 to-transparent" />
 
               <div className="absolute inset-0 flex items-center justify-start px-5 sm:px-8 md:px-12 lg:px-20">
                 <div className="relative w-full max-w-[1500px] mx-auto px-1 sm:px-0">
@@ -260,47 +205,6 @@ export default function Banner() {
                       animate="visible"
                       key={idx}
                     >
-                      {s.eyebrow && (
-                        <motion.span
-                          variants={eyebrowVariant}
-                          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 sm:px-4 text-xs sm:text-[0.8rem] font-medium sm:font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/80 backdrop-blur"
-                        >
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                          {s.eyebrow}
-                        </motion.span>
-                      )}
-                      <motion.h1
-                        variants={titleVariant}
-                        className="font-sans text-[36px] xs:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[62px] font-semibold leading-[1.15] tracking-tight drop-shadow-xl"
-                      >
-                        {s.title}
-                      </motion.h1>
-
-                      <motion.p
-                        variants={subtitleVariant}
-                        className="max-w-3xl mt-4 sm:mt-5 md:mt-6 text-sm sm:text-base md:text-xl text-gray-100 leading-relaxed"
-                      >
-                        {s.subtitle}
-                      </motion.p>
-
-                      {s.highlights && (
-                        <motion.ul
-                          variants={listContainerVariant}
-                          className="flex flex-wrap gap-2 sm:gap-3 mt-5 sm:mt-6 text-xs sm:text-sm"
-                        >
-                          {s.highlights.map((point) => (
-                            <motion.li
-                              key={point}
-                              variants={listItemVariant}
-                              className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full border-white/10 bg-white/10 text-white/90 backdrop-blur-md whitespace-nowrap"
-                            >
-                              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 shrink-0" />
-                              <span className="truncate">{point}</span>
-                            </motion.li>
-                          ))}
-                        </motion.ul>
-                      )}
-
                       <motion.div
                         variants={buttonVariant}
                         className="flex flex-wrap items-center gap-3 sm:gap-4 mt-7 sm:mt-8"
@@ -333,6 +237,10 @@ export default function Banner() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Navigation arrows */}
+      <div className="swiper-button-prev" />
+      <div className="swiper-button-next" />
     </section>
   );
 }

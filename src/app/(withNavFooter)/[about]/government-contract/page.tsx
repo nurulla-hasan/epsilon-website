@@ -141,7 +141,7 @@ const GovernmentContract = () => {
                 </motion.div>
               </motion.div>
 
-              <motion.div variants={fadeInUp}>
+              <motion.div id="company-designation" variants={fadeInUp}>
                 <TextHeading text="Company Designation" />
                 <p className="mt-3 text-slate-700">
                   Epsilon Innovation Group's NAICS CODES (United States
@@ -158,6 +158,27 @@ const GovernmentContract = () => {
                     </motion.div>
                   ))}
                 </motion.div>
+              </motion.div>
+
+              <motion.div id="awards" className="pt-6 border-t border-slate-100" variants={fadeInUp}>
+                <TextHeading text="Awards" />
+                <p className="mt-3 text-slate-700">
+                  Epsilon Innovation Group and its team members have been recognized for contributions to climate
+                  resilience, clean energy transition, and evidence-based policy support across multiple programs and
+                  regions.
+                </p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {["Climate and Energy Program Excellence", "Innovation in Data-Driven Policy Advisory"].map(
+                    (item) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-primary/15 bg-primary/5 px-4 py-3 text-sm font-semibold text-slate-800"
+                      >
+                        {item}
+                      </div>
+                    ),
+                  )}
+                </div>
               </motion.div>
             </motion.div>
           </motion.article>

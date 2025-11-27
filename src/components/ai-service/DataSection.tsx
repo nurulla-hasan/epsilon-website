@@ -51,20 +51,7 @@ const DataSection = () => {
             intelligence so your teams can move faster with confidence.
           </p>
         </motion.div>
-        <motion.div
-          className="mt-10 flex flex-1 flex-wrap justify-center gap-4 lg:mt-0"
-          variants={pillContainer}
-        >
-          {["Data Lakes", "Digital Twins", "ML Ops", "Human-Centered Dashboards"].map((item) => (
-            <motion.div
-              key={item}
-              className="min-w-[140px] rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-5 text-center text-sm font-semibold text-slate-700 shadow-sm"
-              variants={pillVariant}
-            >
-              {item}
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Client requested removing the four supporting tiles to keep this section text-only. */}
       </div>
     </motion.section>
   );

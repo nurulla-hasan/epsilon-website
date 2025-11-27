@@ -86,18 +86,8 @@ const SOLUTIONS: Solution[] = [
   },
 ];
 
-const impactHighlights = [
-  { label: "Deployments", value: "120+", detail: "multi-country programs" },
-  { label: "Impact capital", value: "$3B", detail: "mobilized financing" },
-  { label: "Client rating", value: "4.9/5", detail: "average satisfaction" },
-];
-
-const focusTags = [
-  "Climate adaptation",
-  "Energy transition",
-  "Blue economy",
-  "Data & AI",
-];
+// impactHighlights and focusTags were part of the previous design (stats + chips)
+// Client requested a simpler layout without these extra phrases and metrics.
 
 const FeaturedSolutions: React.FC = () => {
   return (
@@ -124,40 +114,14 @@ const FeaturedSolutions: React.FC = () => {
             id="featured-solutions-heading"
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Innovative Solutions for a Sustainable Future
+            Future Innovative Solutions
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Our team of experts delivers cutting-edge solutions to tackle the
             world's most pressing environmental challenges.
           </p>
         </div>
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex flex-wrap justify-center gap-2 rounded-xl bg-slate-50 p-1.5">
-            {focusTags.map((tag) => (
-              <button
-                key={tag}
-                className="px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-white hover:shadow-sm"
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-12">
-          {impactHighlights.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <p className="text-sm font-medium text-gray-500 mb-1">
-                {item.label}
-              </p>
-              <p className="text-2xl font-bold text-gray-900">{item.value}</p>
-              <p className="text-sm text-gray-500 mt-1">{item.detail}</p>
-            </div>
-          ))}
-        </div>
+        {/* Client requested removing focus tags and impact metrics; keeping only the six solution cards below. */}
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {SOLUTIONS.map((item, index) => (
