@@ -205,6 +205,23 @@ export default function Banner() {
                       animate="visible"
                       key={idx}
                     >
+                      {/* Title */}
+                      <motion.h1
+                        variants={buttonVariant}
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-3xl font-bold leading-tight drop-shadow-lg"
+                      >
+                        {s.title}
+                      </motion.h1>
+
+                      {/* Subtitle */}
+                      <motion.p
+                        variants={buttonVariant}
+                        className="mt-3 text-base sm:text-lg md:text-2xl max-w-2xl text-white/90 drop-shadow"
+                      >
+                        {s.subtitle}
+                      </motion.p>
+
+                      {/* CTA Buttons */}
                       <motion.div
                         variants={buttonVariant}
                         className="flex flex-wrap items-center gap-3 sm:gap-4 mt-7 sm:mt-8"
@@ -213,7 +230,7 @@ export default function Banner() {
                           whileHover={{ scale: 1.04 }}
                           whileTap={{ scale: 0.96 }}
                           href={s.ctaHref}
-                          className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-[#1f5eff] to-[#00d4ff] px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_10px_40px_rgba(31,94,255,0.35)] transition active:scale-95"
+                          className="inline-flex items-center justify-center rounded-sm bg-linear-to-r from-[#1f5eff] to-[#00d4ff] px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_10px_40px_rgba(31,94,255,0.35)] transition active:scale-95"
                         >
                           {s.ctaLabel}
                         </motion.a>
@@ -223,7 +240,7 @@ export default function Banner() {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.96 }}
                             href={s.secondaryCtaHref}
-                            className="inline-flex items-center justify-center py-2.5 sm:py-3 text-sm sm:text-base font-semibold border rounded-full border-white/50 px-5 sm:px-6 text-white/90 backdrop-blur active:scale-95"
+                            className="inline-flex items-center justify-center py-2.5 sm:py-3 text-sm sm:text-base font-semibold border rounded-sm border-white/50 px-5 sm:px-6 text-white/90 backdrop-blur active:scale-95"
                           >
                             {s.secondaryCtaLabel}
                           </motion.a>

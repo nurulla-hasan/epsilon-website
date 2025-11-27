@@ -33,7 +33,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Risk Analysis", href: "/expertise/risk-analysis" },
     ],
   },
-  { label: "Data Analytics Tools", href: "/dataAnalysis/climate-resilience" },
+  // { label: "Data Analytics Tools", href: "/dataAnalysis/climate-resilience" },
   {
     label: "Technology Innovation",
     children: [
