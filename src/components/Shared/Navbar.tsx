@@ -107,7 +107,7 @@ export default function Navbar() {
       : false;
 
   return (
-    <div className="md:h-[120px] h-[66px]">
+    <div className="md:h-[112px] h-[66px]">
       <motion.header
         ref={headerRef}
         className="fixed py-3 md:py-1 inset-x-0 top-0 z-50 w-full border-b border-white/30 bg-white/50 backdrop-blur-2xl shadow-sm"
@@ -121,13 +121,13 @@ export default function Navbar() {
             height: shrink ? 0 : "auto",
           }}
           transition={{ duration: 0.4 }}
-          className="hidden md:flex justify-end content-width mx-auto px-8 text-[12px] font-semibold text-primary tracking-wide overflow-hidden"
+          className="hidden md:flex justify-end content-width mx-auto px-4 text-[12px] font-semibold text-primary tracking-wide overflow-hidden"
         >
           <div className="flex items-center gap-3 rounded-full bg-linear-to-r from-blue-100 via-white to-indigo-100 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-600">
             <span className="hidden lg:block">
-              Strategy | Innovation | Impact
+              Research | Innovation | Impact
             </span>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <Link
                 href="/join-our-team"
                 className="rounded-full bg-white/80 px-4 py-1 text-[11px] font-semibold text-primary transition hover:bg-linear-to-r hover:from-primary hover:to-blue-600 hover:text-white"
@@ -142,7 +142,7 @@ export default function Navbar() {
               >
                 Contact Us
               </button>
-            </div>
+            </div> */}
           </div>
         </motion.div>
 
