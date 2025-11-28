@@ -22,7 +22,7 @@ const nature = {
   height: 1080,
 };
 const wetlands = {
-  src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  src: "https://plus.unsplash.com/premium_photo-1695715587842-3855d52ac461?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   width: 800,
   height: 600,
 };
@@ -103,66 +103,36 @@ const scaleIn: Variants = {
 };
 
 const NatureBasedSolution = () => {
-  const natureServices = [
+  const capabilityHighlights: { title: string; description: string; icon: IconType }[] = [
     {
       title: "Ecosystem Restoration",
-      icon: FaTree,
       description:
-        "Comprehensive restoration of degraded ecosystems to enhance biodiversity and resilience.",
-      badge: "Ecological renewal",
-      focusAreas: [
-        "Forest landscape restoration",
-        "Wetland rehabilitation",
-        "Mangrove ecosystem recovery",
-      ],
-      items: [
-        "Native species reforestation",
-        "Habitat connectivity enhancement",
-        "Soil health improvement",
-        "Invasive species management",
-        "Biodiversity monitoring",
-        "Community stewardship programs",
-      ],
+        "Comprehensive restoration of degraded ecosystems to enhance biodiversity and resilience through native species reforestation and habitat connectivity.",
+      icon: FaTree,
     },
     {
       title: "Climate Resilience",
-      icon: FaCloud,
       description:
-        "Nature-based approaches to climate adaptation and mitigation through ecosystem services.",
-      badge: "Climate adaptation",
-      focusAreas: [
-        "Carbon sequestration",
-        "Natural flood management",
-        "Urban heat island mitigation",
-      ],
-      items: [
-        "Blue carbon ecosystems",
-        "Green infrastructure design",
-        "Nature-based flood defenses",
-        "Climate-smart agriculture",
-        "Carbon accounting methodologies",
-        "Adaptive management frameworks",
-      ],
+        "Nature-based approaches to climate adaptation and mitigation through blue carbon ecosystems and green infrastructure design.",
+      icon: FaCloud,
     },
     {
       title: "Sustainable Land Management",
-      icon: FaLeaf,
       description:
-        "Integrated land use planning that balances development with conservation priorities.",
-      badge: "Landscape planning",
-      focusAreas: [
-        "Sustainable agriculture",
-        "Watershed management",
-        "Coastal zone management",
-      ],
-      items: [
-        "Agroecological practices",
-        "Soil conservation techniques",
-        "Water resource management",
-        "Landscape connectivity planning",
-        "Sustainable forestry practices",
-        "Ecosystem service valuation",
-      ],
+        "Integrated land use planning that balances development with conservation priorities through agroecological practices and watershed management.",
+      icon: FaLeaf,
+    },
+    {
+      title: "Community Stewardship",
+      description:
+        "Empowering local communities through sustainable livelihood programs and ecosystem service valuation for long-term conservation success.",
+      icon: FaHeart,
+    },
+    {
+      title: "Carbon Sequestration",
+      description:
+        "Measuring and enhancing carbon storage in forest, wetland, and coastal ecosystems through verified monitoring methodologies.",
+      icon: FaRecycle,
     },
   ];
 
@@ -324,150 +294,43 @@ const NatureBasedSolution = () => {
       </motion.section>
 
       <motion.section
-        className="bg-slate-50 py-16"
+        className="mx-auto content-width px-4 py-16"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
-          <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Nature-Based Solutions" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              We partner with communities, governments, and organizations to
-              implement nature-based programs that interweave ecological
-              restoration, climate resilience, and long-term stewardship.
-            </p>
-          </motion.div>
-          <motion.div
-            className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_1fr]"
-            variants={staggerContainer}
-          >
-            <div className="col-span-2">
-              <motion.div
-                className="relative overflow-hidden rounded-3xl border border-primary/20 bg-linear-to-br from-primary/10 via-primary/5 to-primary/3 p-8 shadow-sm"
-                variants={fadeInUp}
-                whileHover={{
-                  y: -6,
-                  boxShadow: "0 30px 60px rgba(37,99,235,0.15)",
+        <motion.div
+          className="grid gap-6 sm:grid-cols-3"
+          variants={staggerContainer}
+        >
+          {serviceHighlights.map((highlight) => (
+            <motion.div
+              key={highlight.label}
+              className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              variants={scaleIn}
+              whileHover={{
+                y: -8,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                transition: { duration: 0.3, type: "spring", stiffness: 300 },
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-primary via-emerald-400 to-sky-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <motion.p
+                className="text-3xl font-semibold text-slate-900"
+                whileInView={{
+                  scale: [1, 1.2, 1],
+                  transition: { duration: 0.6, delay: 0.2 },
                 }}
               >
-                <div
-                  className="absolute inset-y-0 right-0 hidden w-1/4 bg-linear-to-b from-primary/10 via-transparent to-transparent lg:block"
-                  aria-hidden
-                />
-                <div className="relative z-10 flex flex-col gap-6">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-                    Integrated delivery model
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary sm:text-3xl">
-                    From diagnostic insight to community stewardship, our teams
-                    guide full project lifecycles.
-                  </h3>
-                  <p className="text-sm leading-relaxed text-primary/80 sm:text-base">
-                    We assemble multidisciplinary expertise—ecologists,
-                    landscape architects, finance specialists, and community
-                    facilitators—to unlock nature-based pathways tailored to
-                    each landscape.
-                  </p>
-                  <div className="grid gap-4 sm:grid-cols-3">
-                    {serviceHighlights.map((highlight) => (
-                      <div
-                        key={highlight.label}
-                        className="rounded-2xl border border-white/60 bg-white/70 p-4 backdrop-blur-sm"
-                      >
-                        <p className="text-xs font-semibold uppercase tracking-wide text-primary">
-                          {highlight.label}
-                        </p>
-                        <p className="mt-2 text-2xl font-semibold text-primary">
-                          {highlight.value}
-                        </p>
-                        <p className="mt-2 text-xs text-primary/70">
-                          {highlight.detail}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <ul className="grid gap-3 text-sm text-primary/80 sm:grid-cols-2">
-                    {[
-                      "Landscape diagnostics",
-                      "Participatory co-design",
-                      "Implementation roadmaps",
-                      "Performance monitoring",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <FaCheckCircle className="text-primary" aria-hidden />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </div>
-            <motion.div
-              className="space-y-6 col-span-2"
-              variants={staggerContainer}
-            >
-              {natureServices.map((service, index) => (
-                <motion.article
-                  key={service.title}
-                  className="relative overflow-hidden rounded-3xl border border-primary/20 bg-white/90 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
-                  variants={fadeInUp}
-                  whileHover={{ y: -4 }}
-                >
-                  <div className="flex items-start gap-4">
-                    <motion.div
-                      className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-primary/20 to-primary/30 text-primary"
-                      whileHover={{ rotate: 180, scale: 1.05 }}
-                    >
-                      <service.icon className="text-xl" aria-hidden />
-                    </motion.div>
-                    <div>
-                      <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
-                        <span className="rounded-full bg-primary/10 px-2 py-0.5">
-                          {service.badge}
-                        </span>
-                        <span className="text-primary/70">
-                          Service {index + 1}
-                        </span>
-                      </div>
-                      <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                        {service.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    {service.focusAreas?.map((point) => (
-                      <span
-                        key={point}
-                        className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                      >
-                        <FaLeaf className="text-sm" aria-hidden /> {point}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                    {service.items.slice(0, 4).map((item) => (
-                      <div
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-slate-600"
-                      >
-                        <FaCheckCircle
-                          className="mt-0.5 text-primary"
-                          aria-hidden
-                        />
-                        <span className="leading-snug">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.article>
-              ))}
+                {highlight.value}
+              </motion.p>
+              <p className="mt-1 text-sm font-medium uppercase tracking-wide text-primary">{highlight.label}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{highlight.detail}</p>
             </motion.div>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </motion.section>
 
       <motion.section
@@ -479,95 +342,211 @@ const NatureBasedSolution = () => {
       >
         <div className="mx-auto content-width px-4">
           <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Sample Projects" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              Discover how our nature-based solutions are creating resilient
-              ecosystems, protecting communities, and restoring biodiversity
-              across diverse landscapes and seascapes.
-            </p>
+            <SectionHeading heading="Our Capabilities" />
           </motion.div>
-          <motion.div variants={staggerContainer} className="mt-12 space-y-10">
-            {sampleProjects.map((project, index) => {
-              const reversed = index % 2 === 1;
-
-              return (
-                <motion.article
-                  key={project.title}
-                  className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
-                  variants={fadeInUp}
-                  whileHover={{ y: -6 }}
+          <motion.div
+            className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            variants={staggerContainer}
+          >
+            {capabilityHighlights.map((item) => (
+              <motion.div
+                key={item.title}
+                className="h-full rounded-2xl border border-white/80 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                variants={fadeInUp}
+                whileHover={{
+                  y: -4,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+                }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <motion.div
+                  className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-emerald-200/30 to-emerald-500/30 text-primary"
+                  whileHover={{
+                    rotate: 180,
+                    scale: 1.05,
+                  }}
                 >
-                  <div
-                    className={`grid gap-0 lg:grid-cols-5 ${
-                      reversed ? "lg:[&>div:first-child]:order-2" : ""
-                    }`}
-                  >
-                    <motion.div
-                      className="relative h-full overflow-hidden lg:col-span-2"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <div
-                        className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
-                        aria-hidden
-                      />
-                      <Image
-                        src={project.image.src}
-                        alt={project.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        className="h-full w-full object-cover"
-                      />
-                    </motion.div>
-                    <div className="flex flex-col justify-between gap-6 p-8 lg:col-span-3">
-                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-primary">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaMountain className="text-sm" aria-hidden />{" "}
-                          {project.region}
-                        </span>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaRecycle className="text-sm" aria-hidden />{" "}
-                          {project.impact}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3">
-                          <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-primary/20 to-primary/30 text-primary">
-                            <project.icon className="text-lg" aria-hidden />
-                          </div>
-                          <h3 className="text-xl font-semibold text-slate-900">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                          {project.description}
-                        </p>
-                      </div>
-                      <div className="rounded-2xl bg-slate-50/80 p-5">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                          Project highlights
-                        </p>
-                        <ul className="mt-3 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                          {project.highlights.map((highlight) => (
-                            <li
-                              key={highlight}
-                              className="flex items-start gap-2"
-                            >
-                              <FaCheckCircle
-                                className="mt-0.5 text-emerald-500"
-                                aria-hidden
-                              />
-                              <span className="leading-snug">{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
+                  <item.icon className="text-xl" aria-hidden />
+                </motion.div>
+                <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
+      </motion.section>
+
+      <motion.section
+        className="mx-auto content-width px-4 py-16"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div
+          className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]"
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeInUp}>
+            <SectionHeading heading="Services We Deliver" />
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+              We partner with communities, governments, and organizations to
+              deliver comprehensive nature-based solutions from assessment to
+              implementation and long-term monitoring.
+            </p>
+            <motion.div
+              className="mt-8 grid gap-3 sm:grid-cols-2"
+              variants={staggerContainer}
+            >
+              {[
+                "Ecosystem restoration and rehabilitation",
+                "Biodiversity assessment and monitoring",
+                "Climate resilience planning and adaptation",
+                "Sustainable land management practices",
+                "Carbon sequestration measurement and verification",
+                "Community-based natural resource management",
+                "Watershed management and restoration",
+                "Coastal zone protection and rehabilitation",
+                "Urban green infrastructure development",
+                "Nature-based flood and erosion control",
+                "Forest landscape restoration and agroforestry",
+                "Wetland creation and enhancement projects",
+              ].map((service) => (
+                <motion.div
+                  key={service}
+                  className="flex items-start gap-3"
+                  variants={fadeInUp}
+                >
+                  <FaCheckCircle className="mt-0.5 text-primary" aria-hidden />
+                  <span className="text-sm leading-relaxed text-slate-700">{service}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="relative"
+            variants={slideInLeft}
+          >
+            <motion.div
+              className="overflow-hidden rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={wetlands.src}
+                alt="Wetland restoration project"
+                width={wetlands.width}
+                height={wetlands.height}
+                className="h-full w-full object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        className="mx-auto content-width px-4 py-20"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeading heading="Sample Projects" />
+          <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
+            Discover how our nature-based solutions are creating resilient
+            ecosystems, protecting communities, and restoring biodiversity
+            across diverse landscapes and seascapes.
+          </p>
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-10 lg:grid-cols-2"
+          variants={staggerContainer}
+        >
+          {sampleProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              className="group overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+              variants={fadeInUp}
+              whileHover={{
+                y: -8,
+                scale: 1.01,
+                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
+                  whileHover={{
+                    opacity: 0.6,
+                    transition: { duration: 0.3 },
+                  }}
+                />
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                >
+                  <Image
+                    src={project.image.src}
+                    alt={project.alt}
+                    width={project.image.width}
+                    height={project.image.height}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+              </div>
+              <div className="space-y-4 p-6">
+                <div className="flex flex-wrap gap-3 text-xs font-medium text-primary">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaMountain className="text-sm" aria-hidden /> {project.region}
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaRecycle className="text-sm" aria-hidden /> {project.impact}
+                  </span>
+                </div>
+                <motion.div
+                  className="flex items-center gap-3"
+                  variants={scaleIn}
+                >
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-primary/20 to-primary/30 text-primary">
+                    <project.icon className="text-lg" aria-hidden />
+                  </div>
+                  <motion.h3
+                    className="text-xl font-semibold text-slate-900"
+                    whileHover={{
+                      color: "#1e40af",
+                      x: 4,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                </motion.div>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {project.description}
+                </p>
+                <div className="rounded-2xl bg-slate-50/80 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                    Project highlights
+                  </p>
+                  <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2">
+                        <FaCheckCircle
+                          className="mt-0.5 text-emerald-500"
+                          aria-hidden
+                        />
+                        <span className="leading-snug">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
     </div>
   );

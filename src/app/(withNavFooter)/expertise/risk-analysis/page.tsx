@@ -2,6 +2,7 @@
 import PageTitle from "@/components/Shared/pageTitle";
 import SectionHeading from "@/components/Shared/SectionHeading";
 import Image from "next/image";
+import type { IconType } from "react-icons";
 import {
   FaShieldAlt,
   FaChartLine,
@@ -13,13 +14,13 @@ import {
   FaTools,
   FaCheckCircle,
   FaCalculator,
-  FaMicroscope,
   FaFileAlt,
+  FaCog,
 } from "react-icons/fa";
 import { motion, Variants } from "framer-motion";
 
 const risk = {
-  src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+  src: "https://images.unsplash.com/photo-1757882585667-dffbeaaabb81?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   width: 1920,
   height: 1080,
 };
@@ -70,105 +71,36 @@ const scaleIn: Variants = {
 };
 
 const RiskAnalysis = () => {
-  const riskServices = [
+  const capabilityHighlights: { title: string; description: string; icon: IconType }[] = [
     {
       title: "Financial Risk Analysis",
-      icon: FaCalculator,
-      description: "Comprehensive financial risk assessment and modeling for investment decisions and portfolio optimization.",
-      badge: "Financial",
-      focusAreas: [
-        "Market risk",
-        "Credit risk",
-        "Liquidity risk",
-      ],
-      items: [
-        "Value at Risk (VaR) analysis",
-        "Stress testing scenarios",
-        "Monte Carlo simulations",
-        "Portfolio risk assessment",
-        "Financial modeling",
-        "Risk-adjusted returns",
-      ],
+      description:
+        "Comprehensive financial risk assessment including market, credit, and operational risk analysis using Monte Carlo simulation.",
+      icon: FaChartLine,
     },
     {
       title: "Operational Risk Management",
-      icon: FaIndustry,
-      description: "Systematic identification and mitigation of operational risks in business processes and systems.",
-      badge: "Operations",
-      focusAreas: [
-        "Process optimization",
-        "System reliability",
-        "Compliance management",
-      ],
-      items: [
-        "Risk identification frameworks",
-        "Business continuity planning",
-        "Internal control assessment",
-        "Process risk mapping",
-        "Operational loss modeling",
-        "Compliance risk analysis",
-      ],
+      description:
+        "Business continuity planning and operational loss modeling through process risk mapping and internal control assessment.",
+      icon: FaCog,
     },
     {
       title: "Environmental & Climate Risk",
+      description:
+        "Climate change and environmental risk assessment for sustainable development through climate risk modeling and adaptation planning.",
       icon: FaLeaf,
-      description: "Climate change and environmental risk assessment for sustainable development and resilience planning.",
-      badge: "Environmental",
-      focusAreas: [
-        "Climate adaptation",
-        "Environmental impact",
-        "Sustainability risk",
-      ],
-      items: [
-        "Climate risk modeling",
-        "Environmental impact assessment",
-        "Natural disaster risk",
-        "Carbon footprint analysis",
-        "Ecosystem service valuation",
-        "Adaptation planning",
-      ],
     },
-  ];
-
-  const riskMethodologies = [
     {
       title: "Quantitative Risk Analysis",
-      icon: FaChartLine,
-      description: "Statistical and mathematical approaches to quantify and measure risk exposure.",
-      methods: [
-        "Probability distributions",
-        "Monte Carlo simulation",
-        "Sensitivity analysis",
-        "Decision tree analysis",
-        "Bayesian risk assessment",
-        "Extreme value theory",
-      ],
+      description:
+        "Statistical and mathematical approaches to quantify risk exposure using probability distributions and sensitivity analysis.",
+      icon: FaCalculator,
     },
     {
       title: "Risk Assessment Tools",
+      description:
+        "Advanced software and computational tools for comprehensive risk modeling using @Risk and Crystal Ball simulation.",
       icon: FaTools,
-      description: "Advanced software and computational tools for comprehensive risk modeling and analysis.",
-      methods: [
-        "@Risk software",
-        "Crystal Ball simulation",
-        "Risk management systems",
-        "Geographic information systems",
-        "Statistical analysis packages",
-        "Custom risk models",
-      ],
-    },
-    {
-      title: "Strategic Risk Framework",
-      icon: FaShieldAlt,
-      description: "Enterprise-wide risk management frameworks and strategic risk mitigation strategies.",
-      methods: [
-        "Enterprise risk management",
-        "Risk governance structures",
-        "Strategic risk assessment",
-        "Risk appetite definition",
-        "Key risk indicators",
-        "Risk reporting systems",
-      ],
     },
   ];
 
@@ -239,7 +171,7 @@ const RiskAnalysis = () => {
       />
 
       <motion.section
-        className="relative isolate overflow-hidden text-white py-8"
+        className="relative isolate overflow-hidden text-white py-8" 
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
@@ -329,229 +261,227 @@ const RiskAnalysis = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
-          <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Risk Analysis Services" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              We apply statistical analysis and uncertainty modeling to determine project success probabilities and minimize future negative unforeseen effects across multiple domains.
-            </p>
-          </motion.div>
-          <motion.div
-            className="mt-12 grid gap-10 lg:grid-cols-3"
-            variants={staggerContainer}
-          >
-            {riskServices.map((service, index) => (
-              <motion.article
-                key={service.title}
-                className="relative overflow-hidden rounded-3xl border border-primary/20 bg-white/90 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
-                variants={fadeInUp}
-                // whileHover={{ y: -4 }}
-              >
-                <div className="flex items-start gap-4">
-                  <motion.div
-                    className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/10 via-blue-200/30 to-primary/30 text-primary"
-                    // whileHover={{ rotate: 180, scale: 1.05 }}
-                  >
-                    <service.icon className="text-xl" aria-hidden />
-                  </motion.div>
-                  <div>
-                    <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
-                      <span className="rounded-full bg-primary/10 px-2 py-0.5">
-                        {service.badge}
-                      </span>
-                      <span className="text-primary/70">
-                        Service {index + 1}
-                      </span>
-                    </div>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap items-center gap-2">
-                  {service.focusAreas?.map((point) => (
-                    <span
-                      key={point}
-                      className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                    >
-                      <FaChartLine className="text-sm" aria-hidden /> {point}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {service.items.slice(0, 4).map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-slate-600"
-                    >
-                      <FaCheckCircle
-                        className="mt-0.5 text-primary"
-                        aria-hidden
-                      />
-                      <span className="leading-snug">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="bg-slate-50 py-16"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeIn}
-      >
-        <div className="mx-auto content-width px-4">
-          <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Risk Analysis Methodologies" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              We utilize advanced quantitative methods, specialized tools, and strategic frameworks to deliver comprehensive risk insights and mitigation strategies.
-            </p>
-          </motion.div>
-          <motion.div
-            className="mt-12 grid gap-8 lg:grid-cols-3"
-            variants={staggerContainer}
-          >
-            {riskMethodologies.map((methodology, index) => (
+        <motion.div variants={fadeInUp} className="content-width mx-auto">
+          <SectionHeading heading="Our Capabilities" />
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 content-width mx-auto"
+          variants={staggerContainer}
+        >
+          {capabilityHighlights.map((item) => (
+            <motion.div
+              key={item.title}
+              className="h-full rounded-2xl border border-white/80 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              variants={fadeInUp}
+              whileHover={{
+                y: -4,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+              }}
+              whileTap={{ scale: 0.97 }}
+            >
               <motion.div
-                key={methodology.title}
-                className="rounded-3xl border border-primary/20 bg-white p-6 shadow-sm"
-                variants={fadeInUp}
+                className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-red-200/30 to-orange-500/30 text-primary"
+                whileHover={{
+                  rotate: 180,
+                  scale: 1.05,
+                }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <methodology.icon className="text-lg" aria-hidden />
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {methodology.title}
-                  </h3>
-                </div>
-                <p className="mb-4 text-sm leading-relaxed text-slate-600">
-                  {methodology.description}
-                </p>
-                <ul className="space-y-2">
-                  {methodology.methods.map((method) => (
-                    <li
-                      key={method}
-                      className="flex items-start gap-2 text-sm text-slate-600"
-                    >
-                      <FaCheckCircle
-                        className="mt-0.5 text-primary"
-                        aria-hidden
-                      />
-                      <span className="leading-snug">{method}</span>
-                    </li>
-                  ))}
-                </ul>
+                <item.icon className="text-xl" aria-hidden />
               </motion.div>
-            ))}
-          </motion.div>
-        </div>
+              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
 
       <motion.section
-        className="bg-slate-50 py-16"
+        className="mx-auto content-width px-4 py-16"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
+        <motion.div
+          className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]"
+          variants={staggerContainer}
+        >
           <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Sample Projects" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              Discover how our risk analysis expertise has provided critical insights for climate resilience, financial optimization, and operational excellence initiatives.
+            <SectionHeading heading="Services We Deliver" />
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+              We apply statistical analysis and uncertainty modeling to determine
+              project success probabilities and minimize future negative unforeseen
+              effects across multiple domains.
             </p>
-          </motion.div>
-          <motion.div variants={staggerContainer} className="mt-12 space-y-10">
-            {sampleProjects.map((project, index) => {
-              const reversed = index % 2 === 1;
-
-              return (
-                <motion.article
-                  key={project.title}
-                  className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+            <motion.div
+              className="mt-8 grid gap-3 sm:grid-cols-2"
+              variants={staggerContainer}
+            >
+              {[
+                "Value at Risk (VaR) modeling",
+                "Stress testing scenarios",
+                "Credit risk assessment",
+                "Market risk analysis",
+                "Portfolio optimization",
+                "Derivative pricing models",
+                "Risk identification frameworks",
+                "Business continuity planning",
+                "Internal control assessment",
+                "Process risk mapping",
+                "Operational loss modeling",
+                "Compliance risk analysis",
+                "Climate risk modeling",
+                "Environmental impact assessment",
+                "Natural disaster risk",
+                "Carbon footprint analysis",
+                "Ecosystem service valuation",
+                "Adaptation planning",
+                "Probability distributions",
+                "Monte Carlo simulation",
+                "Sensitivity analysis",
+                "Decision tree analysis",
+                "Bayesian risk assessment",
+                "Extreme value theory",
+                "@Risk software",
+                "Crystal Ball simulation",
+                "Risk management systems",
+                "Geographic information systems",
+                "Statistical analysis packages",
+                "Custom risk models",
+              ].map((service) => (
+                <motion.div
+                  key={service}
+                  className="flex items-start gap-3"
                   variants={fadeInUp}
-                  // whileHover={{ y: -6 }}
                 >
-                  <div
-                    className={`grid gap-0 lg:grid-cols-5 ${
-                      reversed ? "lg:[&>div:first-child]:order-2" : ""
-                    }`}
-                  >
-                    <motion.div
-                      className="relative h-full overflow-hidden lg:col-span-2"
-                      // whileHover={{ scale: 1.02 }}
-                    >
-                      <div
-                        className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
-                        aria-hidden
-                      />
-                      <Image
-                        src={project.image.src}
-                        alt={project.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        className="h-full w-full object-cover"
-                      />
-                    </motion.div>
-                    <div className="flex flex-col justify-between gap-6 p-8 lg:col-span-3">
-                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-primary">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaFileAlt className="text-sm" aria-hidden />{" "}
-                          {project.region}
-                        </span>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaExclamationTriangle className="text-sm" aria-hidden />{" "}
-                          {project.impact}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3">
-                          <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                            <project.icon className="text-lg" aria-hidden />
-                          </div>
-                          <h3 className="text-xl font-semibold text-slate-900">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                          {project.description}
-                        </p>
-                      </div>
-                      <div className="rounded-2xl bg-slate-50/80 p-5">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                          Project highlights
-                        </p>
-                        <ul className="mt-3 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                          {project.highlights.map((highlight) => (
-                            <li
-                              key={highlight}
-                              className="flex items-start gap-2"
-                            >
-                              <FaCheckCircle
-                                className="mt-0.5 text-primary"
-                                aria-hidden
-                              />
-                              <span className="leading-snug">{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
+                  <FaCheckCircle className="mt-0.5 text-primary" aria-hidden />
+                  <span className="text-sm leading-relaxed text-slate-700">{service}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </div>
+          <motion.div
+            className="relative"
+            variants={slideInLeft}
+          >
+            <motion.div
+              className="overflow-hidden rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={risk.src}
+                alt="Risk analysis framework"
+                width={risk.width}
+                height={risk.height}
+                className="h-full w-full object-cover aspect-9/12"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        className="mx-auto content-width px-4 py-20"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeading heading="Sample Projects" />
+          <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
+            Discover how our risk analysis expertise has provided critical insights for climate resilience, financial optimization, and operational excellence initiatives.
+          </p>
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-10 lg:grid-cols-2"
+          variants={staggerContainer}
+        >
+          {sampleProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+              variants={fadeInUp}
+              whileHover={{
+                y: -8,
+                scale: 1.01,
+                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
+                  whileHover={{
+                    opacity: 0.6,
+                    transition: { duration: 0.3 },
+                  }}
+                />
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                >
+                  <Image
+                    src={project.image.src}
+                    alt={project.alt}
+                    width={project.image.width}
+                    height={project.image.height}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+              </div>
+              <div className="space-y-4 p-6">
+                <div className="flex flex-wrap gap-3 text-xs font-medium text-primary">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaFileAlt className="text-sm" aria-hidden /> {project.region}
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaExclamationTriangle className="text-sm" aria-hidden /> {project.impact}
+                  </span>
+                </div>
+                <motion.div
+                  className="flex items-center gap-3"
+                  variants={scaleIn}
+                >
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <project.icon className="text-lg" aria-hidden />
+                  </div>
+                  <motion.h3
+                    className="text-xl font-semibold text-slate-900"
+                    whileHover={{
+                      color: "#1e40af",
+                      x: 4,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                </motion.div>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {project.description}
+                </p>
+                <div className="rounded-2xl bg-slate-50/80 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                    Project highlights
+                  </p>
+                  <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2">
+                        <FaCheckCircle
+                          className="mt-0.5 text-primary"
+                          aria-hidden
+                        />
+                        <span className="leading-snug">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
     </div>
   );

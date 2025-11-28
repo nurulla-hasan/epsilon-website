@@ -101,105 +101,36 @@ const scaleIn: Variants = {
 };
 
 const PolicyAnalysis = () => {
-  const policyServices = [
+  const capabilityHighlights: { title: string; description: string; icon: IconType }[] = [
     {
       title: "Technology Policy Analysis",
+      description:
+        "Strategic technology policy development and assessment for innovation-driven growth and digital transformation through technology roadmapping.",
       icon: FaMicroscope,
-      description: "Strategic technology policy development and assessment for innovation-driven growth and digital transformation.",
-      badge: "Innovation policy",
-      focusAreas: [
-        "Technology roadmapping",
-        "Innovation ecosystems",
-        "Digital transformation",
-      ],
-      items: [
-        "Technology assessment frameworks",
-        "Innovation policy design",
-        "Digital economy strategies",
-        "R&D policy analysis",
-        "Technology transfer mechanisms",
-        "Innovation impact evaluation",
-      ],
     },
     {
       title: "Energy & Environmental Policy",
+      description:
+        "Comprehensive energy and environmental policy analysis for sustainable development and climate resilience through renewable energy frameworks.",
       icon: FaLeaf,
-      description: "Comprehensive energy and environmental policy analysis for sustainable development and climate resilience.",
-      badge: "Sustainability",
-      focusAreas: [
-        "Climate policy",
-        "Energy transition",
-        "Environmental governance",
-      ],
-      items: [
-        "Climate policy frameworks",
-        "Renewable energy policies",
-        "Environmental impact assessments",
-        "Carbon pricing mechanisms",
-        "Sustainability standards",
-        "Green growth strategies",
-      ],
     },
     {
       title: "Infrastructure & Investment Policy",
+      description:
+        "Strategic infrastructure development and investment policy analysis for economic growth and regional development through public-private partnerships.",
       icon: FaIndustry,
-      description: "Strategic infrastructure development and investment policy analysis for economic growth and regional development.",
-      badge: "Development policy",
-      focusAreas: [
-        "Infrastructure planning",
-        "Investment facilitation",
-        "Regional development",
-      ],
-      items: [
-        "Infrastructure policy design",
-        "Public-private partnerships",
-        "Investment climate analysis",
-        "Regional development strategies",
-        "Economic impact assessment",
-        "Policy implementation support",
-      ],
     },
-  ];
-
-  const analysisTools = [
     {
       title: "Quantitative Analysis Tools",
+      description:
+        "Advanced statistical and mathematical models for data-driven policy insights and decision support using cost-benefit analysis and simulation.",
       icon: FaCalculator,
-      description: "Advanced statistical and mathematical models for data-driven policy insights and decision support.",
-      tools: [
-        "Cost-benefit analysis",
-        "Statistical analysis",
-        "Monte Carlo simulation",
-        "Optimization analysis",
-        "Risk assessment models",
-        "Econometric analysis",
-      ],
     },
     {
       title: "Participatory Methods",
+      description:
+        "Multi-stakeholder engagement approaches and collaborative decision-making frameworks for consensus building and stakeholder mapping.",
       icon: FaUsers,
-      description: "Multi-stakeholder engagement approaches and collaborative decision-making frameworks.",
-      tools: [
-        "Multi-Stakeholder Participatory Approach (MSPA)",
-        "Stakeholder mapping",
-        "Consensus building",
-        "Delphi techniques",
-        "Focus group facilitation",
-        "Participatory modeling",
-      ],
-    },
-    {
-      title: "Computational Models",
-      icon: FaTools,
-      description: "Custom-developed computational tools and decision support systems for complex policy challenges.",
-      tools: [
-        "@Risk software",
-        "Custom decision models",
-        "System dynamics",
-        "Agent-based modeling",
-        "Geospatial analysis",
-        "Policy simulation tools",
-      ],
     },
   ];
 
@@ -290,7 +221,7 @@ const PolicyAnalysis = () => {
           className="relative max-w-[1500px] mx-auto px-4 py-16 lg:py-20"
           variants={staggerContainer}
         >
-          <motion.div
+          <motion.div 
             className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1 text-xs font-semibold uppercase tracking-wide"
             variants={scaleIn}
             whileHover={{ scale: 1.05 }}
@@ -360,229 +291,233 @@ const PolicyAnalysis = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
-          <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Policy Analysis Services" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              Our multidisciplinary experience combines quantitative analysis, participatory approaches, and custom computational models to solve complex technical and policy challenges.
-            </p>
-          </motion.div>
-          <motion.div
-            className="mt-12 grid gap-10 lg:grid-cols-3"
-            variants={staggerContainer}
-          >
-            {policyServices.map((service, index) => (
-              <motion.article
-                key={service.title}
-                className="relative overflow-hidden rounded-3xl border border-primary/20 bg-white/90 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
-                variants={fadeInUp}
-                // whileHover={{ y: -4 }}
-              >
-                <div className="flex items-start gap-4">
-                  <motion.div
-                    className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/10 via-blue-200/30 to-primary/30 text-primary"
-                    // whileHover={{ rotate: 180, scale: 1.05 }}
-                  >
-                    <service.icon className="text-xl" aria-hidden />
-                  </motion.div>
-                  <div>
-                    <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
-                      <span className="rounded-full bg-primary/10 px-2 py-0.5">
-                        {service.badge}
-                      </span>
-                      <span className="text-primary/70">
-                        Service {index + 1}
-                      </span>
-                    </div>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap items-center gap-2">
-                  {service.focusAreas?.map((point) => (
-                    <span
-                      key={point}
-                      className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                    >
-                      <FaChartLine className="text-sm" aria-hidden /> {point}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {service.items.slice(0, 4).map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-slate-600"
-                    >
-                      <FaCheckCircle
-                        className="mt-0.5 text-primary"
-                        aria-hidden
-                      />
-                      <span className="leading-snug">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="bg-slate-50 py-16"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeIn}
-      >
-        <div className="mx-auto content-width px-4">
-          <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Analysis Tools & Methods" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              We utilize advanced quantitative and qualitative tools, participatory approaches, and custom computational models to deliver comprehensive policy insights.
-            </p>
-          </motion.div>
-          <motion.div
-            className="mt-12 grid gap-8 lg:grid-cols-3"
-            variants={staggerContainer}
-          >
-            {analysisTools.map((toolCategory, index) => (
+        <motion.div variants={fadeInUp} className="mx-auto content-width">
+          <SectionHeading heading="Our Capabilities" />
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 mx-auto content-width"
+          variants={staggerContainer}
+        >
+          {capabilityHighlights.map((item) => (
+            <motion.div
+              key={item.title}
+              className="h-full rounded-2xl border border-white/80 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              variants={fadeInUp}
+              whileHover={{
+                y: -4,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+              }}
+              whileTap={{ scale: 0.97 }}
+            >
               <motion.div
-                key={toolCategory.title}
-                className="rounded-3xl border border-primary/20 bg-white p-6 shadow-sm"
-                variants={fadeInUp}
+                className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-purple-200/30 to-purple-500/30 text-primary"
+                whileHover={{
+                  rotate: 180,
+                  scale: 1.05,
+                }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <toolCategory.icon className="text-lg" aria-hidden />
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {toolCategory.title}
-                  </h3>
-                </div>
-                <p className="mb-4 text-sm leading-relaxed text-slate-600">
-                  {toolCategory.description}
-                </p>
-                <ul className="space-y-2">
-                  {toolCategory.tools.map((tool) => (
-                    <li
-                      key={tool}
-                      className="flex items-start gap-2 text-sm text-slate-600"
-                    >
-                      <FaCheckCircle
-                        className="mt-0.5 text-primary"
-                        aria-hidden
-                      />
-                      <span className="leading-snug">{tool}</span>
-                    </li>
-                  ))}
-                </ul>
+                <item.icon className="text-xl" aria-hidden />
               </motion.div>
-            ))}
-          </motion.div>
-        </div>
+              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
 
       <motion.section
-        className="bg-slate-50 py-16"
+        className="mx-auto content-width px-4 py-16"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
+        <motion.div
+          className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]"
+          variants={staggerContainer}
+        >
           <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Sample Projects" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              Discover how our policy analysis expertise has provided critical insights for sustainable development and climate resilience initiatives worldwide.
+            <SectionHeading heading="Services We Deliver" />
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+              We partner with governments, development agencies, and organizations
+              to develop evidence-based policies that drive sustainable development,
+              climate resilience, and inclusive economic growth.
             </p>
-          </motion.div>
-          <motion.div variants={staggerContainer} className="mt-12 space-y-10">
-            {sampleProjects.map((project, index) => {
-              const reversed = index % 2 === 1;
-
-              return (
-                <motion.article
-                  key={project.title}
-                  className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+            <motion.div
+              className="mt-8 grid gap-3 sm:grid-cols-2"
+              variants={staggerContainer}
+            >
+              {[
+                "Technology assessment frameworks",
+                "Innovation policy design",
+                "Digital economy strategies",
+                "R&D policy analysis",
+                "Technology transfer mechanisms",
+                "Innovation impact evaluation",
+                "Climate policy frameworks",
+                "Renewable energy policies",
+                "Environmental impact assessments",
+                "Carbon pricing mechanisms",
+                "Sustainability standards",
+                "Green growth strategies",
+                "Infrastructure policy design",
+                "Public-private partnerships",
+                "Investment climate analysis",
+                "Regional development strategies",
+                "Economic impact assessment",
+                "Policy implementation support",
+                "Cost-benefit analysis",
+                "Statistical analysis",
+                "Monte Carlo simulation",
+                "Optimization analysis",
+                "Risk assessment models",
+                "Econometric analysis",
+                "Multi-Stakeholder Participatory Approach (MSPA)",
+                "Stakeholder mapping",
+                "Consensus building",
+                "Delphi techniques",
+                "Focus group facilitation",
+                "Participatory modeling",
+                "@Risk software",
+                "Custom decision models",
+                "System dynamics",
+                "Agent-based modeling",
+                "Geospatial analysis",
+                "Policy simulation tools",
+              ].map((service) => (
+                <motion.div
+                  key={service}
+                  className="flex items-start gap-3"
                   variants={fadeInUp}
-                  // whileHover={{ y: -6 }}
                 >
-                  <div
-                    className={`grid gap-0 lg:grid-cols-5 ${
-                      reversed ? "lg:[&>div:first-child]:order-2" : ""
-                    }`}
-                  >
-                    <motion.div
-                      className="relative h-full overflow-hidden lg:col-span-2"
-                      // whileHover={{ scale: 1.02 }}
-                    >
-                      <div
-                        className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
-                        aria-hidden
-                      />
-                      <Image
-                        src={project.image.src}
-                        alt={project.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        className="h-full w-full object-cover"
-                      />
-                    </motion.div>
-                    <div className="flex flex-col justify-between gap-6 p-8 lg:col-span-3">
-                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-primary">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaFileAlt className="text-sm" aria-hidden />{" "}
-                          {project.region}
-                        </span>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaLightbulb className="text-sm" aria-hidden />{" "}
-                          {project.impact}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3">
-                          <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                            <project.icon className="text-lg" aria-hidden />
-                          </div>
-                          <h3 className="text-xl font-semibold text-slate-900">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                          {project.description}
-                        </p>
-                      </div>
-                      <div className="rounded-2xl bg-slate-50/80 p-5">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                          Project highlights
-                        </p>
-                        <ul className="mt-3 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                          {project.highlights.map((highlight) => (
-                            <li
-                              key={highlight}
-                              className="flex items-start gap-2"
-                            >
-                              <FaCheckCircle
-                                className="mt-0.5 text-primary"
-                                aria-hidden
-                              />
-                              <span className="leading-snug">{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
+                  <FaCheckCircle className="mt-0.5 text-primary" aria-hidden />
+                  <span className="text-sm leading-relaxed text-slate-700">{service}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </div>
+          <motion.div
+            className="relative"
+            variants={slideInLeft}
+          >
+            <motion.div
+              className="overflow-hidden rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={policy.src}
+                alt="Policy analysis framework"
+                width={policy.width}
+                height={policy.height}
+                className="h-full w-full object-cover aspect-8/12"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        className="mx-auto content-width px-4 py-20"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeading heading="Sample Projects" />
+          <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
+            Discover how our policy analysis expertise has provided critical insights for sustainable development and climate resilience initiatives worldwide.
+          </p>
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-10 lg:grid-cols-2"
+          variants={staggerContainer}
+        >
+          {sampleProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              className="group overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+              variants={fadeInUp}
+              whileHover={{
+                y: -8,
+                scale: 1.01,
+                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
+                  whileHover={{
+                    opacity: 0.6,
+                    transition: { duration: 0.3 },
+                  }}
+                />
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                >
+                  <Image
+                    src={project.image.src}
+                    alt={project.alt}
+                    width={project.image.width}
+                    height={project.image.height}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+              </div>
+              <div className="space-y-4 p-6">
+                <div className="flex flex-wrap gap-3 text-xs font-medium text-primary">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaFileAlt className="text-sm" aria-hidden /> {project.region}
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaLightbulb className="text-sm" aria-hidden /> {project.impact}
+                  </span>
+                </div>
+                <motion.div
+                  className="flex items-center gap-3"
+                  variants={scaleIn}
+                >
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <project.icon className="text-lg" aria-hidden />
+                  </div>
+                  <motion.h3
+                    className="text-xl font-semibold text-slate-900"
+                    whileHover={{
+                      color: "#1e40af",
+                      x: 4,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                </motion.div>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {project.description}
+                </p>
+                <div className="rounded-2xl bg-slate-50/80 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                    Project highlights
+                  </p>
+                  <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2">
+                        <FaCheckCircle
+                          className="mt-0.5 text-primary"
+                          aria-hidden
+                        />
+                        <span className="leading-snug">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
     </div>
   );

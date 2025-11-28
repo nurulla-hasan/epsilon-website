@@ -99,63 +99,36 @@ const scaleIn: Variants = {
 };
 
 const EconomicDevelopment = () => {
-  const economicServices = [
+  const capabilityHighlights: { title: string; description: string; icon: IconType }[] = [
     {
       title: "Energy Sector Analysis",
+      description:
+        "Comprehensive economic impact modeling for energy investments and infrastructure projects through cost-benefit analysis and employment assessment.",
       icon: FaBriefcase,
-      description: "Comprehensive economic impact modeling for energy investments and infrastructure projects.",
-      badge: "Energy economics",
-      focusAreas: [
-        "Renewable energy investments",
-        "Infrastructure development",
-        "Policy impact analysis",
-      ],
-      items: [
-        "Cost-benefit analysis",
-        "Employment impact assessment",
-        "Supply chain analysis",
-        "Market forecasting",
-        "Regulatory impact studies",
-        "Investment risk evaluation",
-      ],
     },
     {
       title: "Transport & Infrastructure",
+      description:
+        "Economic modeling for transportation projects and infrastructure development initiatives through traffic impact and accessibility analysis.",
       icon: FaPlane,
-      description: "Economic modeling for transportation projects and infrastructure development initiatives.",
-      badge: "Infrastructure",
-      focusAreas: [
-        "Transport networks",
-        "Urban development",
-        "Regional connectivity",
-      ],
-      items: [
-        "Traffic impact studies",
-        "Accessibility analysis",
-        "Economic multiplier effects",
-        "Land value impact",
-        "Environmental cost-benefit",
-        "Funding mechanism analysis",
-      ],
     },
     {
       title: "Manufacturing & Industry",
+      description:
+        "Industrial development analysis and manufacturing sector economic impact assessments through production and supply chain optimization.",
       icon: FaIndustry,
-      description: "Industrial development analysis and manufacturing sector economic impact assessments.",
-      badge: "Industrial analysis",
-      focusAreas: [
-        "Industrial parks",
-        "Manufacturing clusters",
-        "Technology adoption",
-      ],
-      items: [
-        "Production impact studies",
-        "Export potential analysis",
-        "Supply chain optimization",
-        "Technology transfer effects",
-        "Competitive advantage studies",
-        "Workforce development impact",
-      ],
+    },
+    {
+      title: "Regional Development Planning",
+      description:
+        "Comprehensive regional economic impact studies using IMPLAN modeling for multi-sector development initiatives and investment analysis.",
+      icon: FaGlobe,
+    },
+    {
+      title: "Urban Revitalization",
+      description:
+        "Economic impact analysis for urban renewal projects including business development, property value impacts, and tourism opportunities.",
+      icon: FaBuilding,
     },
   ];
 
@@ -316,192 +289,220 @@ const EconomicDevelopment = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
-          <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Economic Impact Modeling Services" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              We provide comprehensive economic impact analysis using IMPLAN and advanced modeling tools to evaluate complex investment projects across all sectors and regions.
-            </p>
-          </motion.div>
-          <motion.div
-            className="mt-12 grid gap-10 lg:grid-cols-3"
-            variants={staggerContainer}
-          >
-            {economicServices.map((service, index) => (
-              <motion.article
-                key={service.title}
-                className="relative overflow-hidden rounded-3xl border border-primary/20 bg-white/90 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
-                variants={fadeInUp}
-                // whileHover={{ y: -4 }}
+        <motion.div variants={fadeInUp} className="mx-auto content-width">
+          <SectionHeading heading="Our Capabilities" />
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 mx-auto content-width"
+          variants={staggerContainer}
+        >
+          {capabilityHighlights.map((item) => (
+            <motion.div
+              key={item.title}
+              className="h-full rounded-2xl border border-white/80 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              variants={fadeInUp}
+              whileHover={{
+                y: -4,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+              }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <motion.div
+                className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-green-200/30 to-emerald-500/30 text-primary"
+                whileHover={{
+                  rotate: 180,
+                  scale: 1.05,
+                }}
               >
-                <div className="flex items-start gap-4">
-                  <motion.div
-                    className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/10 via-blue-200/30 to-primary/30 text-primary"
-                    // whileHover={{ rotate: 180, scale: 1.05 }}
-                  >
-                    <service.icon className="text-xl" aria-hidden />
-                  </motion.div>
-                  <div>
-                    <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
-                      <span className="rounded-full bg-primary/10 px-2 py-0.5">
-                        {service.badge}
-                      </span>
-                      <span className="text-primary/70">
-                        Service {index + 1}
-                      </span>
-                    </div>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap items-center gap-2">
-                  {service.focusAreas?.map((point) => (
-                    <span
-                      key={point}
-                      className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                    >
-                      <FaChartLine className="text-sm" aria-hidden /> {point}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {service.items.slice(0, 4).map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-slate-600"
-                    >
-                      <FaCheckCircle
-                        className="mt-0.5 text-primary"
-                        aria-hidden
-                      />
-                      <span className="leading-snug">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-          
-          <motion.div className="mt-16 text-center" variants={fadeInUp}>
-            <div className="rounded-3xl border border-primary/20 bg-linear-to-br from-primary/10 to-blue-500/10 p-8">
-              <h3 className="text-2xl font-semibold text-primary mb-4">
-                Ready to evaluate your economic impact?
-              </h3>
-              <p className="text-slate-600 mb-6">
-                Contact us for comprehensive economic impact analysis using IMPLAN and advanced modeling tools for your investment projects.
-              </p>
-              <Link
-                href="/contact-us"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-              >
-                Contact Us
-                <FaChartLine className="text-base" aria-hidden />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+                <item.icon className="text-xl" aria-hidden />
+              </motion.div>
+              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
 
       <motion.section
-        className="bg-slate-50 py-16"
+        className="mx-auto content-width px-4 py-16"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <div className="mx-auto content-width px-4">
+        <motion.div
+          className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]"
+          variants={staggerContainer}
+        >
           <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Sample Projects" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              Discover how our economic impact modeling has provided critical insights for major investment decisions and development initiatives across diverse sectors.
+            <SectionHeading heading="Services We Deliver" />
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+              We partner with governments, developers, and organizations to provide comprehensive economic impact analysis using IMPLAN modeling and advanced analytical tools for informed investment decisions.
             </p>
-          </motion.div>
-          <motion.div variants={staggerContainer} className="mt-12 space-y-10">
-            {sampleProjects.map((project, index) => {
-              const reversed = index % 2 === 1;
-
-              return (
-                <motion.article
-                  key={project.title}
-                  className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+            <motion.div
+              className="mt-8 grid gap-3 sm:grid-cols-2"
+              variants={staggerContainer}
+            >
+              {[
+                "Cost-benefit analysis",
+                "Employment impact assessment",
+                "Supply chain analysis",
+                "Market forecasting",
+                "Regulatory impact studies",
+                "Investment risk evaluation",
+                "Traffic impact studies",
+                "Accessibility analysis",
+                "Economic multiplier effects",
+                "Land value impact",
+                "Environmental cost-benefit",
+                "Funding mechanism analysis",
+                "Production impact studies",
+                "Export potential analysis",
+                "Supply chain optimization",
+                "Technology transfer effects",
+                "Competitive advantage studies",
+                "Workforce development impact",
+                "IMPLAN regional modeling",
+                "Multi-sector impact analysis",
+                "Investment attraction studies",
+                "Business development analysis",
+                "Property value impact assessment",
+                "Tourism economic impact",
+                "Urban renewal economic analysis",
+              ].map((service) => (
+                <motion.div
+                  key={service}
+                  className="flex items-start gap-3"
                   variants={fadeInUp}
-                  // whileHover={{ y: -6 }}
                 >
-                  <div
-                    className={`grid gap-0 lg:grid-cols-5 ${
-                      reversed ? "lg:[&>div:first-child]:order-2" : ""
-                    }`}
-                  >
-                    <motion.div
-                      className="relative h-full overflow-hidden lg:col-span-2"
-                      // whileHover={{ scale: 1.02 }}
-                    >
-                      <div
-                        className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
-                        aria-hidden
-                      />
-                      <Image
-                        src={project.image.src}
-                        alt={project.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        className="h-full w-full object-cover"
-                      />
-                    </motion.div>
-                    <div className="flex flex-col justify-between gap-6 p-8 lg:col-span-3">
-                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-primary">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaGlobe className="text-sm" aria-hidden />{" "}
-                          {project.region}
-                        </span>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                          <FaMoneyBillWave className="text-sm" aria-hidden />{" "}
-                          {project.impact}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3">
-                          <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/10 via-blue-200/30 to-primary/30 text-primary">
-                            <project.icon className="text-lg" aria-hidden />
-                          </div>
-                          <h3 className="text-xl font-semibold text-slate-900">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                          {project.description}
-                        </p>
-                      </div>
-                      <div className="rounded-2xl bg-slate-50/80 p-5">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                          Project highlights
-                        </p>
-                        <ul className="mt-3 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                          {project.highlights.map((highlight) => (
-                            <li
-                              key={highlight}
-                              className="flex items-start gap-2"
-                            >
-                              <FaCheckCircle
-                                className="mt-0.5 text-primary"
-                                aria-hidden
-                              />
-                              <span className="leading-snug">{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
+                  <FaCheckCircle className="mt-0.5 text-primary" aria-hidden />
+                  <span className="text-sm leading-relaxed text-slate-700">{service}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </div>
+          <motion.div
+            className="relative"
+            variants={slideInLeft}
+          >
+            <motion.div
+              className="overflow-hidden rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={economic.src}
+                alt="Economic development analysis"
+                width={economic.width}
+                height={economic.height}
+                className="h-full w-full object-cover aspect-8/9"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        className="mx-auto content-width px-4 py-20"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeading heading="Sample Projects" />
+          <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
+            Discover how our economic impact modeling has provided critical insights for major investment decisions and development initiatives across diverse sectors.
+          </p>
+        </motion.div>
+        <motion.div
+          className="mt-10 grid gap-10 lg:grid-cols-2"
+          variants={staggerContainer}
+        >
+          {sampleProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              className="group overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+              variants={fadeInUp}
+              whileHover={{
+                y: -8,
+                scale: 1.01,
+                boxShadow: "0 40px 80px rgba(0,0,0,0.2)",
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent z-10"
+                  whileHover={{
+                    opacity: 0.6,
+                    transition: { duration: 0.3 },
+                  }}
+                />
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                  }}
+                >
+                  <Image
+                    src={project.image.src}
+                    alt={project.alt}
+                    width={project.image.width}
+                    height={project.image.height}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+              </div>
+              <div className="space-y-4 p-6">
+                <div className="flex flex-wrap gap-3 text-xs font-medium text-primary">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaGlobe className="text-sm" aria-hidden /> {project.region}
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                    <FaMoneyBillWave className="text-sm" aria-hidden /> {project.impact}
+                  </span>
+                </div>
+                <motion.div
+                  className="flex items-center gap-3"
+                  variants={scaleIn}
+                >
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/10 via-blue-200/30 to-primary/30 text-primary">
+                    <project.icon className="text-lg" aria-hidden />
+                  </div>
+                  <motion.h3
+                    className="text-xl font-semibold text-slate-900"
+                    whileHover={{
+                      color: "#1e40af",
+                      x: 4,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                </motion.div>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {project.description}
+                </p>
+                <div className="rounded-2xl bg-slate-50/80 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                    Project highlights
+                  </p>
+                  <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2">
+                        <FaCheckCircle
+                          className="mt-0.5 text-primary"
+                          aria-hidden
+                        />
+                        <span className="leading-snug">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.section>
     </div>
   );

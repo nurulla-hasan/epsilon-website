@@ -2,6 +2,7 @@
 import PageTitle from "@/components/Shared/pageTitle";
 import SectionHeading from "@/components/Shared/SectionHeading";
 import Image from "next/image";
+import type { IconType } from "react-icons";
 import {
   FaShieldAlt,
   FaChartLine,
@@ -25,7 +26,7 @@ const risk = {
   height: 600,
 };
 const adaptation = {
-  src: "https://images.unsplash.com/photo-1592056594884-838835d0b0ae?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  src: "https://images.unsplash.com/photo-1719859354492-3d3f2dc7a0d0?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   width: 800,
   height: 600,
 };
@@ -109,70 +110,36 @@ const scaleIn: Variants = {
 };
 
 const ClimateChange = () => {
-  const climateServices = [
+  const capabilityHighlights: { title: string; description: string; icon: IconType }[] = [
     {
-      title: "Climate Change Risk Analysis",
+      title: "Climate Risk Analysis",
+      description:
+        "Comprehensive diagnostics combining scenario modelling, asset exposure analysis, and policy insights for strategic climate foresight.",
       icon: FaChartLine,
-      description:
-        "Comprehensive diagnostics combining scenario modelling, asset exposure analysis, and policy insights.",
-      badge: "Strategic foresight",
-      focusAreas: [
-        "Sector vulnerability modelling",
-        "Critical infrastructure mapping",
-        "Disaster preparedness roadmaps",
-      ],
-      items: [
-        "Climate Change Scenario Analysis",
-        "Climate Change Vulnerability Analysis",
-        "Critical Infrastructure Risk Analysis",
-        "Coastal Vulnerability Analysis",
-        "Disaster Risk Reduction (DRR)",
-        "Flood and Drought Analysis",
-        "Extreme Event Analysis",
-        "Climate Change Uncertainty Analysis",
-        "Policy, Risk and Uncertainty Analysis",
-      ],
     },
     {
-      title: "Climate Change Adaptation",
+      title: "Climate Adaptation Design",
+      description:
+        "Integrated adaptation design that links resilient infrastructure, social systems, and governance for community resilience.",
       icon: FaShieldAlt,
-      description:
-        "Integrated adaptation design that links resilient infrastructure, social systems, and governance.",
-      badge: "Resilience design",
-      focusAreas: [
-        "Nature-based adaptation",
-        "Decision-support systems",
-        "Community resilience accelerators",
-      ],
-      items: [
-        "Adaptation Strategy Development",
-        "Coastal Adaptation Analysis",
-        "Adaptation Options Investment Analysis",
-        "Critical Infrastructure Adaptation Strategy",
-        "Water Supply Adaptation Analysis",
-        "Climate Change Resilient Community Development",
-        "Climate Change Visualization Tool Development",
-        "Climate Change Information System Development",
-        "Climate Change Decision-Making Tool Development",
-      ],
     },
     {
-      title: "Climate Finance",
-      icon: FaLeaf,
+      title: "Climate Finance Architecture",
       description:
-        "Investment blueprints and funding pathways that de-risk climate innovation.",
-      badge: "Finance architecture",
-      focusAreas: [
-        "Green climate fund access",
-        "Blended finance structuring",
-        "Institutional capacity building",
-      ],
-      items: [
-        "Climate Finance Strategy Development",
-        "Climate Adaptation Funding Proposal Development",
-        "Climate Mitigation Funding Proposal Development",
-        "Climate Finance Capacity Building",
-      ],
+        "Investment blueprints and funding pathways that de-risk climate innovation through green climate fund access.",
+      icon: FaLeaf,
+    },
+    {
+      title: "Disaster Risk Reduction",
+      description:
+        "Early warning systems and preparedness roadmaps that build institutional capacity for extreme event response.",
+      icon: FaUmbrellaBeach,
+    },
+    {
+      title: "Gender-Responsive Resilience",
+      description:
+        "Inclusive climate solutions that address differential impacts and empower vulnerable communities through targeted adaptation.",
+      icon: FaGlobe,
     },
   ];
 
@@ -339,6 +306,46 @@ const ClimateChange = () => {
       </motion.section>
 
       <motion.section
+        className="mx-auto content-width px-4 py-16"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          variants={staggerContainer}
+        >
+          {heroHighlights.map((stat) => (
+            <motion.div
+              key={stat.label}
+              className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              variants={scaleIn}
+              whileHover={{
+                y: -8,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                transition: { duration: 0.3, type: "spring", stiffness: 300 },
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-primary via-sky-400 to-emerald-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <motion.p
+                className="text-3xl font-semibold text-slate-900"
+                whileInView={{
+                  scale: [1, 1.2, 1],
+                  transition: { duration: 0.6, delay: 0.2 },
+                }}
+              >
+                {stat.value}
+              </motion.p>
+              <p className="mt-1 text-sm font-medium uppercase tracking-wide text-primary">{stat.label}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{stat.detail}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section>
+
+      <motion.section
         className="bg-slate-50 py-16"
         initial="hidden"
         whileInView="show"
@@ -347,22 +354,15 @@ const ClimateChange = () => {
       >
         <div className="mx-auto content-width px-4">
           <motion.div variants={fadeInUp}>
-            <SectionHeading heading="Climate Change Services" />
-            <p className="mt-3 max-w-3xl text-sm text-slate-600 sm:text-base">
-              We partner with public institutions, development partners, and
-              private-sector innovators to translate climate intelligence into
-              confident, measurable actions. Each service bundle blends
-              analytical depth with implementation support so programmes scale
-              with purpose.
-            </p>
+            <SectionHeading heading="Our Capabilities" />
           </motion.div>
           <motion.div
-            className="mt-10 grid gap-8 md:grid-cols-3"
+            className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             variants={staggerContainer}
           >
-            {climateServices.map((service) => (
+            {capabilityHighlights.map((item) => (
               <motion.div
-                key={service.title}
+                key={item.title}
                 className="h-full rounded-2xl border border-white/80 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
                 variants={fadeInUp}
                 whileHover={{
@@ -372,65 +372,97 @@ const ClimateChange = () => {
                 whileTap={{ scale: 0.97 }}
               >
                 <motion.div
-                  className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-primary/20 to-primary/30"
+                  className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 via-blue-200/30 to-blue-500/30 text-primary"
                   whileHover={{
                     rotate: 180,
                     scale: 1.05,
                   }}
                 >
-                  <service.icon className="text-xl" aria-hidden />
+                  <item.icon className="text-xl" aria-hidden />
                 </motion.div>
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {service.title}
-                </h3>
-                <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
-                  {service.badge}
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  {service.description}
-                </p>
-                <div className="mt-4 rounded-2xl bg-slate-50/80 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                    Focus areas
-                  </p>
-                  <ul className="mt-2 space-y-1 text-sm text-slate-600">
-                    {service.focusAreas?.map((point) => (
-                      <li key={point} className="flex items-center gap-2">
-                        <span
-                          className="h-1.5 w-1.5 rounded-full bg-primary"
-                          aria-hidden
-                        />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <ul className="mt-5 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
-                  {service.items.map((item, index) => (
-                    <motion.li
-                      key={item}
-                      className="flex items-start gap-2"
-                      variants={slideInLeft}
-                      custom={index}
-                    >
-                      <motion.div
-                        whileHover={{
-                          scale: 1.1,
-                        }}
-                      >
-                        <FaCheckCircle
-                          className="mt-0.5 text-primary"
-                          aria-hidden
-                        />
-                      </motion.div>
-                      <span className="leading-snug">{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
+      </motion.section>
+
+      <motion.section
+        className="mx-auto content-width px-4 py-16"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <motion.div
+          className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]"
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeInUp}>
+            <SectionHeading heading="Services We Deliver" />
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+              We partner with public institutions, development partners, and
+              private-sector innovators to translate climate intelligence into
+              confident, measurable actions. Each service bundle blends
+              analytical depth with implementation support so programmes scale
+              with purpose.
+            </p>
+            <motion.div
+              className="mt-8 grid gap-3 sm:grid-cols-2"
+              variants={staggerContainer}
+            >
+              {[
+                "Climate Change Scenario Analysis",
+                "Climate Change Vulnerability Analysis",
+                "Critical Infrastructure Risk Analysis",
+                "Coastal Vulnerability Analysis",
+                "Disaster Risk Reduction (DRR)",
+                "Flood and Drought Analysis",
+                "Extreme Event Analysis",
+                "Climate Change Uncertainty Analysis",
+                "Policy, Risk and Uncertainty Analysis",
+                "Adaptation Strategy Development",
+                "Coastal Adaptation Analysis",
+                "Adaptation Options Investment Analysis",
+                "Critical Infrastructure Adaptation Strategy",
+                "Water Supply Adaptation Analysis",
+                "Climate Change Resilient Community Development",
+                "Climate Finance Strategy Development",
+                "Climate Adaptation Funding Proposal Development",
+                "Climate Mitigation Funding Proposal Development",
+                "Climate Finance Capacity Building",
+              ].map((service) => (
+                <motion.div
+                  key={service}
+                  className="flex items-start gap-3"
+                  variants={fadeInUp}
+                >
+                  <FaCheckCircle className="mt-0.5 text-primary" aria-hidden />
+                  <span className="text-sm leading-relaxed text-slate-700">{service}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="relative"
+            variants={slideInLeft}
+          >
+            <motion.div
+              className="overflow-hidden rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={adaptation.src}
+                alt="Climate adaptation project"
+                width={adaptation.width}
+                height={adaptation.height}
+                className="h-full w-full object-cover aspect-8/9"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </motion.section>
 
       <motion.section
