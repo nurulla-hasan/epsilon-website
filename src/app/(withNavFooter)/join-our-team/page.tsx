@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import PageTitle from "@/components/Shared/pageTitle";
 import SectionHeading from "@/components/Shared/SectionHeading";
 import Image from "next/image";
@@ -13,6 +14,8 @@ import {
   FaLightbulb,
   FaShieldAlt,
   FaUsers,
+  FaChevronDown,
+  FaChevronUp,
 } from "react-icons/fa";
 
 const heroImage =
@@ -112,6 +115,80 @@ const fadeIn = {
 };
 
 const JoinOurTeam = () => {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const dropdownData = [
+    {
+      id: "climate-change",
+      title: "Climate Change",
+      description: "Lead comprehensive climate change initiatives across adaptation, mitigation, and resilience sectors.",
+      items: [
+        "Climate Change - Adaptation",
+        "Climate Change - Agriculture",
+        "Climate Change - Climate Finance",
+        "Climate Change - Disaster Risk Reduction",
+        "Climate Change - Economics",
+        "Climate Change - Forestry",
+        "Climate Change - Gender",
+        "Climate Change - Health",
+        "Climate Change - Mitigation",
+        "Climate Change - Modeling/Scenario Analysis",
+        "Climate Change - Resilience/Coastal Community",
+        "Climate Change - Risk Management",
+        "Climate Change - Strategy Development",
+        "Climate Change - Transportation",
+        "Climate Change - Urban Planning",
+        "Climate Change - Water Resources",
+        "Climate Change - Other",
+      ],
+    },
+    {
+      id: "energy",
+      title: "Energy",
+      description: "Drive sustainable energy transformation through technical expertise and strategic planning.",
+      items: [
+        "Energy - Audit",
+        "Energy - Biomass",
+        "Energy - Capacity Building",
+        "Energy - Economic and Financial Analysis",
+        "Energy - Efficiency",
+        "Energy - Engineering/System Design",
+        "Energy - Floating Photovoltaics (FPV)",
+        "Energy - Feasibility Study",
+        "Energy - Green Building",
+        "Energy - Low Carbon Development",
+        "Energy - Modeler",
+        "Energy - Planning / Policy Analysis",
+        "Energy - Resource Assessment",
+        "Energy - Solar (PV)",
+        "Energy - Wind Energy",
+        "Energy - Other",
+      ],
+    },
+    {
+      id: "artificial-intelligence",
+      title: "Artificial Intelligence",
+      description: "Leverage cutting-edge AI technologies to develop innovative solutions for complex challenges.",
+      items: [
+        "Artificial Intelligence — AI Researcher",
+        "Artificial Intelligence — AI Software Development",
+        "Artificial Intelligence — Data Engineer",
+        "Artificial Intelligence — Data Science",
+        "Artificial Intelligence — Data Visualization Engineer",
+        "Artificial Intelligence — Cloud Computing Specialist",
+        "Artificial Intelligence — Computer Vision",
+        "Artificial Intelligence — Machine Learning Engineer",
+        "Artificial Intelligence — Product Management",
+        "Artificial Intelligence — Robotics Engineer",
+        "Artificial Intelligence — UX Designer",
+        "Artificial Intelligence — Other",
+      ],
+    },
+  ];
+
+  const toggleDropdown = (id: string) => {
+    setOpenDropdown(openDropdown === id ? null : id);
+  };
   return (
     <div className="bg-white">
       <PageTitle
@@ -184,6 +261,99 @@ const JoinOurTeam = () => {
               </div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Dropdown Section */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <motion.div
+          className="text-center"
+          {...fadeIn}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h2 className="text-3xl font-bold text-slate-900">
+            Explore opportunities by expertise
+          </h2>
+          <p className="mt-4 text-base text-slate-600">
+            Click on each area below to discover specific roles and responsibilities
+          </p>
+        </motion.div>
+
+        <div className="mt-12 space-y-4">
+          {dropdownData.map((dropdown) => (
+            <motion.div
+              key={dropdown.id}
+              className="rounded-2xl border border-slate-200 bg-white shadow-sm"
+              {...fadeIn}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <button
+                onClick={() => toggleDropdown(dropdown.id)}
+                className="w-full px-8 py-6 text-left transition hover:bg-slate-50"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-slate-900">
+                      {dropdown.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600">
+                      {dropdown.description}
+                    </p>
+                  </div>
+                  <div className="ml-4 flex items-center gap-2">
+                    <span className="text-sm font-medium text-primary">
+                      {openDropdown === dropdown.id ? "Show less" : "Show more"}
+                    </span>
+                    {openDropdown === dropdown.id ? (
+                      <FaChevronUp className="text-primary transition-transform" />
+                    ) : (
+                      <FaChevronDown className="text-primary transition-transform" />
+                    )}
+                  </div>
+                </div>
+              </button>
+              
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openDropdown === dropdown.id ? "auto" : 0,
+                  opacity: openDropdown === dropdown.id ? 1 : 0,
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="px-8 pb-6">
+                  <div className="border-t border-slate-200 pt-6">
+                    <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                      Key responsibilities
+                    </h4>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {dropdown.items.map((item) => (
+                        <div
+                          key={item}
+                          className="flex items-center gap-3 rounded-xl bg-primary/5 px-4 py-3"
+                        >
+                          <span className="h-2 w-2 rounded-full bg-primary" />
+                          <span className="text-sm font-medium text-slate-700">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex justify-center">
+                      <button
+                        onClick={() => (window.location.href = "mailto:hr@epsiloninnovation.com")}
+                        className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                      >
+                        <FaEnvelope className="text-lg" />
+                        Apply for {dropdown.title} roles
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
