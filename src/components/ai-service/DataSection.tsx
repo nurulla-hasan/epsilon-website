@@ -40,6 +40,16 @@ const DataSection = () => {
       <div className="mx-auto content-width px-6 py-16 lg:flex lg:items-center lg:gap-12">
         <motion.div className="flex-1" variants={sectionVariant}>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Data Advantage</p>
+          <p className="mt-4 text-base leading-relaxed text-slate-600">
+            Epsilon Innovation Group develops cutting-edge solutions tailored to your specific needs. With our comprehensive
+            suite of AI/ML services—spanning predictive analytics through natural language processing—we help optimize
+            operations, drive innovation, and unlock new possibilities.
+          </p>
+          <p className="mt-4 mb-8 text-base leading-relaxed text-slate-600">
+            Whether you need to streamline processes, enhance decision-making, or reimagine customer experiences, we are
+            your trusted partner for navigating the digital age. Let us help you achieve unprecedented success in today’s
+            dynamic landscape.
+          </p>
           <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Unleash the power of your data</h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
             Unleash the power of your data with our advanced analytics services. We employ AI/ML algorithms to extract

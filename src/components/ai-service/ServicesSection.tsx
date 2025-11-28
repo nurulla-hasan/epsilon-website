@@ -60,12 +60,7 @@ const services: ServiceCardProps[] = [
       "Collect, analyze, and act on data as it is generated so teams can make rapid, informed decisions when it matters.",
     icon: PiDatabaseLight,
   },
-  {
-    title: "AI Powered Resilience Data Analytics",
-    description:
-      "Sector-specific resilience analytics powered by AI to ensure development stays adaptive and future-proof.",
-    icon: PiCirclesThreeLight,
-  },
+
 ];
 
 const sectionVariant: Variants = {

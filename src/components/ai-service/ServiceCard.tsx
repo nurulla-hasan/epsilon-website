@@ -9,7 +9,7 @@ export type ServiceCardProps = {
 
 const ServiceCard = ({ title, description, icon: Icon, highlightList }: ServiceCardProps) => {
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-slate-100 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl">
+    <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10">
       <div className="flex items-center gap-3">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary/15 via-blue-200/30 to-blue-500/30 text-primary">
           {Icon ? <Icon className="text-2xl" aria-hidden /> : <span className="text-lg font-semibold">AI</span>}

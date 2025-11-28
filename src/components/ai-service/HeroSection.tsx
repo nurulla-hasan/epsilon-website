@@ -64,17 +64,8 @@ const HeroSection = () => {
             Artificial Intelligence and Machine Learning
           </h1>
           <p className="mt-6 text-base text-slate-200 sm:text-lg">
-            Epsilon Innovation Group develops cutting-edge solutions tailored to
-            your specific needs. With our comprehensive suite of AI/ML
-            services—spanning predictive analytics through natural language
-            processing—we help optimize operations, drive innovation, and unlock
-            new possibilities.
-          </p>
-          <p className="mt-4 text-base text-slate-200/90 sm:text-lg">
-            Whether you need to streamline processes, enhance decision-making,
-            or reimagine customer experiences, we are your trusted partner for
-            navigating the digital age. Let us help you achieve unprecedented
-            success in today’s dynamic landscape.
+            We are developing cutting-edge solutions tailored to your specific
+            needs.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
