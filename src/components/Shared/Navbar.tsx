@@ -107,7 +107,7 @@ export default function Navbar() {
       : false;
 
   return (
-    <div className="md:h-[112px] h-[66px]">
+    <div className="md:h-28 h-[66px]">
       <motion.header
         ref={headerRef}
         className="fixed py-3 md:py-1 inset-x-0 top-0 z-50 w-full border-b border-white/30 bg-white/50 backdrop-blur-2xl shadow-sm"

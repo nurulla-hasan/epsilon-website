@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Autoplay,
@@ -19,7 +19,6 @@ import "swiper/css/effect-fade";
 import slide1 from "../../assetes/images/climateslider.jpg";
 import slide2 from "../../assetes/images/NatureBasedSolutionsApril28.jpg";
 import slide3 from "../../assetes/images/tool.jpg";
-import slide5 from "../../assetes/images/energy.jpg";
 import slide6 from "../../assetes/images/3.jpg";
 import slide7 from "../../assetes/images/5.jpg";
 
@@ -144,29 +143,6 @@ const buttonVariant: Variants = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: [0.8, 0, 0.2, 1], delay: 0.3 },
-  },
-};
-
-const listContainerVariant: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.6, 0, 0.2, 1],
-      delayChildren: 0.25,
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const listItemVariant: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.65, 0, 0.35, 1] },
   },
 };
 
