@@ -19,6 +19,7 @@ import "swiper/css/effect-fade";
 import slide1 from "../../assetes/images/climateslider.jpg";
 import slide2 from "../../assetes/images/NatureBasedSolutionsApril28.jpg";
 import slide3 from "../../assetes/images/tool.jpg";
+import slide4 from "../../assetes/images/fvp.png";
 import slide6 from "../../assetes/images/3.jpg";
 import slide7 from "../../assetes/images/5.jpg";
 
@@ -73,9 +74,7 @@ const slides: Slide[] = [
     secondaryCtaHref: "/contact-us",
   },
   {
-    image: {
-      src: "https://images.unsplash.com/photo-1707459754123-c92cbee0d941?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    } as unknown as StaticImageData,
+    image: slide4,
     alt: "Floating solar photovoltaic system on water",
     eyebrow: "INNOVATION",
     title: "Floating Photovoltaics (FPV) System Designs",
