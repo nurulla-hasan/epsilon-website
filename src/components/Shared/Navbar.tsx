@@ -64,7 +64,7 @@ const LinkedinBtn = () => (
   <Link
     href="https://www.linkedin.com/company/epsilon-innovation-group-inc/"
     aria-label="LinkedIn"
-    className="inline-flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-md bg-linear-to-r from-primary to-blue-300 hover:scale-110 hover:shadow-lg"
+    className="inline-flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-md bg-primary hover:scale-110 hover:shadow-lg"
   >
     <FaLinkedinIn className="text-[18px]" />
   </Link>
@@ -171,7 +171,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation - Only show on XL screens and above */}
-          <div className="items-center hidden xl:flex gap-3 rounded-full border border-white/60 bg-white/70 px-2 py-1 backdrop-blur antialiased shadow-sm">
+          <div className="items-center hidden xl:flex gap-3 rounded-lg border border-white/60 bg-white/70 px-2 py-1 backdrop-blur antialiased shadow-sm">
             {NAV_ITEMS.map((item) => {
               const hasChildren = !!item.children?.length;
               return (
@@ -179,17 +179,17 @@ export default function Navbar() {
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded-full transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
+                      className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded-lg transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
                         isActive(item.href)
-                          ? "bg-linear-to-r from-primary to-blue-300 text-white"
-                          : "text-slate-700 hover:bg-linear-to-r hover:from-primary hover:to-blue-300 hover:text-white"
+                          ? "bg-primary text-white"
+                          : "text-slate-700 hover:bg-primary hover:text-white"
                       }`}
                     >
                       {item.label}
                     </Link>
                   ) : (
                     <div
-                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded-full uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-linear-to-r hover:from-primary hover:to-blue-300 hover:text-white transition-all duration-300 hover:scale-105"
+                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded-lg uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
                       role="button"
                       tabIndex={0}
                       aria-haspopup="true"
@@ -201,23 +201,23 @@ export default function Navbar() {
 
                       {hasChildren && (
                         <div className=" absolute left-1/2 -translate-x-1/2 top-full w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
-                          <div className="bg-white border border-gray-100 rounded-xl py-2">
+                          <div className="bg-primary rounded-xl py-2">
                             {item.children?.map((child) =>
                               child.children?.length ? (
                                 <div
                                   key={child.label}
-                                  className="relative group/child px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary cursor-default flex items-center justify-between gap-2"
+                                  className="relative group/child px-4 py-2 text-xs font-medium text-white hover:bg-blue-950 cursor-default flex items-center justify-between gap-2"
                                 >
                                   <span>{child.label}</span>
-                                  <FiChevronDown className="text-[10px] text-gray-400 group-hover/child:rotate-180 transition-transform" />
+                                  <FiChevronDown className="text-[10px] text-gray-300 group-hover/child:rotate-180 transition-transform" />
 
-                                  <div className="absolute left-full top-0 w-64 rounded-lg rounded-l-none border border-gray-100 bg-white opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
+                                  <div className="absolute left-full top-0 w-64 rounded-lg rounded-l-none bg-primary opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
                                     <div className="py-2">
                                       {child.children.map((grand) => (
                                         <Link
                                           key={grand.href}
                                           href={grand.href!}
-                                          className="block px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
+                                          className="block px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-950 transition-colors duration-200"
                                         >
                                           {grand.label}
                                         </Link>
@@ -229,7 +229,7 @@ export default function Navbar() {
                                 <Link
                                   key={child.href ?? child.label}
                                   href={child.href!}
-                                  className="block px-4 py-2.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200"
+                                  className="block px-4 py-2.5 text-xs font-medium text-white hover:bg-blue-950 transition-colors duration-200"
                                 >
                                   {child.label}
                                 </Link>
