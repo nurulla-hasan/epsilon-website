@@ -74,7 +74,7 @@ const slides: Slide[] = [
   },
   {
     image: {
-      src: "https://images.unsplash.com/photo-1722951668719-e91f8db1d3f7?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.unsplash.com/photo-1707459754123-c92cbee0d941?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     } as unknown as StaticImageData,
     alt: "Floating solar photovoltaic system on water",
     eyebrow: "INNOVATION",
@@ -257,7 +257,7 @@ export default function Banner() {
                           whileHover={{ scale: 1.04 }}
                           whileTap={{ scale: 0.96 }}
                           href={s.ctaHref}
-                          className="inline-flex items-center justify-center rounded-sm bg-linear-to-r from-[#1f5eff] to-[#00d4ff] px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-semibold text-white transition active:scale-95"
+                          className="inline-flex items-center justify-center rounded-sm bg-primary px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-semibold text-white transition active:scale-95"
                         >
                           {s.ctaLabel}
                         </motion.a>
