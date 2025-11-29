@@ -171,7 +171,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation - Only show on XL screens and above */}
-          <div className="items-center hidden xl:flex gap-3 rounded-lg border border-white/60 bg-white/70 px-2 py-1 backdrop-blur antialiased shadow-sm">
+          <div className="items-center hidden xl:flex gap-3 rounded border border-white/60 bg-white/70 px-2 py-1 backdrop-blur antialiased shadow-sm">
             {NAV_ITEMS.map((item) => {
               const hasChildren = !!item.children?.length;
               return (
@@ -179,7 +179,7 @@ export default function Navbar() {
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded-lg transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
+                      className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
                         isActive(item.href)
                           ? "bg-primary text-white"
                           : "text-slate-700 hover:bg-primary hover:text-white"
@@ -189,7 +189,7 @@ export default function Navbar() {
                     </Link>
                   ) : (
                     <div
-                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded-lg uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
+                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded rounded-b-none uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
                       role="button"
                       tabIndex={0}
                       aria-haspopup="true"
@@ -200,8 +200,8 @@ export default function Navbar() {
                       )}
 
                       {hasChildren && (
-                        <div className=" absolute left-1/2 -translate-x-1/2 top-full w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
-                          <div className="bg-primary rounded-xl py-2">
+                        <div className=" absolute left-0 top-full w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out">
+                          <div className="bg-primary rounded rounded-tl-none py-2">
                             {item.children?.map((child) =>
                               child.children?.length ? (
                                 <div
@@ -211,7 +211,7 @@ export default function Navbar() {
                                   <span>{child.label}</span>
                                   <FiChevronDown className="text-[10px] text-gray-300 group-hover/child:rotate-180 transition-transform" />
 
-                                  <div className="absolute left-full top-0 w-64 rounded-lg rounded-l-none bg-primary opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
+                                  <div className="absolute left-full top-0 w-64 rounded rounded-l-none bg-primary opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
                                     <div className="py-2">
                                       {child.children.map((grand) => (
                                         <Link
@@ -249,7 +249,7 @@ export default function Navbar() {
           {/* Mobile Menu Button - Show on all screens except XL */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="p-2 transition-all duration-300 border border-white/50 bg-white/80 rounded-xl xl:hidden text-primary hover:bg-gray-100 hover:scale-105"
+            className="p-2 transition-all duration-300 border border-white/50 bg-white/80 rounded xl:hidden text-primary hover:bg-gray-100 hover:scale-105"
             aria-label="Open menu"
           >
             <RxHamburgerMenu className="text-lg" />
