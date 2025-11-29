@@ -149,7 +149,7 @@ const buttonVariant: Variants = {
 export default function Banner() {
   const [activeIndex, setActiveIndex] = useState(0);
   // Slightly reduced height for larger screens while maintaining minimum height
-  const heroHeight = "clamp(480px, calc(90svh - var(--nav-height, 80px)), 700px)";
+  const heroHeight = "clamp(480px, calc(90svh - var(--nav-height, 80px)), 600px)";
 
   return (
     <section
