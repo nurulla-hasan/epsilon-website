@@ -64,7 +64,7 @@ const LinkedinBtn = () => (
   <Link
     href="https://www.linkedin.com/company/epsilon-innovation-group-inc/"
     aria-label="LinkedIn"
-    className="inline-flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-md bg-primary hover:scale-110 hover:shadow-lg"
+    className="inline-flex items-center justify-center w-10 h-10 text-white border border-white z-1000 transition-all duration-300 rounded-full shadow-md bg-primary hover:scale-110 hover:shadow-lg"
   >
     <FaLinkedinIn className="text-[18px]" />
   </Link>
@@ -182,14 +182,14 @@ export default function Navbar() {
                       className={`pl-3 pr-2 py-1.5 text-xs leading-none font-semibold uppercase tracking-wide rounded transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
                         isActive(item.href)
                           ? "bg-primary text-white"
-                          : "text-slate-700 hover:bg-primary hover:text-white"
+                          : "text-primary hover:bg-primary hover:text-white"
                       }`}
                     >
                       {item.label}
                     </Link>
                   ) : (
                     <div
-                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-xs leading-none font-semibold rounded rounded-b-none uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
+                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-xs leading-none font-semibold rounded rounded-b-none uppercase tracking-wide text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
                       role="button"
                       tabIndex={0}
                       aria-haspopup="true"
