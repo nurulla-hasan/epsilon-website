@@ -179,7 +179,7 @@ export default function Navbar() {
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className={`pl-3 pr-2 py-1.5 text-sm leading-none font-semibold uppercase tracking-wide rounded transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
+                      className={`pl-3 pr-2 py-1.5 text-xs leading-none font-semibold uppercase tracking-wide rounded transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${
                         isActive(item.href)
                           ? "bg-primary text-white"
                           : "text-slate-700 hover:bg-primary hover:text-white"
@@ -189,14 +189,14 @@ export default function Navbar() {
                     </Link>
                   ) : (
                     <div
-                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-sm leading-none font-semibold rounded rounded-b-none uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
+                      className="group relative flex items-center justify-center gap-1.5 pl-3 pr-2 py-2 text-xs leading-none font-semibold rounded rounded-b-none uppercase tracking-wide text-slate-700 cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
                       role="button"
                       tabIndex={0}
                       aria-haspopup="true"
                     >
                       <span>{item.label}</span>
                       {hasChildren && (
-                        <FiChevronDown className="text-sm transition-transform duration-300 group-hover:rotate-180" />
+                        <FiChevronDown className="text-xs transition-transform duration-300 group-hover:rotate-180" />
                       )}
 
                       {hasChildren && (
@@ -211,13 +211,13 @@ export default function Navbar() {
                                   <span>{child.label}</span>
                                   <FiChevronDown className="text-[10px] text-gray-300 group-hover/child:rotate-180 transition-transform" />
 
-                                  <div className="absolute left-full top-0 w-64 rounded rounded-l-none bg-primary opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
+                                  <div className="absolute right-full top-0 w-64 rounded-lg rounded-r-none bg-primary opacity-0 invisible group-hover/child:opacity-100 group-hover/child:visible transition-all duration-200">
                                     <div className="py-2">
                                       {child.children.map((grand) => (
                                         <Link
                                           key={grand.href}
                                           href={grand.href!}
-                                          className="block px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-950 transition-colors duration-200"
+                                          className="block px-4 py-2 text-xs font-medium text-white hover:bg-blue-950 transition-colors duration-200"
                                         >
                                           {grand.label}
                                         </Link>
@@ -306,7 +306,7 @@ export default function Navbar() {
                   {NAV_ITEMS.map((item) =>
                     item.children ? (
                       <details key={item.label} className="group">
-                        <summary className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
+                        <summary className="flex items-center justify-between w-full px-4 py-3 text-xs font-medium text-gray-900 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
                           <span>{item.label}</span>
                           <FiChevronDown className="text-gray-400 transition-transform duration-200 group-open:rotate-180" />
                         </summary>
@@ -314,7 +314,7 @@ export default function Navbar() {
                           {item.children.map((child) =>
                             child.children?.length ? (
                               <details key={child.label} className="group">
-                                <summary className="flex items-center justify-between w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer">
+                                <summary className="flex items-center justify-between w-full px-4 py-2 text-xs text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer">
                                   <span>{child.label}</span>
                                   <FiChevronDown className="text-gray-400 transition-transform duration-200 group-open:rotate-180" />
                                 </summary>
@@ -324,7 +324,7 @@ export default function Navbar() {
                                       key={grand.href}
                                       href={grand.href!}
                                       onClick={() => setMobileOpen(false)}
-                                      className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
+                                      className="block px-4 py-2 text-xs text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
                                     >
                                       {grand.label}
                                     </Link>
@@ -336,7 +336,7 @@ export default function Navbar() {
                                 key={child.href}
                                 href={child.href!}
                                 onClick={() => setMobileOpen(false)}
-                                className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
+                                className="block px-4 py-2 text-xs text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors duration-200"
                               >
                                 {child.label}
                               </Link>
@@ -349,7 +349,7 @@ export default function Navbar() {
                         key={item.label}
                         href={item.href!}
                         onClick={() => setMobileOpen(false)}
-                        className={`block px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                        className={`block px-4 py-3 text-xs font-medium rounded-lg transition-colors duration-200 ${
                           isActive(item.href)
                             ? "bg-primary/10 text-primary"
                             : "text-gray-700 hover:bg-gray-50 hover:text-primary"
@@ -366,7 +366,7 @@ export default function Navbar() {
                   <div className="flex justify-center mb-3">
                     <LinkedinBtn />
                   </div>
-                  <div className="flex items-center justify-center gap-4 text-sm">
+                  <div className="flex items-center justify-center gap-4 text-xs">
                     <Link
                       href="/join-our-team"
                       className="font-medium text-gray-600 hover:text-primary transition-colors duration-200"
@@ -377,7 +377,7 @@ export default function Navbar() {
                     <span className="text-gray-300">|</span>
                     <Link
                       href="/contact"
-                      className="font-medium text-gray-600 hover:text-primary transition-colors duration-200"
+                      className="font-medium text-gray-600 hover:text-primary text-xs transition-colors duration-200"
                       onClick={() => setMobileOpen(false)}
                     >
                       Contact us
